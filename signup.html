@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Account | Stackly Wealth Management</title>
+  <meta name="description" content="Create a private wealth management account with Stackly. Access institutional investment strategies, discretionary portfolios, and dedicated fiduciary advisory.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23195353'/><path d='M30 70 L50 30 L70 70 Z' fill='%23E5FF5E'/></svg>">
+  
+  <!-- Font Awesome 6 (Strict Rule: Font Awesome Icons Only) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=resp320v9">
+    <!-- AOS (Animate On Scroll) Library - CDNJS with Local Fallback -->
+  <!-- AOS (Animate On Scroll) Library - CDNJS & Local Fallback -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/aos.css">
+</head>
+<body class="wm-auth-wrapper">
+
+  <div class="wm-auth-split">
+    
+    <!-- Left Visual Column (Wealth Management Inspiration) -->
+    <div class="wm-auth-visual-side" data-aos="fade-right">
+      
+
+      <div class="wm-auth-visual-content">
+        <div class="wm-tag" style="background:rgba(229, 255, 94, 0.15); color:var(--wm-secondary); margin-bottom:12px;">
+          PREMIER FIDUCIARY ENROLLMENT
+        </div>
+        <h1 style="color:var(--wm-white); font-size:1.85rem; font-weight:700; line-height:1.25; margin-bottom:12px;">
+          Begin Your Multi-Generational Wealth Journey
+        </h1>
+        <p style="color:rgba(255, 255, 255, 0.82); font-size:0.9rem; line-height:1.5; margin-bottom:0;">
+          Join accredited founders, executives, and family offices protected by 100% fee-only fiduciary legal standards.
+        </p>
+
+        <!-- Wealth Metrics Showcase -->
+       
+
+       
+      </div>
+
+      <div style="font-size:0.8rem; color:rgba(255, 255, 255, 0.5);">
+        &copy; 2026 Stackly Wealth Management. 100% Fee-Only Fiduciary.
+      </div>
+    </div>
+
+    <!-- Right Form Column -->
+    <div class="wm-auth-form-side">
+      <a href="index.html" class="wm-auth-back-link">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to Home</span>
+      </a>
+
+      <div class="wm-auth-form-container" data-aos="fade-left" data-aos-delay="100">
+        <a href="index.html" class="wm-logo wm-auth-form-logo" style="text-decoration:none;">
+          <img src="assets/images/logo.webp" alt="Stackly Wealth Management" class="wm-logo-img">
+        </a>
+        <div style="margin-bottom: 24px;">
+          <h2 style="font-size:1.85rem; color:var(--wm-dark); margin-bottom:6px;">Create Your Account</h2>
+          <p style="color:var(--wm-body-muted); font-size:0.9rem;">Register to access our institutional wealth management terminal.</p>
+        </div>
+
+        <!-- Role Selector (Admin / User) -->
+        <div class="wm-role-selector-wrap">
+          <label class="wm-role-selector-label">Account Role *</label>
+          <div class="wm-role-pills">
+            <button type="button" class="wm-role-pill-btn active" data-role="user" id="role-user-btn">
+              <i class="fa-solid fa-user"></i>
+              <span>Client / User</span>
+            </button>
+            <button type="button" class="wm-role-pill-btn" data-role="admin" id="role-admin-btn">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Advisor / Admin</span>
+            </button>
+          </div>
+          <input type="hidden" id="signup-role" name="role" value="user">
+        </div>
+
+        <!-- Signup Form -->
+        <form id="signup-form" novalidate>
+          
+          <!-- Full Name / Username -->
+          <div class="wm-input-group" style="margin-bottom: 16px;">
+            <label for="signup-username" style="color:var(--wm-dark); font-weight:600; font-size:0.85rem; margin-bottom:6px; display:block;">Full Legal Name *</label>
+            <input type="text" id="signup-username" name="username" class="wm-input" placeholder="e.g. Anandha Krishnan" required style="background:var(--wm-surface); color:var(--wm-dark); border-color:var(--wm-border);">
+            <div class="wm-error-message" id="signup-username-error"></div>
+          </div>
+
+          <!-- Email Input -->
+          <div class="wm-input-group" style="margin-bottom: 16px;">
+            <label for="signup-email" style="color:var(--wm-dark); font-weight:600; font-size:0.85rem; margin-bottom:6px; display:block;">Corporate or Personal Email *</label>
+            <input type="email" id="signup-email" name="email" class="wm-input" placeholder="e.g. anand@company.com" required style="background:var(--wm-surface); color:var(--wm-dark); border-color:var(--wm-border);">
+            <div class="wm-error-message" id="signup-email-error"></div>
+          </div>
+
+          <!-- Password with Eye Toggle -->
+          <div class="wm-input-group" style="margin-bottom: 16px;">
+            <label for="signup-password" style="color:var(--wm-dark); font-weight:600; font-size:0.85rem; margin-bottom:6px; display:block;">Create Password *</label>
+            <div class="wm-password-field-wrap">
+              <input type="password" id="signup-password" name="password" class="wm-input" placeholder="At least 6 characters" required style="background:var(--wm-surface); color:var(--wm-dark); border-color:var(--wm-border);">
+              <button type="button" class="wm-eye-toggle-btn" id="signup-pass-toggle" aria-label="Toggle password visibility">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+            <div class="wm-error-message" id="signup-password-error"></div>
+          </div>
+
+          <!-- Confirm Password with Eye Toggle -->
+          <div class="wm-input-group" style="margin-bottom: 18px;">
+            <label for="signup-confirm-password" style="color:var(--wm-dark); font-weight:600; font-size:0.85rem; margin-bottom:6px; display:block;">Confirm Password *</label>
+            <div class="wm-password-field-wrap">
+              <input type="password" id="signup-confirm-password" name="confirm_password" class="wm-input" placeholder="Re-enter password" required style="background:var(--wm-surface); color:var(--wm-dark); border-color:var(--wm-border);">
+              <button type="button" class="wm-eye-toggle-btn" id="signup-confirm-pass-toggle" aria-label="Toggle confirm password visibility">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+            <div class="wm-error-message" id="signup-confirm-error"></div>
+          </div>
+
+          <!-- Accept Privacy Policy & Terms Checkbox -->
+          <div style="margin-bottom: 22px;">
+            <label style="display:inline-flex; align-items:flex-start; gap:10px; cursor:pointer; color:var(--wm-dark); font-size:0.85rem; line-height:1.4;">
+              <input type="checkbox" id="signup-terms" name="terms" style="accent-color:var(--wm-primary); cursor:pointer; margin-top:2px;">
+              <span>I acknowledge that I have read and agree to the <a href="404.html" style="color:var(--wm-primary); font-weight:600;">Terms & Conditions</a> and <a href="404.html" style="color:var(--wm-primary); font-weight:600;">Privacy Policy</a>.</span>
+            </label>
+            <div class="wm-error-message" id="signup-terms-error"></div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="wm-btn wm-btn-primary" style="width:100%; justify-content:center; padding:15px;" id="signup-submit-btn">
+            <span>Register Account</span>
+            <span class="wm-btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="wm-auth-divider">
+          <span>already registered?</span>
+        </div>
+
+        <!-- Link to Login Page -->
+        <div style="text-align:center; font-size:0.9rem; color:var(--wm-body);">
+          Already have an account? 
+          <a href="login.html" style="color:var(--wm-primary); font-weight:700; text-decoration:underline; margin-left:4px;">
+            Sign In to Portal
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="wm-toast" class="wm-toast" aria-live="polite">
+    <i class="fa-solid fa-circle-check wm-toast-icon"></i>
+    <span class="wm-toast-msg" id="wm-toast-msg"></span>
+  </div>
+  <!-- AOS (Animate On Scroll) JS - CDNJS & Local Fallback -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/aos.js"></script>
+  <!-- Interaction Script -->
+  <script src="js/lenis.min.js"></script>
+  <script src="js/main.js?v=resp320v15"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Role Selector Handling
+      const roleUserBtn = document.getElementById('role-user-btn');
+      const roleAdminBtn = document.getElementById('role-admin-btn');
+      const roleInput = document.getElementById('signup-role');
+      const submitBtn = document.getElementById('signup-submit-btn');
+
+      if (roleUserBtn && roleAdminBtn && roleInput) {
+        roleUserBtn.addEventListener('click', () => {
+          roleUserBtn.classList.add('active');
+          roleAdminBtn.classList.remove('active');
+          roleInput.value = 'user';
+          submitBtn.querySelector('span').textContent = 'Register Client Account';
+        });
+
+        roleAdminBtn.addEventListener('click', () => {
+          roleAdminBtn.classList.add('active');
+          roleUserBtn.classList.remove('active');
+          roleInput.value = 'admin';
+          submitBtn.querySelector('span').textContent = 'Register Admin Account';
+        });
+      }
+
+      // Password Eye Toggles
+      function setupEyeToggle(btnId, inputId) {
+        const btn = document.getElementById(btnId);
+        const input = document.getElementById(inputId);
+        if (btn && input) {
+          btn.addEventListener('click', () => {
+            const isPass = input.type === 'password';
+            input.type = isPass ? 'text' : 'password';
+            const icon = btn.querySelector('i');
+            if (icon) {
+              icon.className = isPass ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+            }
+          });
+        }
+      }
+
+      setupEyeToggle('signup-pass-toggle', 'signup-password');
+      setupEyeToggle('signup-confirm-pass-toggle', 'signup-confirm-password');
+
+      // Validation Elements
+      const form = document.getElementById('signup-form');
+      const nameInput = document.getElementById('signup-username');
+      const nameError = document.getElementById('signup-username-error');
+      const emailInput = document.getElementById('signup-email');
+      const emailError = document.getElementById('signup-email-error');
+      const passInput = document.getElementById('signup-password');
+      const passError = document.getElementById('signup-password-error');
+      const confirmInput = document.getElementById('signup-confirm-password');
+      const confirmError = document.getElementById('signup-confirm-error');
+      const termsInput = document.getElementById('signup-terms');
+      const termsError = document.getElementById('signup-terms-error');
+
+      function showError(input, errorEl, msg) {
+        if (input) input.classList.add('is-invalid');
+        if (errorEl) {
+          errorEl.textContent = msg;
+          errorEl.classList.add('visible');
+        }
+      }
+
+      function clearError(input, errorEl) {
+        if (input) input.classList.remove('is-invalid');
+        if (errorEl) {
+          errorEl.textContent = '';
+          errorEl.classList.remove('visible');
+        }
+      }
+
+      // Clear errors on typing
+      if (nameInput && nameError) {
+        nameInput.addEventListener('input', () => {
+          const val = nameInput.value.trim();
+          const nameRegex = /^[A-Za-z\s'-]+$/;
+          if (val && nameRegex.test(val) && val.length >= 2) {
+            clearError(nameInput, nameError);
+          }
+        });
+      }
+
+      if (emailInput && emailError) {
+        emailInput.addEventListener('input', () => {
+          const val = emailInput.value.trim();
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+          if (val && emailRegex.test(val)) {
+            clearError(emailInput, emailError);
+          }
+        });
+      }
+
+      if (passInput && passError) {
+        passInput.addEventListener('input', () => {
+          if (passInput.value.trim().length >= 6) {
+            clearError(passInput, passError);
+          }
+          if (confirmInput.value.trim() && confirmInput.value.trim() === passInput.value.trim()) {
+            clearError(confirmInput, confirmError);
+          }
+        });
+      }
+
+      if (confirmInput && confirmError) {
+        confirmInput.addEventListener('input', () => {
+          if (confirmInput.value.trim() === passInput.value.trim()) {
+            clearError(confirmInput, confirmError);
+          }
+        });
+      }
+
+      if (termsInput && termsError) {
+        termsInput.addEventListener('change', () => {
+          if (termsInput.checked) {
+            clearError(null, termsError);
+          }
+        });
+      }
+
+      // Form Submit Handling
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          let isValid = true;
+
+          // 1. Name validation (letters and spaces only)
+          const nameVal = nameInput.value.trim();
+          const nameRegex = /^[A-Za-z\s'-]+$/;
+          if (!nameVal) {
+            showError(nameInput, nameError, 'Full legal name is required.');
+            isValid = false;
+          } else if (!nameRegex.test(nameVal)) {
+            showError(nameInput, nameError, 'Please enter a valid name using alphabetic characters only.');
+            isValid = false;
+          } else if (nameVal.length < 2) {
+            showError(nameInput, nameError, 'Please enter at least 2 characters.');
+            isValid = false;
+          } else {
+            clearError(nameInput, nameError);
+          }
+
+          // 2. Email validation
+          const emailVal = emailInput.value.trim();
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+          if (!emailVal) {
+            showError(emailInput, emailError, 'Email address is required.');
+            isValid = false;
+          } else if (!emailRegex.test(emailVal)) {
+            showError(emailInput, emailError, 'Please enter a valid email address.');
+            isValid = false;
+          } else {
+            clearError(emailInput, emailError);
+          }
+
+          // 3. Password validation
+          const passVal = passInput.value.trim();
+          if (!passVal) {
+            showError(passInput, passError, 'Password is required.');
+            isValid = false;
+          } else if (passVal.length < 6) {
+            showError(passInput, passError, 'Password must be at least 6 characters.');
+            isValid = false;
+          } else {
+            clearError(passInput, passError);
+          }
+
+          // 4. Confirm Password validation
+          const confirmVal = confirmInput.value.trim();
+          if (!confirmVal) {
+            showError(confirmInput, confirmError, 'Please confirm your password.');
+            isValid = false;
+          } else if (confirmVal !== passVal) {
+            showError(confirmInput, confirmError, 'Passwords do not match. Please re-enter.');
+            isValid = false;
+          } else {
+            clearError(confirmInput, confirmError);
+          }
+
+          // 5. Terms checkbox
+          if (!termsInput.checked) {
+            showError(null, termsError, 'You must accept the Terms and Privacy Policy to register.');
+            isValid = false;
+          } else {
+            clearError(null, termsError);
+          }
+
+          if (!isValid) return;
+
+          // Successful Registration
+          if (typeof window.showToast === 'function') {
+            window.showToast(`Account successfully registered for ${nameVal}! Redirecting to login...`);
+          }
+
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 1000);
+        });
+      }
+    });
+  </script>
+  
+</body>
+</html>

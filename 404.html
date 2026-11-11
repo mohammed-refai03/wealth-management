@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Stackly Wealth Management</title>
+  <meta name="description" content="The requested capital coordinate or advisory desk could not be located on Stackly Wealth Management.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23195353'/><path d='M30 70 L50 30 L70 70 Z' fill='%23E5FF5E'/></svg>">
+
+  <!-- Font Awesome 6 (Strict Rule: Font Awesome Icons Only) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Core Stylesheet with Cache Busting -->
+  <link rel="stylesheet" href="css/styles.css?v=resp320v9">
+
+  <style>
+    /* Absolute Visibility & Centering Guarantee for 404 Action Buttons */
+    .wm-404-actions {
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 18px !important;
+      flex-wrap: wrap !important;
+      margin: 0 auto 22px auto !important;
+      position: relative !important;
+      z-index: 100 !important;
+      width: 100% !important;
+    }
+
+    .wm-404-btn-home {
+      display: inline-flex !important;
+      font-family: var(--wm-font-family) !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 12px !important;
+      background-color: #195353 !important;
+      color: #FFFFFF !important;
+      font-weight: 700 !important;
+      font-size: 1rem !important;
+      padding: 16px 36px !important;
+      border-radius: 14px !important;
+      text-decoration: none !important;
+      border: 2px solid #195353 !important;
+      box-shadow: 0 10px 25px rgba(25, 83, 83, 0.28) !important;
+      cursor: pointer !important;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+      line-height: 1.2 !important;
+      z-index: 101 !important;
+    }
+
+    .wm-404-btn-home:hover {
+      background-color: #021623 !important;
+      border-color: #021623 !important;
+      color: #FFFFFF !important;
+      transform: translateY(-3px) scale(1.02) !important;
+      box-shadow: 0 14px 30px rgba(2, 22, 35, 0.32) !important;
+    }
+
+    .wm-404-btn-home i {
+      color: #E5FF5E !important;
+      font-size: 1.05rem !important;
+    }
+
+    .wm-404-btn-back {
+      display: inline-flex !important;
+      font-family: var(--wm-font-family) !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 12px !important;
+      background-color: #FFFFFF !important;
+      border: 2px solid #195353 !important;
+      color: #195353 !important;
+      font-weight: 700 !important;
+      font-size: 1rem !important;
+      padding: 15px 34px !important;
+      border-radius: 14px !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+      line-height: 1.2 !important;
+      z-index: 101 !important;
+    }
+
+    .wm-404-btn-back:hover {
+      background-color: rgba(25, 83, 83, 0.08) !important;
+      border-color: #021623 !important;
+      color: #021623 !important;
+      transform: translateY(-3px) scale(1.02) !important;
+      box-shadow: 0 10px 25px rgba(25, 83, 83, 0.16) !important;
+    }
+
+    .wm-404-btn-back i {
+      color: #195353 !important;
+      font-size: 1.05rem !important;
+    }
+
+    @media (max-width: 640px) {
+      .wm-404-actions {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 14px !important;
+      }
+      .wm-404-btn-home,
+      .wm-404-btn-back {
+        width: 100% !important;
+        padding: 16px 24px !important;
+      }
+    }
+  </style>
+  <!-- AOS (Animate On Scroll) Library -->
+  <!-- AOS (Animate On Scroll) Library - CDNJS & Local Fallback -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/aos.css">
+</head>
+<body class="wm-404-page">
+
+  <!-- Interactive Background Mesh Canvas (Light Theme Particles) -->
+  <canvas id="wm404Canvas" class="wm-404-bg-canvas"></canvas>
+
+  <!-- Ambient Glow -->
+  <div class="wm-404-glow-ambient"></div>
+
+  <!-- ==========================================================================
+       Main Centered 404 Stage (Light Theme, No Navbar, No Footer)
+       ========================================================================== -->
+  <main class="wm-404-main">
+    <div class="wm-404-content">
+
+      <!-- Centered Stackly Brand Logo -->
+      <div class="wm-404-brand">
+        <a href="index.html" class="wm-logo" aria-label="Stackly Home">
+          <img src="assets/images/logo.webp" alt="Stackly Wealth Management" class="wm-logo-img">
+        </a>
+      </div>
+
+      <!-- Error Pill Tag -->
+      <div class="wm-404-tag">
+        <span class="wm-tag-dot"></span>
+        <span>Capital Coordinate Uncharted • Error 404</span>
+      </div>
+
+      <!-- 3D Parallax Visual Container -->
+      <div class="wm-404-visual-wrap" id="wmVisualWrap">
+        
+        <!-- Floating Status Badge Left -->
+        <div class="wm-404-badge-float wm-float-left">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Coordinate: [NULL_ASSET_PTR]</span>
+        </div>
+
+        <!-- Floating Status Badge Right -->
+        <div class="wm-404-badge-float wm-float-right">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Vault Status: Route Locked</span>
+        </div>
+
+        <!-- Floating Status Badge Top Right -->
+        <div class="wm-404-badge-float wm-float-top-right">
+          <i class="fa-solid fa-satellite-dish"></i>
+          <span>Radar Signal: Off-Grid</span>
+        </div>
+
+        <!-- Giant 404 with Central Compass Dial -->
+        <div class="wm-404-digits">
+          <span class="wm-404-digit">4</span>
+
+          <!-- Central Orbit Vault Compass (replaces the 0) -->
+          <div class="wm-404-orbit-box">
+            <!-- Radiating Radar Pulses -->
+            <div class="wm-404-radar-pulse wm-radar-pulse-1"></div>
+            <div class="wm-404-radar-pulse wm-radar-pulse-2"></div>
+
+            <!-- Outer Orbit Ring with 4 Financial Nodes -->
+            <div class="wm-404-orbit-ring-outer">
+              <div class="wm-orbit-node wm-node-1" title="Alternative Yield">
+                <i class="fa-solid fa-gem"></i>
+              </div>
+              <div class="wm-orbit-node wm-node-2" title="Institutional Vault">
+                <i class="fa-solid fa-vault"></i>
+              </div>
+              <div class="wm-orbit-node wm-node-3" title="Capital Growth">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <div class="wm-orbit-node wm-node-4" title="Liquid Reserves">
+                <i class="fa-solid fa-coins"></i>
+              </div>
+            </div>
+
+            <!-- Inner Counter-Rotating Ring -->
+            <div class="wm-404-orbit-ring-inner"></div>
+
+            <!-- Central Compass Core -->
+            <div class="wm-404-orbit-core">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+          </div>
+
+          <span class="wm-404-digit">4</span>
+        </div>
+      </div>
+
+      <!-- Headline & Narrative -->
+      <h1 class="wm-404-title">Lost in the Financial Fog</h1>
+      <p class="wm-404-desc">
+        The portfolio allocation, private wealth desk, or capital document you are attempting to locate does not exist or has been reallocated across secure fiduciary vaults.
+      </p>
+
+      <!-- Two Action Buttons (Completely Visible, Permanent Opacity, Interactive) -->
+      <div class="wm-404-actions" style="display: flex; visibility: visible; opacity: 1;">
+        <!-- Button 1: Return to Home -->
+        <a href="index.html" class="wm-404-btn-home" id="btnReturnHome" style="display: inline-flex; visibility: visible; opacity: 1;">
+          <i class="fa-solid fa-house"></i>
+          <span>Return to Home</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <!-- Button 2: Go Back -->
+        <button type="button" class="wm-404-btn-back" id="btnGoBack" style="display: inline-flex; visibility: visible; opacity: 1;">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Go Back to Previous Page</span>
+        </button>
+      </div>
+
+     `
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       GSAP Animation Engine & Interactive Parallax Script
+       ========================================================================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. "Return to Home" & "Go Back" Button Logic
+      const returnHomeBtn = document.getElementById('btnReturnHome');
+      if (returnHomeBtn) {
+        returnHomeBtn.addEventListener('click', (e) => {
+          if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+          try { sessionStorage.removeItem('wm_returning_from_404'); } catch (err) {}
+          try { sessionStorage.setItem('wm_force_top', '1'); } catch (err) {}
+          try { window.name = 'wm_force_top=1'; } catch (err) {}
+        });
+      }
+
+      const goBackBtn = document.getElementById('btnGoBack');
+      if (goBackBtn) {
+        goBackBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          let savedPrevHref = '';
+          try {
+            sessionStorage.setItem('wm_returning_from_404', '1');
+            savedPrevHref = sessionStorage.getItem('wm_last_page_href') || '';
+          } catch (err) {}
+          try { window.name = 'wm_back_from_404=1'; } catch (err) {}
+          if (window.history.length > 1) {
+            window.history.back();
+          } else if (savedPrevHref && savedPrevHref !== window.location.href) {
+            window.location.href = savedPrevHref;
+          } else if (document.referrer && document.referrer !== window.location.href) {
+            window.location.href = document.referrer;
+          } else {
+            window.location.href = 'index.html';
+          }
+        });
+      }
+
+      // 2. Interactive Background Canvas (Light Theme Financial Network Mesh)
+      const canvas = document.getElementById('wm404Canvas');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        const particleCount = 40;
+
+        function resize() {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize, { passive: true });
+
+        // Light theme node colors (teal, soft dark, cyan, lime)
+        const colors = [
+          'rgba(25, 83, 83, 0.45)',
+          'rgba(2, 22, 35, 0.35)',
+          'rgba(25, 83, 83, 0.25)',
+          'rgba(229, 255, 94, 0.7)'
+        ];
+
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            radius: Math.random() * 2 + 1.2,
+            color: colors[Math.floor(Math.random() * colors.length)]
+          });
+        }
+
+        function drawNetwork() {
+          ctx.clearRect(0, 0, width, height);
+
+          // Connecting lines in light teal
+          for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 130) {
+                ctx.beginPath();
+                ctx.strokeStyle = `rgba(25, 83, 83, ${0.1 * (1 - dist / 130)})`;
+                ctx.lineWidth = 0.75;
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+              }
+            }
+          }
+
+          // Nodes
+          particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0) p.x = width;
+            if (p.x > width) p.x = 0;
+            if (p.y < 0) p.y = height;
+            if (p.y > height) p.y = 0;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+          });
+
+          requestAnimationFrame(drawNetwork);
+        }
+        drawNetwork();
+      }
+
+      // 3. GSAP Continuous & Entrance Animations
+      if (typeof gsap !== 'undefined') {
+        // Entrance Timeline (Explicit fromTo targets guarantee 100% visibility)
+        const tl = gsap.timeline();
+        tl.fromTo('.wm-404-brand', { y: -16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power3.out', clearProps: 'transform,opacity' })
+          .fromTo('.wm-404-tag', { scale: 0.92, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: 'back.out(1.5)', clearProps: 'transform,opacity' }, '-=0.25')
+          .fromTo('.wm-404-digit', { y: 28, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 0.45, ease: 'power3.out', clearProps: 'transform,opacity' }, '-=0.25')
+          .fromTo('.wm-404-orbit-box', { scale: 0.65, rotation: -45, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.5, ease: 'back.out(1.4)', clearProps: 'opacity' }, '-=0.35')
+          .fromTo('.wm-404-badge-float', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, stagger: 0.08, duration: 0.4, ease: 'back.out(1.4)', clearProps: 'opacity,scale' }, '-=0.3')
+          .fromTo('.wm-404-title', { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power3.out', clearProps: 'transform,opacity' }, '-=0.25')
+          .fromTo('.wm-404-desc', { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power3.out', clearProps: 'transform,opacity' }, '-=0.28')
+          .fromTo('.wm-404-actions', { y: 10 }, { y: 0, duration: 0.35, ease: 'power2.out', clearProps: 'transform' }, '-=0.28')
+          .fromTo('.wm-404-help-note', { opacity: 0 }, { opacity: 1, duration: 0.35, ease: 'power2.out', clearProps: 'opacity' }, '-=0.25');
+
+        // Continuous Orbital Rotations
+        gsap.to('.wm-404-orbit-ring-outer', {
+          rotation: 360,
+          duration: 25,
+          repeat: -1,
+          ease: 'none'
+        });
+
+        gsap.to('.wm-404-orbit-ring-inner', {
+          rotation: -360,
+          duration: 16,
+          repeat: -1,
+          ease: 'none'
+        });
+
+        // Keep satellite node icons upright while ring rotates
+        gsap.to('.wm-orbit-node', {
+          rotation: -360,
+          duration: 25,
+          repeat: -1,
+          ease: 'none'
+        });
+
+        // Continuous Radar Pulse Waves
+        gsap.to('.wm-radar-pulse-1', {
+          scale: 2.3,
+          opacity: 0,
+          duration: 2.5,
+          repeat: -1,
+          ease: 'power1.out'
+        });
+
+        gsap.to('.wm-radar-pulse-2', {
+          scale: 2.3,
+          opacity: 0,
+          duration: 2.5,
+          delay: 1.25,
+          repeat: -1,
+          ease: 'power1.out'
+        });
+
+        // Continuous Compass Needle Tremor/Scanning
+        gsap.to('.wm-404-orbit-core i', {
+          rotation: 18,
+          duration: 2.2,
+          yoyo: true,
+          repeat: -1,
+          ease: 'sine.inOut'
+        });
+
+        // Continuous Floating Motion for Badges & Visual Stage
+        gsap.to('.wm-404-visual-wrap', {
+          y: -8,
+          duration: 3.2,
+          yoyo: true,
+          repeat: -1,
+          ease: 'sine.inOut'
+        });
+
+        gsap.to('.wm-float-left', {
+          y: -8,
+          x: -4,
+          duration: 3.5,
+          yoyo: true,
+          repeat: -1,
+          ease: 'sine.inOut'
+        });
+
+        gsap.to('.wm-float-right', {
+          y: 7,
+          x: 4,
+          duration: 4.0,
+          yoyo: true,
+          repeat: -1,
+          ease: 'sine.inOut'
+        });
+
+        gsap.to('.wm-float-top-right', {
+          y: -6,
+          rotation: 2,
+          duration: 3.8,
+          yoyo: true,
+          repeat: -1,
+          ease: 'sine.inOut'
+        });
+
+        // Interactive 3D Mouse Parallax
+        const visualWrap = document.getElementById('wmVisualWrap');
+        if (visualWrap && window.innerWidth >= 1024) {
+          window.addEventListener('mousemove', (e) => {
+            const xOffset = (e.clientX / window.innerWidth - 0.5) * 22;
+            const yOffset = (e.clientY / window.innerHeight - 0.5) * 22;
+            gsap.to(visualWrap, {
+              rotationY: xOffset,
+              rotationX: -yOffset,
+              transformPerspective: 900,
+              ease: 'power2.out',
+              duration: 0.7
+            });
+          });
+        }
+      }
+    });
+  </script>
+  
+  <!-- AOS (Animate On Scroll) JS - CDNJS & Local Fallback -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/lenis.min.js"></script>
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    let _wmLenis404 = null;
+    if (typeof Lenis !== 'undefined' && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      _wmLenis404 = new Lenis({
+        duration: 1.15,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true
+      });
+      (function raf(time) {
+        if (_wmLenis404) _wmLenis404.raf(time);
+        requestAnimationFrame(raf);
+      })(performance.now());
+    }
+    function resetScroll404() {
+      document.documentElement.style.scrollBehavior = 'auto';
+      if (_wmLenis404) {
+        try { _wmLenis404.scrollTo(0, { immediate: true, force: true }); } catch (err) {}
+      }
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
+      requestAnimationFrame(() => { document.documentElement.style.scrollBehavior = ''; });
+    }
+    resetScroll404();
+    document.addEventListener('DOMContentLoaded', resetScroll404);
+    window.addEventListener('load', () => { resetScroll404(); requestAnimationFrame(resetScroll404); });
+    window.addEventListener('pageshow', (e) => { if (e.persisted) resetScroll404(); });
+  </script>
+  <script>
+    function startAOS404() {
+      if (typeof AOS !== 'undefined') {
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: false, offset: 30, disable: false, mirror: true });
+        return true;
+      }
+      return false;
+    }
+    if (!startAOS404()) {
+      var r = 0, t = setInterval(function() { r++; if (startAOS404() || r > 30) clearInterval(t); }, 100);
+    }
+  </script>
+</body>
+</html>

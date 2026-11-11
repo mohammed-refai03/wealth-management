@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal Login | Stackly Wealth Management</title>
+  <meta name="description" content="Secure client login for Stackly Wealth Management. Access your investment portfolios, financial planning reports, and fiduciary advisory vault.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23195353'/><path d='M30 70 L50 30 L70 70 Z' fill='%23E5FF5E'/></svg>">
+  
+  <!-- Font Awesome 6 (Strict Rule: Font Awesome Icons Only) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=resp320v9">
+    <!-- AOS (Animate On Scroll) Library - CDNJS with Local Fallback -->
+  <!-- AOS (Animate On Scroll) Library - CDNJS & Local Fallback -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/aos.css">
+</head>
+<body class="wm-auth-wrapper">
+
+  <!-- ==========================================================================
+       Stackly Fiduciary Preloader (Strict 2s Dismissal)
+       ========================================================================== -->
+  <div id="wm-preloader" class="wm-preloader" aria-hidden="true">
+    <div class="wm-preloader-bg-glow"></div>
+    <div class="wm-preloader-content">
+      <div class="wm-preloader-graphic">
+        <svg class="wm-preloader-svg" viewBox="0 0 100 100">
+          <circle class="wm-preloader-track" cx="50" cy="50" r="44"></circle>
+          <circle class="wm-preloader-fill" cx="50" cy="50" r="44"></circle>
+        </svg>
+        <div class="wm-preloader-emblem">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+      </div>
+      <div class="wm-preloader-brand">
+        STACK<span>LY</span>
+      </div>
+      <div class="wm-preloader-sub">
+        Institutional Wealth Architecture
+      </div>
+      <div class="wm-preloader-bar-wrap">
+        <div class="wm-preloader-bar-fill"></div>
+      </div>
+      <div class="wm-preloader-footer">
+        <span class="wm-preloader-status"><span class="wm-loader-dot"></span> Securing Client Vault</span>
+        <span class="wm-preloader-percent" id="wmPreloaderPercent">0%</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="wm-auth-split">
+    
+    <!-- Left Visual Column (Wealth Management Inspiration) -->
+    <div class="wm-auth-visual-side" data-aos="fade-right">
+   
+
+      <div class="wm-auth-visual-content">
+        <div class="wm-tag" style="background:rgba(229, 255, 94, 0.15); color:var(--wm-secondary); margin-bottom:12px;">
+          INSTITUTIONAL CLIENT TERMINAL
+        </div>
+        <h1 style="color:var(--wm-white); font-size:1.85rem; font-weight:700; line-height:1.25; margin-bottom:12px;">
+          Intelligent Wealth Architecture & Fiduciary Analytics
+        </h1>
+        <p style="color:rgba(255, 255, 255, 0.82); font-size:0.9rem; line-height:1.5; margin-bottom:0;">
+          Real-time portfolio oversight, tax-loss harvesting, and discretionary fiduciary advisory.
+        </p>
+
+        
+      </div>
+
+      <div style="font-size:0.8rem; color:rgba(255, 255, 255, 0.5);">
+        &copy; 2026 Stackly Wealth Management. 100% Fee-Only Fiduciary.
+      </div>
+    </div>
+
+    <!-- Right Form Column -->
+    <div class="wm-auth-form-side">
+      <a href="index.html" class="wm-auth-back-link">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to Home</span>
+      </a>
+
+      <div class="wm-auth-form-container" data-aos="fade-left" data-aos-delay="100">
+        <a href="index.html" class="wm-logo wm-auth-form-logo" style="text-decoration:none;">
+          <img src="assets/images/logo.webp" alt="Stackly Wealth Management" class="wm-logo-img">
+        </a>
+        <div style="margin-bottom: 28px;">
+          <h2 style="font-size:1.85rem; color:var(--wm-dark); margin-bottom:6px;">Sign In to Stackly</h2>
+          <p style="color:var(--wm-body-muted); font-size:0.9rem;">Select your portal role to access your dedicated terminal.</p>
+        </div>
+
+        <!-- Role Selector (Admin / User) -->
+        <div class="wm-role-selector-wrap">
+          <label class="wm-role-selector-label">Portal Access Role *</label>
+          <div class="wm-role-pills">
+            <button type="button" class="wm-role-pill-btn active" data-role="user" id="role-user-btn">
+              <i class="fa-solid fa-user"></i>
+              <span>Client / User</span>
+            </button>
+            <button type="button" class="wm-role-pill-btn" data-role="admin" id="role-admin-btn">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Advisor / Admin</span>
+            </button>
+          </div>
+          <input type="hidden" id="login-role" name="role" value="user">
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" novalidate>
+          
+          <!-- Email Input -->
+          <div class="wm-input-group" style="margin-bottom: 18px;">
+            <label for="login-email" style="color:var(--wm-dark); font-weight:600; font-size:0.85rem; margin-bottom:6px; display:block;">Corporate or Personal Email *</label>
+            <input type="email" id="login-email" name="email" class="wm-input" placeholder="e.g. client@enterprise.com" required style="background:var(--wm-surface); color:var(--wm-dark); border-color:var(--wm-border);">
+            <div class="wm-error-message" id="login-email-error"></div>
+          </div>
+
+          <!-- Password Input with Eye Toggle -->
+          <div class="wm-input-group" style="margin-bottom: 18px;">
+            <label for="login-password" style="color:var(--wm-dark); font-weight:600; font-size:0.85rem; margin-bottom:6px; display:block;">Secure Password *</label>
+            <div class="wm-password-field-wrap">
+              <input type="password" id="login-password" name="password" class="wm-input" placeholder="••••••••••••" required style="background:var(--wm-surface); color:var(--wm-dark); border-color:var(--wm-border);">
+              <button type="button" class="wm-eye-toggle-btn" id="login-pass-toggle" aria-label="Toggle password visibility">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+            <div class="wm-error-message" id="login-password-error"></div>
+          </div>
+
+          <!-- Remember Me & Forgot Password -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; font-size:0.85rem;">
+            <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; color:var(--wm-dark);">
+              <input type="checkbox" id="remember-me" name="remember" style="accent-color:var(--wm-primary); cursor:pointer;">
+              <span>Remember this device</span>
+            </label>
+            <a href="404.html" id="forgot-password-link" style="color:var(--wm-primary); font-weight:600; text-decoration:none;">Forgot Password?</a>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="wm-btn wm-btn-primary" style="width:100%; justify-content:center; padding:15px;" id="login-submit-btn">
+            <span>Access Portal Terminal</span>
+            <span class="wm-btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="wm-auth-divider">
+          <span>or create a new mandate</span>
+        </div>
+
+        <!-- Link to Signup Page -->
+        <div style="text-align:center; font-size:0.9rem; color:var(--wm-body);">
+          Don't have a Stackly account? 
+          <a href="signup.html" style="color:var(--wm-primary); font-weight:700; text-decoration:underline; margin-left:4px;">
+            Register Account
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="wm-toast" class="wm-toast" aria-live="polite">
+    <i class="fa-solid fa-circle-check wm-toast-icon"></i>
+    <span class="wm-toast-msg" id="wm-toast-msg"></span>
+  </div>
+  <!-- AOS (Animate On Scroll) JS - CDNJS & Local Fallback -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/aos.js"></script>
+  <!-- Interaction Script -->
+  <script src="js/lenis.min.js"></script>
+  <script src="js/main.js?v=resp320v15"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Role Selector Handling
+      const roleUserBtn = document.getElementById('role-user-btn');
+      const roleAdminBtn = document.getElementById('role-admin-btn');
+      const roleInput = document.getElementById('login-role');
+      const submitBtn = document.getElementById('login-submit-btn');
+
+      if (roleUserBtn && roleAdminBtn && roleInput) {
+        roleUserBtn.addEventListener('click', () => {
+          roleUserBtn.classList.add('active');
+          roleAdminBtn.classList.remove('active');
+          roleInput.value = 'user';
+          submitBtn.querySelector('span').textContent = 'Access Client Terminal';
+        });
+
+        roleAdminBtn.addEventListener('click', () => {
+          roleAdminBtn.classList.add('active');
+          roleUserBtn.classList.remove('active');
+          roleInput.value = 'admin';
+          submitBtn.querySelector('span').textContent = 'Access Admin Terminal';
+        });
+      }
+
+      // Password Eye Toggle
+      const passToggle = document.getElementById('login-pass-toggle');
+      const passInput = document.getElementById('login-password');
+      if (passToggle && passInput) {
+        passToggle.addEventListener('click', () => {
+          const isPass = passInput.type === 'password';
+          passInput.type = isPass ? 'text' : 'password';
+          const icon = passToggle.querySelector('i');
+          if (icon) {
+            icon.className = isPass ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+          }
+        });
+      }
+
+      // Form validation & Role-based Redirection
+      const form = document.getElementById('login-form');
+      const emailInput = document.getElementById('login-email');
+      const emailError = document.getElementById('login-email-error');
+      const passError = document.getElementById('login-password-error');
+
+      function showError(input, errorEl, msg) {
+        input.classList.add('is-invalid');
+        errorEl.textContent = msg;
+        errorEl.classList.add('visible');
+      }
+
+      function clearError(input, errorEl) {
+        input.classList.remove('is-invalid');
+        errorEl.textContent = '';
+        errorEl.classList.remove('visible');
+      }
+
+      // Remove errors as user types
+      if (emailInput && emailError) {
+        emailInput.addEventListener('input', () => {
+          const val = emailInput.value.trim();
+          if (val.length > 0) {
+            if (emailError.textContent === 'Email address is required.') {
+              clearError(emailInput, emailError);
+            } else {
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+              if (emailRegex.test(val)) {
+                clearError(emailInput, emailError);
+              }
+            }
+          }
+        });
+      }
+
+      if (passInput && passError) {
+        passInput.addEventListener('input', () => {
+          const val = passInput.value.trim();
+          if (val.length > 0) {
+            if (passError.textContent === 'Password is required.') {
+              clearError(passInput, passError);
+            } else if (val.length >= 4) {
+              clearError(passInput, passError);
+            }
+          }
+        });
+      }
+
+      // Forgot Password routes directly to 404 page
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          let isValid = true;
+
+          const emailVal = emailInput ? emailInput.value.trim() : '';
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+          if (!emailVal) {
+            showError(emailInput, emailError, 'Email address is required.');
+            isValid = false;
+          } else if (!emailRegex.test(emailVal)) {
+            showError(emailInput, emailError, 'Please enter a valid email address.');
+            isValid = false;
+          } else {
+            clearError(emailInput, emailError);
+          }
+
+          const passVal = passInput ? passInput.value.trim() : '';
+          if (!passVal) {
+            showError(passInput, passError, 'Password is required.');
+            isValid = false;
+          } else if (passVal.length < 4) {
+            showError(passInput, passError, 'Password must be at least 4 characters.');
+            isValid = false;
+          } else {
+            clearError(passInput, passError);
+          }
+
+          if (!isValid) return;
+
+          const role = (roleInput && roleInput.value === 'admin') ? 'admin' : 'user';
+          const targetUrl = role === 'admin' ? 'admin-dashboard.html' : 'user-dashboard.html';
+          const displayRole = role === 'admin' ? 'Advisor / Admin' : 'Client / User';
+
+          try {
+            localStorage.setItem('stackly_user_email', emailVal);
+            localStorage.setItem('stackly_user_role', displayRole);
+            sessionStorage.setItem('stackly_user_email', emailVal);
+            sessionStorage.setItem('stackly_user_role', displayRole);
+          } catch (e) {
+            console.error('Storage error:', e);
+          }
+
+          if (typeof window.showToast === 'function') {
+            window.showToast(`Authenticated successfully as ${role.toUpperCase()}. Redirecting to dashboard...`);
+          }
+
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 500);
+        });
+      }
+    });
+  </script>
+
+  <!-- Preloader Controller (Dismisses Within 2 Seconds) -->
+  <script>
+    (function() {
+      const preloader = document.getElementById('wm-preloader');
+      if (!preloader) return;
+      const percentEl = document.getElementById('wmPreloaderPercent');
+      const startTime = performance.now();
+      const duration = 1500; // 1.5s active progress count
+
+      function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const percent = Math.floor(progress * 100);
+        if (percentEl) percentEl.textContent = percent + '%';
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          setTimeout(() => {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+              preloader.style.display = 'none';
+              if (typeof AOS !== 'undefined') {
+                AOS.refreshHard();
+              }
+            }, 450);
+          }, 80);
+        }
+      }
+      requestAnimationFrame(update);
+    })();
+  </script>
+
+  
+</body>
+</html>

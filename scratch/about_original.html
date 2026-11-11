@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Stackly Wealth Management</title>
+  <meta name="description" content="Learn about Stackly's fiduciary wealth management heritage, institutional investment philosophy, and dedicated leadership team.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23195353'/><path d='M30 70 L50 30 L70 70 Z' fill='%23E5FF5E'/></svg>">
+  
+  <!-- Font Awesome 6 (Strict Rule: Font Awesome Icons Only) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- AOS (Animate On Scroll) Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9dcBN9ZKqh/426vBMiuTWNJVYN8310i3r3f71NTT3770g6lS/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. Top Announcement Pre-Header Bar
+       ========================================================================== -->
+  <div class="wm-topbar">
+    <div class="wm-container">
+      <div class="wm-topbar-inner">
+        <div class="wm-topbar-left">
+          <span class="wm-topbar-badge">Heritage</span>
+          <span>Over 25 Years of Uncompromised Fiduciary Stewardship.</span>
+        </div>
+        <div class="wm-topbar-right">
+          <a href="tel:9876543210" class="wm-topbar-link">
+            <i class="fa-solid fa-phone"></i>
+            9876543210
+          </a>
+          <a href="mailto:info@stackly.com" class="wm-topbar-link">
+            <i class="fa-solid fa-envelope"></i>
+            info@stackly.com
+          </a>
+          <span><i class="fa-solid fa-clock"></i> Mon – Fri: 8:00 AM – 6:00 PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. Global Navbar (Section 2 Requirements)
+       ========================================================================== -->
+  <header class="wm-header">
+    <div class="wm-container">
+      <div class="wm-header-inner">
+        <!-- Stackly Logo -->
+        <a href="index.html" class="wm-logo">
+          <div class="wm-logo-icon">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="wm-logo-text">STACK<span>LY</span></div>
+        </a>
+
+        <!-- Desktop Navigation: Home, About (Active), Services, Blog, Contact -->
+        <nav class="wm-nav">
+          <ul class="wm-nav-list">
+            <li class="wm-nav-item"><a href="index.html" class="wm-nav-link">Home</a></li>
+            <li class="wm-nav-item"><a href="about.html" class="wm-nav-link active">About</a></li>
+            <li class="wm-nav-item"><a href="index.html#services" class="wm-nav-link">Services</a></li>
+            <li class="wm-nav-item"><a href="index.html#strategy" class="wm-nav-link">Strategy</a></li>
+            <li class="wm-nav-item"><a href="index.html#calculator" class="wm-nav-link">Calculator</a></li>
+            <li class="wm-nav-item"><a href="index.html#portfolio" class="wm-nav-link">Case Studies</a></li>
+            <li class="wm-nav-item"><a href="index.html#pricing" class="wm-nav-link">Pricing</a></li>
+            <li class="wm-nav-item"><a href="index.html#insights" class="wm-nav-link">Blog</a></li>
+            <li class="wm-nav-item"><a href="index.html#contact" class="wm-nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions: Login Button + Book Consultant CTA -->
+        <div class="wm-header-actions">
+          <a href="login.html" class="wm-nav-login-btn">
+            <i class="fa-solid fa-user-lock"></i>
+            <span>Login</span>
+          </a>
+
+          <a href="#contact" class="wm-btn wm-btn-primary" data-open-modal="consultation">
+            <span>Book Consultant</span>
+            <span class="wm-btn-icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </a>
+
+          <!-- Mobile Toggle Button -->
+          <button class="wm-mobile-toggle" aria-label="Toggle navigation menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="wm-mobile-drawer">
+    <div>
+      <div class="wm-drawer-header">
+        <a href="index.html" class="wm-logo">
+          <div class="wm-logo-icon">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="wm-logo-text">STACK<span>LY</span></div>
+        </a>
+        <button class="wm-drawer-close" aria-label="Close menu" style="background:none; border:none; font-size:1.6rem; cursor:pointer; color:var(--wm-dark);">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="wm-drawer-links">
+        <a href="index.html" class="wm-drawer-link">Home</a>
+        <a href="about.html" class="wm-drawer-link" style="color: var(--wm-primary);">About</a>
+        <a href="index.html#services" class="wm-drawer-link">Services</a>
+        <a href="index.html#strategy" class="wm-drawer-link">Strategy</a>
+        <a href="index.html#calculator" class="wm-drawer-link">Calculator</a>
+        <a href="index.html#portfolio" class="wm-drawer-link">Case Studies</a>
+        <a href="index.html#pricing" class="wm-drawer-link">Pricing</a>
+        <a href="index.html#insights" class="wm-drawer-link">Blog</a>
+        <a href="index.html#contact" class="wm-drawer-link">Contact</a>
+        <a href="login.html" class="wm-drawer-link" style="color: var(--wm-primary);">
+          <i class="fa-solid fa-user-lock"></i> Login
+        </a>
+      </div>
+    </div>
+    <div style="padding-top: 20px; border-top: 1px solid var(--wm-border-light);">
+      <a href="#contact" class="wm-btn wm-btn-primary" style="width: 100%;" data-open-modal="consultation">
+        <span>Book Consultant</span>
+        <span class="wm-btn-icon">
+          <i class="fa-solid fa-arrow-right"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         3. Breadcrumb & Page Banner
+         ========================================================================== -->
+    <section class="wm-page-banner">
+      <div class="wm-container">
+        <div class="wm-tag" style="background-color: rgba(229, 255, 94, 0.15); color: var(--wm-secondary);" data-aos="fade-down">
+          <span class="wm-tag-dot"></span>Fiduciary Standards
+        </div>
+        <h1 data-aos="fade-up">About Stackly Wealth Management</h1>
+        <div class="wm-breadcrumbs" data-aos="fade-up" data-aos-delay="100">
+          <a href="index.html">Home</a>
+          <span class="wm-breadcrumbs-separator"><i class="fa-solid fa-chevron-right"></i></span>
+          <span style="color: var(--wm-white);">About Us</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. Narrative: Founding Story & Fiduciary Mission
+         ========================================================================== -->
+    <section class="wm-section">
+      <div class="wm-container">
+        <div class="wm-hero-grid" style="align-items: center;">
+          <!-- Left Column: Story -->
+          <div data-aos="fade-right">
+            <div class="wm-tag"><span class="wm-tag-dot"></span>Our Heritage</div>
+            <h2>Designed for Families Who Value Financial Security and Confidence</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--wm-body); margin-bottom: 1.5rem;">
+              Stackly was founded on a singular conviction: the traditional wealth management industry was fundamentally misaligned with client interests. For decades, conventional brokerage houses and commercial banks pushed proprietary, high-commission financial products.
+            </p>
+            <p style="color: var(--wm-body); line-height: 1.7; margin-bottom: 2rem;">
+              We rejected this model entirely. As an independent, fee-only Registered Investment Advisor (RIA), Stackly operates strictly under the legal standard of fiduciary obligation—legally and morally bound to place our clients' financial well-being above all else. Today, we oversee more than $450 Million in private capital, family dynasty trusts, and corporate balance-sheet reserves.
+            </p>
+
+            <div class="wm-checklist">
+              <div class="wm-checklist-item">
+                <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                <div><strong>100% Fee-Only Fiduciary:</strong> Zero commissions, zero kickbacks, and absolute fee transparency.</div>
+              </div>
+              <div class="wm-checklist-item">
+                <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                <div><strong>Institutional Risk Management:</strong> Quantitative hedging models designed to insulate wealth against black-swan shocks.</div>
+              </div>
+              <div class="wm-checklist-item">
+                <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                <div><strong>Generational Estate Longevity:</strong> Multi-generational family office governance ensuring assets transition seamlessly.</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+              <a href="#contact" class="wm-btn wm-btn-primary" data-open-modal="consultation">
+                <span>Meet With Our Partners</span>
+                <span class="wm-btn-icon">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Showcase -->
+          <div data-aos="fade-left">
+            <div class="wm-hero-image-wrap">
+              <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=80" alt="Stackly Wealth Advisory Partners">
+            </div>
+            <!-- Floating Metric Card -->
+            <div class="wm-floating-card">
+              <div class="wm-floating-card-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <div class="wm-floating-card-val">25+ Years</div>
+                <div class="wm-floating-card-lbl">Continuous Fiduciary Excellence</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. Core Fiduciary Pillars (4 Value Cards)
+         ========================================================================== -->
+    <section class="wm-section wm-bg-surface">
+      <div class="wm-container">
+        <div class="wm-section-header text-center" data-aos="fade-up">
+          <div class="wm-tag"><span class="wm-tag-dot"></span>Core Principles</div>
+          <h2>The Four Pillars of the Stackly Standard</h2>
+          <p class="wm-section-subtitle">Our structural framework for defending, compounding, and transitioning private wealth.</p>
+        </div>
+
+        <div class="wm-stats-grid">
+          <!-- Pillar 1 -->
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="wm-stat-icon">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Unconflicted Fiduciary Standard</h3>
+            <p style="font-size: 0.9rem; color: var(--wm-body); line-height: 1.65;">
+              We never manufacture or sell proprietary mutual funds or insurance products. Our recommendations are uncompromised and driven solely by your objectives.
+            </p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="wm-stat-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Quantitative Rigor</h3>
+            <p style="font-size: 0.9rem; color: var(--wm-body); line-height: 1.65;">
+              Utilizing macroeconomic factor modeling, low-cost indexing, and tactical tail-risk hedging to generate superior risk-adjusted net returns.
+            </p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="wm-stat-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Tax Architecture</h3>
+            <p style="font-size: 0.9rem; color: var(--wm-body); line-height: 1.65;">
+              Daily algorithmic tax-loss harvesting, asset location strategies, and cross-border structuring ensuring you keep the capital you build.
+            </p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="wm-stat-icon">
+              <i class="fa-solid fa-people-roof"></i>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Family Legacy Continuity</h3>
+            <p style="font-size: 0.9rem; color: var(--wm-body); line-height: 1.65;">
+              Forming dynasty trusts, private foundations, and family council constitutions that empower heirs with both capital and stewardship values.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. Timeline / Milestones: The Stackly Journey
+         ========================================================================== -->
+    <section class="wm-section">
+      <div class="wm-container">
+        <div class="wm-section-header text-center" data-aos="fade-up">
+          <div class="wm-tag"><span class="wm-tag-dot"></span>Historical Milestones</div>
+          <h2>A Track Record Forged Across Market Regimes</h2>
+          <p class="wm-section-subtitle">Over two decades of disciplined compounding and steadfast client partnership.</p>
+        </div>
+
+        <div class="wm-timeline-grid">
+          <!-- Milestone 1 -->
+          <div class="wm-timeline-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="wm-timeline-year">
+              <span>2001</span>
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <div class="wm-timeline-title">Founding Mandate</div>
+            <p class="wm-timeline-desc">
+              Stackly is established as an independent boutique advisory, pioneering fee-only fiduciary counsel for technology executives and business owners.
+            </p>
+          </div>
+
+          <!-- Milestone 2 -->
+          <div class="wm-timeline-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="wm-timeline-year">
+              <span>2008</span>
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="wm-timeline-title">Capital Defense in Crisis</div>
+            <p class="wm-timeline-desc">
+              Protected client capital during the Great Financial Crisis through disciplined sovereign debt ladders and tactical cash allocations.
+            </p>
+          </div>
+
+          <!-- Milestone 3 -->
+          <div class="wm-timeline-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="wm-timeline-year">
+              <span>2018</span>
+              <i class="fa-solid fa-building-columns"></i>
+            </div>
+            <div class="wm-timeline-title">Family Office Expansion</div>
+            <p class="wm-timeline-desc">
+              Surpassed $250M in AUM and launched the Multi-Family Office practice, providing dedicated estate attorneys and cross-border tax specialists.
+            </p>
+          </div>
+
+          <!-- Milestone 4 -->
+          <div class="wm-timeline-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="wm-timeline-year">
+              <span>2026</span>
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <div class="wm-timeline-title">$450M+ Under Advisory</div>
+            <p class="wm-timeline-desc">
+              Advising over 12,000 client portfolios worldwide with a 99.2% retention rate, continuous technological innovation, and private equity access.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. Key Metrics & Stat Counters (Section 5)
+         ========================================================================== -->
+    <section class="wm-section wm-bg-surface">
+      <div class="wm-container">
+        <div class="wm-section-header text-center" data-aos="fade-up">
+          <div class="wm-tag"><span class="wm-tag-dot"></span>Validated Numbers</div>
+          <h2>Quantifiable Results Built on Decades of Trust</h2>
+          <p class="wm-section-subtitle">Real metrics that demonstrate our stability and commitment to our partners.</p>
+        </div>
+
+        <div class="wm-stats-grid" id="stats">
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="wm-stat-icon"><i class="fa-solid fa-wallet"></i></div>
+            <div class="wm-stat-number" data-target="450" data-prefix="$" data-suffix="M+">$0</div>
+            <div class="wm-stat-label">Assets Under Advisory</div>
+            <div class="wm-stat-sub">Across global liquid and private markets</div>
+          </div>
+
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="wm-stat-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+            <div class="wm-stat-number" data-target="99.2" data-suffix="%">0%</div>
+            <div class="wm-stat-label">Client Retention Rate</div>
+            <div class="wm-stat-sub">Decade-long generational partnerships</div>
+          </div>
+
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="wm-stat-icon"><i class="fa-solid fa-award"></i></div>
+            <div class="wm-stat-number" data-target="25" data-suffix="+">0</div>
+            <div class="wm-stat-label">Years of Fiduciary Integrity</div>
+            <div class="wm-stat-sub">Established track record through market cycles</div>
+          </div>
+
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="wm-stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="wm-stat-number" data-target="12400" data-suffix="+">0</div>
+            <div class="wm-stat-label">Portfolios Tailored</div>
+            <div class="wm-stat-sub">Individualized investment policy statements</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. Custodian & Institutional Partners Marquee
+         ========================================================================== -->
+    <section class="wm-marquee-section">
+      <div class="wm-container">
+        <div class="wm-marquee-title">Custodial Safety & Institutional Clearing Networks</div>
+        <div class="wm-marquee-logos">
+          <div class="wm-partner-logo">
+            <i class="fa-solid fa-landmark"></i>
+            VANGUARD TRUST
+          </div>
+          <div class="wm-partner-logo">
+            <i class="fa-solid fa-building-columns"></i>
+            APEX CAPITAL
+          </div>
+          <div class="wm-partner-logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            ZURICH HOLDINGS
+          </div>
+          <div class="wm-partner-logo">
+            <i class="fa-solid fa-gem"></i>
+            MORGAN STONE
+          </div>
+          <div class="wm-partner-logo">
+            <i class="fa-solid fa-scale-balanced"></i>
+            BEACON WEALTH
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         9. Senior Leadership & Advisory Committee
+         ========================================================================== -->
+    <section class="wm-section" id="team">
+      <div class="wm-container">
+        <div class="wm-section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;" data-aos="fade-up">
+          <div>
+            <div class="wm-tag"><span class="wm-tag-dot"></span>Executive Leadership</div>
+            <h2>Meet the Advisors Stewarding Your Wealth</h2>
+            <p class="wm-section-subtitle" style="margin-bottom: 0;">Chartered Financial Analysts, estate attorneys, and tax economists.</p>
+          </div>
+          <a href="#contact" class="wm-btn wm-btn-teal" data-open-modal="consultation">
+            <span>Schedule Session</span>
+            <span class="wm-btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+
+        <div class="wm-team-grid">
+          <!-- Leader 1 -->
+          <div class="wm-team-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="wm-team-photo-wrap">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="Julian Vance">
+              <div class="wm-team-socials">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link"><i class="fa-brands fa-x-twitter"></i></a>
+              </div>
+            </div>
+            <div class="wm-team-info">
+              <h4 class="wm-team-name">Julian Vance, CFA</h4>
+              <div class="wm-team-designation">Managing Director & CIO</div>
+            </div>
+          </div>
+
+          <!-- Leader 2 -->
+          <div class="wm-team-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="wm-team-photo-wrap">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Sophia Chen">
+              <div class="wm-team-socials">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link"><i class="fa-brands fa-x-twitter"></i></a>
+              </div>
+            </div>
+            <div class="wm-team-info">
+              <h4 class="wm-team-name">Sophia Chen, CFP&reg;</h4>
+              <div class="wm-team-designation">Head of Private Wealth</div>
+            </div>
+          </div>
+
+          <!-- Leader 3 -->
+          <div class="wm-team-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="wm-team-photo-wrap">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="David Sterling">
+              <div class="wm-team-socials">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link"><i class="fa-brands fa-x-twitter"></i></a>
+              </div>
+            </div>
+            <div class="wm-team-info">
+              <h4 class="wm-team-name">David Sterling, JD</h4>
+              <div class="wm-team-designation">Principal Trust & Estate Counsel</div>
+            </div>
+          </div>
+
+          <!-- Leader 4 -->
+          <div class="wm-team-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="wm-team-photo-wrap">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" alt="Amara Okafor">
+              <div class="wm-team-socials">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link"><i class="fa-brands fa-x-twitter"></i></a>
+              </div>
+            </div>
+            <div class="wm-team-info">
+              <h4 class="wm-team-name">Amara Okafor, CAIA</h4>
+              <div class="wm-team-designation">Alternative Asset Strategist</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         10. Contact / Consultation Form Section (Section 6 Strict Validation)
+         ========================================================================== -->
+    <section class="wm-section wm-bg-surface" id="contact">
+      <div class="wm-container">
+        <div class="wm-consultation-box" data-aos="fade-up">
+          <div>
+            <div class="wm-tag" style="background-color: rgba(229, 255, 94, 0.15); color: var(--wm-secondary);">Direct Partnership</div>
+            <h2>Speak with a Senior Wealth Strategist</h2>
+            <p style="margin-bottom: 2rem;">
+              Discuss your capital goals, tax questions, or family trust structure in absolute confidence.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 38px; height: 38px; border-radius: 50%; background-color: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--wm-secondary);">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6);">Direct Hotline</div>
+                  <strong style="color: var(--wm-white);">9876543210</strong>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 38px; height: 38px; border-radius: 50%; background-color: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--wm-secondary);">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6);">Official Inquiries</div>
+                  <strong style="color: var(--wm-white);">info@stackly.com</strong>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <div style="width: 38px; height: 38px; border-radius: 50%; background-color: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--wm-secondary); flex-shrink: 0;">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6);">Official Office</div>
+                  <strong style="color: var(--wm-white); line-height: 1.5; display: block;">MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Strict Validated Form -->
+          <form class="wm-consultation-form" id="consultation-form" novalidate>
+            <div class="wm-input-group">
+              <label for="c-name">Full Name *</label>
+              <input type="text" id="c-name" name="name" class="wm-input" placeholder="e.g. Eleanor Vance" required>
+              <div class="wm-error-message"></div>
+            </div>
+
+            <div class="wm-input-group">
+              <label for="c-email">Business / Primary Email *</label>
+              <input type="email" id="c-email" name="email" class="wm-input" placeholder="e.g. eleanor@vancecapital.com" required>
+              <div class="wm-error-message"></div>
+            </div>
+
+            <div class="wm-input-group">
+              <label for="c-phone">Phone Number (10 Digits) *</label>
+              <input type="tel" id="c-phone" name="phone" class="wm-input" placeholder="9876543210" maxlength="10" required>
+              <div class="wm-error-message"></div>
+            </div>
+
+            <div class="wm-input-group">
+              <label for="c-portfolio">Investable Assets</label>
+              <select id="c-portfolio" class="wm-select">
+                <option value="100k-500k">$100,000 – $500,000</option>
+                <option value="500k-2m" selected>$500,000 – $2,000,000</option>
+                <option value="2m-10m">$2,000,000 – $10,000,000</option>
+                <option value="10m+">$10,000,000+ (Family Office)</option>
+              </select>
+            </div>
+
+            <div class="wm-input-group wm-form-full">
+              <label for="c-notes">Advisory Objectives / Notes</label>
+              <textarea id="c-notes" rows="3" class="wm-textarea" placeholder="Briefly describe your objectives (e.g., estate transition, portfolio audit, tax mitigation)..."></textarea>
+            </div>
+
+            <div class="wm-form-full">
+              <button type="submit" class="wm-btn wm-btn-primary" style="width: 100%;">
+                <span>Schedule Confidential Session</span>
+                <span class="wm-btn-icon">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         11. Newsletter Strip
+         ========================================================================== -->
+    <section class="wm-newsletter-strip">
+      <div class="wm-container">
+        <div class="wm-newsletter-inner">
+          <div>
+            <h3 class="wm-newsletter-title">Join The Stackly Wealth Letter</h3>
+            <p class="wm-newsletter-desc">Delivered bi-weekly to over 28,000 institutional investors. Zero spam, unsubscribe anytime.</p>
+          </div>
+          <form class="wm-newsletter-form" novalidate>
+            <input type="email" class="wm-newsletter-input" placeholder="Enter your business email address..." required>
+            <button type="submit" class="wm-btn wm-btn-primary">
+              <span>Subscribe</span>
+              <span class="wm-btn-icon">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       12. Global Footer (Section 3 Requirements - Exactly 4 Columns)
+       ========================================================================== -->
+  <footer class="wm-footer">
+    <div class="wm-container">
+      <div class="wm-footer-grid">
+        <!-- Column 1 — Brand Information -->
+        <div class="wm-footer-col">
+          <a href="index.html" class="wm-logo" style="margin-bottom: 1.25rem;">
+            <div class="wm-logo-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="wm-logo-text" style="color: var(--wm-white);">STACK<span style="color: var(--wm-secondary);">LY</span></div>
+          </a>
+          <p style="font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Stackly is a premier financial and wealth management advisory platform delivering institutional-grade capital stewardship, tax strategy, and multi-generational family estate preservation.
+          </p>
+          <div style="display: flex; gap: 12px;">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link" title="Twitter / X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="wm-team-social-link" title="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2 — Quick Links (Navbar navigation items) -->
+        <div class="wm-footer-col">
+          <h4>Quick Links</h4>
+          <ul class="wm-footer-links">
+            <li><a href="index.html" class="wm-footer-link"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+            <li><a href="about.html" class="wm-footer-link"><i class="fa-solid fa-angle-right"></i> About</a></li>
+            <li><a href="index.html#services" class="wm-footer-link"><i class="fa-solid fa-angle-right"></i> Services</a></li>
+            <li><a href="index.html#insights" class="wm-footer-link"><i class="fa-solid fa-angle-right"></i> Blog</a></li>
+            <li><a href="index.html#contact" class="wm-footer-link"><i class="fa-solid fa-angle-right"></i> Contact</a></li>
+            <li><a href="login.html" class="wm-footer-link"><i class="fa-solid fa-angle-right"></i> Client Login</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 — Policies -->
+        <div class="wm-footer-col">
+          <h4>Policies</h4>
+          <ul class="wm-footer-links">
+            <li><a href="privacy.html" class="wm-footer-link"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a></li>
+            <li><a href="terms.html" class="wm-footer-link"><i class="fa-solid fa-scale-balanced"></i> Terms and Conditions</a></li>
+            <li><a href="cookies.html" class="wm-footer-link"><i class="fa-solid fa-cookie-bite"></i> Cookie Policy</a></li>
+            <li><a href="disclaimer.html" class="wm-footer-link"><i class="fa-solid fa-triangle-exclamation"></i> Disclaimer</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4 — Contact Information (Single Source of Truth) -->
+        <div class="wm-footer-col">
+          <h4>Contact Information</h4>
+          <div class="wm-footer-contact-item">
+            <i class="fa-solid fa-location-dot wm-footer-contact-icon"></i>
+            <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+          </div>
+          <div class="wm-footer-contact-item">
+            <i class="fa-solid fa-envelope wm-footer-contact-icon"></i>
+            <a href="mailto:info@stackly.com" class="wm-footer-contact-link">info@stackly.com</a>
+          </div>
+          <div class="wm-footer-contact-item">
+            <i class="fa-solid fa-phone wm-footer-contact-icon"></i>
+            <a href="tel:9876543210" class="wm-footer-contact-link">9876543210</a>
+          </div>
+          <div class="wm-footer-contact-item" style="margin-top: 14px;">
+            <i class="fa-solid fa-map-location-dot wm-footer-contact-icon"></i>
+            <a href="https://www.google.com/maps/place/Stackly/@11.6829566,78.1739798,17z/data=!3m1!4b1!4m6!3m5!1s0x3babefef7fd970bb:0xe11aef1a71994f9!8m2!3d11.6829566!4d78.1739798!16s%2Fg%2F11l660s35r?entry=ttu&g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="wm-footer-contact-link" style="color: var(--wm-secondary); font-weight: 600;">
+              View on Google Maps <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="wm-footer-bottom">
+        <div>
+          &copy; 2026 Stackly Wealth Management. All rights reserved. Registered Investment Advisor.
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms and Conditions</a>
+          <a href="cookies.html">Cookie Policy</a>
+          <a href="disclaimer.html">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Overlay -->
+  <div class="wm-modal-overlay" id="consultation-modal">
+    <div class="wm-modal-card">
+      <button class="wm-modal-close" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="wm-tag" style="background-color: var(--wm-sage); color: var(--wm-primary);">Direct Advisory Session</div>
+      <h3 style="margin-bottom: 0.5rem;">Book a Wealth Consultation</h3>
+      <p style="font-size: 0.875rem; color: var(--wm-body-muted); margin-bottom: 1.5rem;">
+        Speak directly with a Senior CFA Portfolio Strategist under full confidentiality.
+      </p>
+
+      <form id="modal-consultation-form" novalidate>
+        <div class="wm-input-group" style="margin-bottom: 14px;">
+          <label for="m-name" style="color: var(--wm-dark);">Full Legal Name *</label>
+          <input type="text" id="m-name" name="name" class="wm-input" style="color: var(--wm-dark); background-color: var(--wm-surface); border-color: var(--wm-border);" placeholder="Your Name" required>
+          <div class="wm-error-message"></div>
+        </div>
+        <div class="wm-input-group" style="margin-bottom: 14px;">
+          <label for="m-email" style="color: var(--wm-dark);">Email Address *</label>
+          <input type="email" id="m-email" name="email" class="wm-input" style="color: var(--wm-dark); background-color: var(--wm-surface); border-color: var(--wm-border);" placeholder="you@domain.com" required>
+          <div class="wm-error-message"></div>
+        </div>
+        <div class="wm-input-group" style="margin-bottom: 14px;">
+          <label for="m-phone" style="color: var(--wm-dark);">Phone Number (10 Digits) *</label>
+          <input type="tel" id="m-phone" name="phone" class="wm-input" style="color: var(--wm-dark); background-color: var(--wm-surface); border-color: var(--wm-border);" placeholder="9876543210" maxlength="10" required>
+          <div class="wm-error-message"></div>
+        </div>
+        <div class="wm-input-group" style="margin-bottom: 14px;">
+          <label for="m-portfolio" style="color: var(--wm-dark);">Target Asset Bracket</label>
+          <select id="m-portfolio" class="wm-select" style="color: var(--wm-dark); background-color: var(--wm-surface); border-color: var(--wm-border);">
+            <option value="100k-500k">$100k – $500k</option>
+            <option value="500k-2m" selected>$500k – $2M</option>
+            <option value="2m-10m">$2M – $10M</option>
+            <option value="10m+">$10M+ (Private Office)</option>
+          </select>
+        </div>
+        <button type="submit" class="wm-btn wm-btn-primary" style="width: 100%; margin-top: 10px;">
+          <span>Schedule My Private Session</span>
+          <span class="wm-btn-icon">
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="wm-toast" role="alert">
+    <i class="fa-solid fa-circle-check" style="color: var(--wm-secondary); font-size: 1.25rem;"></i>
+    <span class="wm-toast-msg">Success! Your request has been received.</span>
+  </div>
+
+  <!-- Back to Top Floating Button -->
+  <button class="wm-back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHyWMPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Interaction Engine -->
+  <script src="js/main.js"></script>
+</body>
+</html>

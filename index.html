@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly | Premier Wealth Management & Financial Advisory</title>
+  <meta name="description" content="Stackly provides institutional-grade wealth preservation, strategic portfolio management, and multi-generational family estate security.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23195353'/><path d='M30 70 L50 30 L70 70 Z' fill='%23E5FF5E'/></svg>">
+  
+  <!-- Font Awesome 6 (Strict Rule: Font Awesome Icons Only) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+    <!-- AOS (Animate On Scroll) Library - CDNJS with Local Fallback -->
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=resp320v9">
+  <!-- AOS (Animate On Scroll) Library - CDNJS & Local Fallback -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/aos.css">
+</head>
+<body>
+  <!-- ==========================================================================
+       Preloader (Within 2s Institutional Wealth Loading Protocol)
+       ========================================================================== -->
+  <div id="wm-preloader" class="wm-preloader" aria-hidden="true">
+    <div class="wm-preloader-bg-glow"></div>
+    <div class="wm-preloader-content">
+      <div class="wm-preloader-graphic">
+        <svg class="wm-preloader-svg" viewBox="0 0 100 100">
+          <circle class="wm-preloader-track" cx="50" cy="50" r="44"></circle>
+          <circle class="wm-preloader-fill" cx="50" cy="50" r="44"></circle>
+        </svg>
+        <div class="wm-preloader-emblem">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+      </div>
+      <div class="wm-preloader-brand">
+        STACK<span>LY</span>
+      </div>
+      <div class="wm-preloader-sub">
+        Institutional Wealth Architecture
+      </div>
+      <div class="wm-preloader-bar-wrap">
+        <div class="wm-preloader-bar-fill"></div>
+      </div>
+      <div class="wm-preloader-footer">
+        <span class="wm-preloader-status"><span class="wm-loader-dot"></span> Securing Client Vault</span>
+        <span class="wm-preloader-percent" id="wmPreloaderPercent">0%</span>
+      </div>
+    </div>
+  </div>
+
+<header class="wm-header">
+    <div class="wm-container">
+      <div class="wm-header-inner">
+        <!-- 1. Stackly Logo Image / Brand -->
+        <a href="index.html" class="wm-logo">
+          <img src="assets/images/logo.webp" alt="Stackly Wealth Management" class="wm-logo-img">
+        </a>
+
+        <!-- Desktop Navigation: Home, About, Services, Blog, Contact -->
+        <nav class="wm-nav">
+          <ul class="wm-nav-list">
+            <li class="wm-nav-item"><a href="index.html" class="wm-nav-link active">Home</a></li>
+            <li class="wm-nav-item"><a href="about.html" class="wm-nav-link">About</a></li>
+            <li class="wm-nav-item"><a href="services.html" class="wm-nav-link">Services</a></li>
+            <li class="wm-nav-item"><a href="blog.html" class="wm-nav-link">Blog</a></li>
+            <li class="wm-nav-item"><a href="contact.html" class="wm-nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions: Login Button + Book Consultant CTA -->
+        <div class="wm-header-actions">
+          <a href="login.html" class="wm-nav-login-btn">
+            <i class="fa-solid fa-user-lock"></i>
+            <span>Login</span>
+          </a>
+
+          <!-- Mobile Toggle Button -->
+          <button class="wm-mobile-toggle" aria-label="Toggle navigation menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu (Section 2 Requirement) -->
+    <div class="wm-mobile-drawer">
+    <div>
+      <div class="wm-drawer-header">
+        <a href="index.html" class="wm-logo">
+          <img src="assets/images/logo.webp" alt="Stackly Wealth Management" class="wm-logo-img">
+        </a>
+        <button class="wm-drawer-close" aria-label="Close menu" style="background:none; border:none; font-size:1.6rem; cursor:pointer; color:var(--wm-dark);">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="wm-drawer-links">
+        <a href="index.html" class="wm-drawer-link active">Home</a>
+        <a href="about.html" class="wm-drawer-link">About</a>
+        <a href="services.html" class="wm-drawer-link">Services</a>
+        <a href="blog.html" class="wm-drawer-link">Blog</a>
+        <a href="contact.html" class="wm-drawer-link">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="wm-hero-slider-container" aria-label="Stackly Featured Hero Highlights">
+      <!-- Slide 1 -->
+      <div class="wm-hero-slide active" style="background-image: url('assets/images/hero-slide-main.webp');">
+        <div class="wm-container" style="position: relative; z-index: 2;">
+          <div class="wm-hero-slide-content" data-aos="fade-up">
+            <div class="wm-tag">
+              <span class="wm-tag-dot"></span>
+              Institutional Wealth Advisory
+            </div>
+            <h1>
+              Trusted Advisors Guiding You Toward <span class="text-highlight">Lasting Financial Growth</span>
+            </h1>
+            <p>
+              Stackly structures institutional-grade wealth preservation, customized private portfolios, and multi-generational tax strategies designed for discerning families and enterprises.
+            </p>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+              <a href="404.html" class="wm-btn wm-btn-primary">
+                <span>Explore Strategies</span>
+                <span class="wm-btn-icon">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </span>
+              </a>
+              <a href="404.html" class="wm-btn wm-btn-white-outline">
+                <span>Simulate Growth</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="wm-hero-slide" style="background-image: url('assets/images/about-hero-architecture.webp');">
+        <div class="wm-container" style="position: relative; z-index: 2;">
+          <div class="wm-hero-slide-content">
+            <div class="wm-tag">
+              <span class="wm-tag-dot"></span>
+              Generational Security
+            </div>
+            <h1>
+              Secure Wealth Planning Tailored for <span class="text-highlight">Generational Prosperity</span>
+            </h1>
+            <p>
+              Comprehensive dynasty trusts, asset protection firewalls, and bespoke legacy governance ensuring your family capital flourishes for generations to come.
+            </p>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+              <a href="404.html" class="wm-btn wm-btn-primary">
+                <span>View Estate Solutions</span>
+                <span class="wm-btn-icon">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </span>
+              </a>
+              <a href="404.html" class="wm-btn wm-btn-white-outline">
+                <span>Schedule Review</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="wm-hero-slide" style="background-image: url('assets/images/services-hero-banner.webp');">
+        <div class="wm-container" style="position: relative; z-index: 2;">
+          <div class="wm-hero-slide-content">
+            <div class="wm-tag">
+              <span class="wm-tag-dot"></span>
+              Quantitative Discipline
+            </div>
+            <h1>
+              Disciplined Investment Architecture for <span class="text-highlight">Superior Net Alpha</span>
+            </h1>
+            <p>
+              Data-driven multi-asset portfolio engineering built to withstand volatile macroeconomic regimes and capture unconstrained long-term compounding.
+            </p>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+              <a href="404.html" class="wm-btn wm-btn-primary">
+                <span>Calculate Your Wealth</span>
+                <span class="wm-btn-icon">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </span>
+              </a>
+              <a href="404.html" class="wm-btn wm-btn-white-outline">
+                <span>Explore Case Studies</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manual Slider Arrows -->
+      <button class="wm-slider-arrow wm-slider-prev" aria-label="Previous Slide">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="wm-slider-arrow wm-slider-next" aria-label="Next Slide">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <!-- Pagination Indicator Dots -->
+      <div class="wm-slider-pagination">
+        <button class="wm-slider-dot active" aria-label="Go to Slide 1"></button>
+        <button class="wm-slider-dot" aria-label="Go to Slide 2"></button>
+        <button class="wm-slider-dot" aria-label="Go to Slide 3"></button>
+      </div>
+    </section>
+
+    <section class="wm-marquee-section" data-aos="fade-up">
+      <div class="wm-container">
+        <div class="wm-marquee-title">Trusted by Leading Global Financial Institutions & Custodians</div>
+        <div class="wm-marquee-logos">
+          <div class="wm-partner-logo">
+            <i class="fa-solid fa-landmark"></i>
+            VANGUARD TRUST
+          </div>
+          <div class="wm-partner-logo">
+            <i class="fa-solid fa-building-columns"></i>
+            APEX CAPITAL
+          </div>
+          <div class="wm-partner-logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            ZURICH HOLDINGS
+          </div>
+          <div class="wm-partner-logo">
+            <i class="fa-solid fa-gem"></i>
+            MORGAN STONE
+          </div>
+          <div class="wm-partner-logo">
+            <i class="fa-solid fa-scale-balanced"></i>
+            BEACON WEALTH
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wm-section wm-bg-surface" id="about">
+      <div class="wm-container">
+        <div class="wm-section-header text-center" data-aos="fade-up">
+          <div class="wm-tag"><span class="wm-tag-dot"></span>About Stackly</div>
+          <h2>Designed for Families Who Value Financial Security and Confidence</h2>
+          <p class="wm-section-subtitle">
+            Every family portfolio and institutional fund we manage receives customized architecture, proactive rebalancing, and uncompromised fiduciary oversight.
+          </p>
+        </div>
+
+        <div class="wm-stats-grid" id="stats">
+          <!-- Stat 1 -->
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="wm-stat-icon">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+            <div class="wm-stat-number" data-target="450" data-prefix="$" data-suffix="M+">$0</div>
+            <div class="wm-stat-label">Assets Under Advisory</div>
+            <div class="wm-stat-sub">Across global liquid and private markets</div>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="wm-stat-icon">
+              <i class="fa-solid fa-handshake-angle"></i>
+            </div>
+            <div class="wm-stat-number" data-target="99.2" data-suffix="%">0%</div>
+            <div class="wm-stat-label">Client Retention Rate</div>
+            <div class="wm-stat-sub">Decade-long generational partnerships</div>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="wm-stat-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="wm-stat-number" data-target="25" data-suffix="+">0</div>
+            <div class="wm-stat-label">Years of Fiduciary Integrity</div>
+            <div class="wm-stat-sub">Established track record through market cycles</div>
+          </div>
+
+          <!-- Stat 4 -->
+          <div class="wm-stat-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="wm-stat-icon">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="wm-stat-number" data-target="12400" data-suffix="+">0</div>
+            <div class="wm-stat-label">Portfolios Tailored</div>
+            <div class="wm-stat-sub">Individualized investment policy statements</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wm-section" id="services">
+      <div class="wm-container">
+        <div class="wm-section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;" data-aos="fade-up">
+          <div>
+            <div class="wm-tag"><span class="wm-tag-dot"></span>Our Services</div>
+            <h2>Trusted Financial Services</h2>
+            <p class="wm-section-subtitle" style="margin-bottom: 0;">Comprehensive wealth solutions calibrated to protect and amplify capital.</p>
+          </div>
+          <a href="404.html" class="wm-btn wm-btn-teal">
+            <span>View All Services</span>
+            <span class="wm-btn-icon">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </a>
+        </div>
+
+        <div class="wm-services-grid">
+          <!-- Service 1 -->
+          <div class="wm-service-card" data-aos="fade-up" data-aos-delay="100">
+            <div>
+              <div class="wm-service-card-top">
+                <div class="wm-service-icon">
+                  <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <span class="wm-service-num">01</span>
+              </div>
+              <h3 class="wm-service-title">Wealth & Asset Management</h3>
+              <p class="wm-service-desc">
+                Customized multi-asset allocations spanning equities, fixed income, and commodities structured to achieve inflation-beating net yields.
+              </p>
+              <div class="wm-service-features">
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Dynamic risk-weighted balancing</span>
+                </div>
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Global ETF & direct equity indexing</span>
+                </div>
+              </div>
+            </div>
+            <div class="wm-service-footer">
+              <a href="404.html" class="wm-service-link" >
+                <span>Learn Strategy</span>
+              </a>
+              <a href="404.html" class="wm-service-arrow" aria-label="Learn Strategy">
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="wm-service-card" data-aos="fade-up" data-aos-delay="200">
+            <div>
+              <div class="wm-service-card-top">
+                <div class="wm-service-icon">
+                  <i class="fa-solid fa-umbrella"></i>
+                </div>
+                <span class="wm-service-num">02</span>
+              </div>
+              <h3 class="wm-service-title">Retirement & Pension Security</h3>
+              <p class="wm-service-desc">
+                Stress-tested cash-flow modeling ensuring your lifestyle remains fully sustained with predictable, inflation-adjusted income streams.
+              </p>
+              <div class="wm-service-features">
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Monte Carlo lifestyle simulations</span>
+                </div>
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Guaranteed annuity & drawdown planning</span>
+                </div>
+              </div>
+            </div>
+            <div class="wm-service-footer">
+              <a href="404.html" class="wm-service-link" >
+                <span>Learn Strategy</span>
+              </a>
+              <a href="404.html" class="wm-service-arrow" aria-label="Learn Strategy">
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="wm-service-card" data-aos="fade-up" data-aos-delay="300">
+            <div>
+              <div class="wm-service-card-top">
+                <div class="wm-service-icon">
+                  <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+                <span class="wm-service-num">03</span>
+              </div>
+              <h3 class="wm-service-title">Tax Planning & Optimization</h3>
+              <p class="wm-service-desc">
+                Proactive capital gains mitigation, international tax residency structuring, and tax-loss harvesting to safeguard your annual returns.
+              </p>
+              <div class="wm-service-features">
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Year-round tax loss harvesting</span>
+                </div>
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Qualified opportunity fund deployment</span>
+                </div>
+              </div>
+            </div>
+            <div class="wm-service-footer">
+              <a href="404.html" class="wm-service-link" >
+                <span>Learn Strategy</span>
+              </a>
+              <a href="404.html" class="wm-service-arrow" aria-label="Learn Strategy">
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="wm-service-card" data-aos="fade-up" data-aos-delay="100">
+            <div>
+              <div class="wm-service-card-top">
+                <div class="wm-service-icon">
+                  <i class="fa-solid fa-shield-heart"></i>
+                </div>
+                <span class="wm-service-num">04</span>
+              </div>
+              <h3 class="wm-service-title">Estate & Family Trust Advisory</h3>
+              <p class="wm-service-desc">
+                Preserving generational assets through irrevocable dynasty trusts, philanthropic endowments, and airtight asset protection firewalls.
+              </p>
+              <div class="wm-service-features">
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Dynasty & Generation-Skipping Trusts</span>
+                </div>
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Private family foundation governance</span>
+                </div>
+              </div>
+            </div>
+            <div class="wm-service-footer">
+              <a href="404.html" class="wm-service-link" >
+                <span>Learn Strategy</span>
+              </a>
+              <a href="404.html" class="wm-service-arrow" aria-label="Learn Strategy">
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="wm-service-card" data-aos="fade-up" data-aos-delay="200">
+            <div>
+              <div class="wm-service-card-top">
+                <div class="wm-service-icon">
+                  <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <span class="wm-service-num">05</span>
+              </div>
+              <h3 class="wm-service-title">Corporate Treasury & Risk Advisory</h3>
+              <p class="wm-service-desc">
+                Institutional treasury yield strategies, FX hedging, and corporate balance-sheet liquidity optimization for growing enterprises.
+              </p>
+              <div class="wm-service-features">
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Short-term yield sweep accounts</span>
+                </div>
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Currency fluctuation protection</span>
+                </div>
+              </div>
+            </div>
+            <div class="wm-service-footer">
+              <a href="404.html" class="wm-service-link" >
+                <span>Learn Strategy</span>
+              </a>
+              <a href="404.html" class="wm-service-arrow" aria-label="Learn Strategy">
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="wm-service-card" data-aos="fade-up" data-aos-delay="300">
+            <div>
+              <div class="wm-service-card-top">
+                <div class="wm-service-icon">
+                  <i class="fa-solid fa-cubes"></i>
+                </div>
+                <span class="wm-service-num">06</span>
+              </div>
+              <h3 class="wm-service-title">Private Equity & Real Assets</h3>
+              <p class="wm-service-desc">
+                Exclusive co-investment access to direct private equity, infrastructure ventures, and prime commercial real estate syndications.
+              </p>
+              <div class="wm-service-features">
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Off-market pre-IPO allocations</span>
+                </div>
+                <div class="wm-service-feature-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Institutional real estate debt funds</span>
+                </div>
+              </div>
+            </div>
+            <div class="wm-service-footer">
+              <a href="404.html" class="wm-service-link" >
+                <span>Learn Strategy</span>
+              </a>
+              <a href="404.html" class="wm-service-arrow" aria-label="Learn Strategy">
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wm-section wm-bg-surface" id="strategy">
+      <div class="wm-container">
+        <div class="wm-section-header text-center" data-aos="fade-up">
+          <div class="wm-tag"><span class="wm-tag-dot"></span>Careful Planning</div>
+          <h2>It Involves Careful Planning, Clear Goals And Disciplined Investing</h2>
+          <p class="wm-section-subtitle">Choose a focus pillar to see how Stackly's fiduciary advisory protocol operates in practice.</p>
+        </div>
+
+        <!-- Strategy Nav Pills -->
+        <div class="wm-tabs-nav" data-aos="fade-up">
+          <button class="wm-tab-btn active" data-tab="tab-preservation">Capital Preservation</button>
+          <button class="wm-tab-btn" data-tab="tab-growth">High-Yield Growth</button>
+          <button class="wm-tab-btn" data-tab="tab-tax">Tax Minimization</button>
+          <button class="wm-tab-btn" data-tab="tab-legacy">Family Legacy</button>
+        </div>
+
+        <!-- Panel 1: Capital Preservation -->
+        <div class="wm-tab-panel active" id="tab-preservation">
+          <div class="wm-tab-content-grid">
+            <div class="wm-tab-details">
+              <div class="wm-tag" style="background-color: var(--wm-sage); color: var(--wm-primary);">Low Beta & Capital Defense</div>
+              <h3>Preserving Purchasing Power Through Volatile Economic Regimes</h3>
+              <p>
+                Our preservation mandate prevents permanent impairment of capital by utilizing sovereign bonds, high-grade structured notes, and market-neutral hedging instruments.
+              </p>
+              <div class="wm-checklist">
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Tail-Risk Hedging:</strong> Active put-option buffers protecting against black-swan corrections.</div>
+                </div>
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Inflation Hedging:</strong> Real asset indexing including commodities and sovereign TIPS.</div>
+                </div>
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Immediate Liquidity Tranches:</strong> 12–24 months of operational reserves kept in high-yield government bills.</div>
+                </div>
+              </div>
+              <a href="404.html" class="wm-btn wm-btn-teal" >
+                <span>Request Capital Defense Blueprint</span>
+              </a>
+            </div>
+            <div class="wm-tab-visual">
+              <img src="assets/images/about-hero-architecture.webp" alt="Capital Preservation Infrastructure">
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: High-Yield Growth -->
+        <div class="wm-tab-panel" id="tab-growth">
+          <div class="wm-tab-content-grid">
+            <div class="wm-tab-details">
+              <div class="wm-tag" style="background-color: var(--wm-sage); color: var(--wm-primary);">Compounded Acceleration</div>
+              <h3>Aggressive Capital Appreciation Calibrated to Risk Tolerance</h3>
+              <p>
+                Constructed for forward-thinking investors seeking superior risk-adjusted alpha through secular thematic investments, AI infrastructure, and global private ventures.
+              </p>
+              <div class="wm-checklist">
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Thematic Mega-Trends:</strong> Direct exposure to next-generation energy, cloud computing, and biotech.</div>
+                </div>
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Factor-Based Selection:</strong> High return-on-invested-capital (ROIC) companies with wide economic moats.</div>
+                </div>
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Private Co-Investments:</strong> Access to institutional-grade secondary market shares.</div>
+                </div>
+              </div>
+              <a href="404.html" class="wm-btn wm-btn-teal">
+                <span>View Growth Strategy Details</span>
+              </a>
+            </div>
+            <div class="wm-tab-visual">
+              <img src="assets/images/services-hero-banner.webp" alt="Financial Growth Analytics">
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: Tax Minimization -->
+        <div class="wm-tab-panel" id="tab-tax">
+          <div class="wm-tab-content-grid">
+            <div class="wm-tab-details">
+              <div class="wm-tag" style="background-color: var(--wm-sage); color: var(--wm-primary);">Fiscal Efficiency</div>
+              <h3>Maximizing After-Tax Retention on Liquid & Illiquid Gains</h3>
+              <p>
+                True wealth management isn't just about what your portfolio earns—it's about what you keep. We orchestrate comprehensive multi-jurisdictional tax mitigation.
+              </p>
+              <div class="wm-checklist">
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Automated Tax-Loss Harvesting:</strong> Daily algorithmic loss capture to offset realized gains.</div>
+                </div>
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Municipal & Sovereign Debt:</strong> Tax-exempt yield structures maximizing net cash flow.</div>
+                </div>
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Entity Structuring:</strong> LLCs, Family Limited Partnerships (FLPs), and offshore holding vehicles.</div>
+                </div>
+              </div>
+              <a href="404.html" class="wm-btn wm-btn-teal">
+                <span>Get Tax Audit Assessment</span>
+              </a>
+            </div>
+            <div class="wm-tab-visual">
+              <img src="assets/images/wealth-planning-consult.webp" alt="Tax and Legal Architecture">
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4: Family Legacy -->
+        <div class="wm-tab-panel" id="tab-legacy">
+          <div class="wm-tab-content-grid">
+            <div class="wm-tab-details">
+              <div class="wm-tag" style="background-color: var(--wm-sage); color: var(--wm-primary);">Generational Transition</div>
+              <h3>Seamless Succession and Value Transmission for Centuries</h3>
+              <p>
+                Empowering the next generation with financial literacy, governance constitutions, and airtight trust instruments that eliminate probate delay and estate conflict.
+              </p>
+              <div class="wm-checklist">
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Family Governance Charter:</strong> Formalized family council meetings, bylaws, and mission alignment.</div>
+                </div>
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Irrevocable Life Insurance Trusts (ILITs):</strong> Providing immediate tax-free liquidity for estate obligations.</div>
+                </div>
+                <div class="wm-checklist-item">
+                  <div class="wm-checklist-icon"><i class="fa-solid fa-check"></i></div>
+                  <div><strong>Next-Gen Leadership Mentorship:</strong> Educating heirs on capital stewardship and impact investing.</div>
+                </div>
+              </div>
+              <a href="404.html" class="wm-btn wm-btn-teal">
+                <span>Explore Estate Transition</span>
+              </a>
+            </div>
+            <div class="wm-tab-visual">
+              <img src="assets/images/fintech-boardroom.webp" alt="Family Legacy and Advisory">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wm-section" id="calculator">
+      <div class="wm-container">
+        <div class="wm-section-header text-center" data-aos="fade-up">
+          <div class="wm-tag"><span class="wm-tag-dot"></span>Interactive Simulator</div>
+          <h2>Simulate Your Future Wealth Compound Growth</h2>
+          <p class="wm-section-subtitle">Visualize how disciplined periodic additions and institutional yields compound into multi-generational capital.</p>
+        </div>
+
+        <div class="wm-calc-box" data-aos="fade-up">
+          <!-- Left: Input Sliders -->
+          <div>
+            <div class="wm-calc-slider-group">
+              <div class="wm-calc-slider-label">
+                <span>Initial Investment Principal</span>
+                <span class="wm-calc-slider-val" id="val-initial">$100,000</span>
+              </div>
+              <input type="range" class="wm-slider" id="calc-initial" min="10000" max="1000000" step="10000" value="100000">
+            </div>
+
+            <div class="wm-calc-slider-group">
+              <div class="wm-calc-slider-label">
+                <span>Monthly Advisory Addition</span>
+                <span class="wm-calc-slider-val" id="val-monthly">$2,500/mo</span>
+              </div>
+              <input type="range" class="wm-slider" id="calc-monthly" min="100" max="25000" step="250" value="2500">
+            </div>
+
+            <div class="wm-calc-slider-group">
+              <div class="wm-calc-slider-label">
+                <span>Horizon Timeline</span>
+                <span class="wm-calc-slider-val" id="val-years">15 Years</span>
+              </div>
+              <input type="range" class="wm-slider" id="calc-years" min="1" max="30" step="1" value="15">
+            </div>
+
+            <div class="wm-calc-slider-group">
+              <div class="wm-calc-slider-label">
+                <span>Target Annual Yield (Net of Fees)</span>
+                <span class="wm-calc-slider-val" id="val-return">9.5%</span>
+              </div>
+              <input type="range" class="wm-slider" id="calc-return" min="3" max="16" step="0.5" value="9.5">
+            </div>
+
+            <p style="font-size: 0.8125rem; color: var(--wm-body-muted); margin-top: 20px;">
+              *Hypothetical compound growth illustration assumes continuous monthly contributions and reinvested dividends.
+            </p>
+          </div>
+
+          <!-- Right: Calculated Results Card -->
+          <div class="wm-calc-results">
+            <div>
+              <div class="wm-tag" style="background-color: rgba(229, 255, 94, 0.15); color: var(--wm-secondary); font-size: 0.75rem;">
+                Projected Portfolio Value
+              </div>
+              <div class="wm-calc-total-val" id="calc-result-total">$1,489,120</div>
+
+              <div class="wm-calc-breakdown">
+                <div class="wm-breakdown-row">
+                  <span>Total Capital Deposited:</span>
+                  <strong id="calc-result-principal">$550,000</strong>
+                </div>
+                <div class="wm-breakdown-row">
+                  <span>Compound Interest Generated:</span>
+                  <strong style="color: var(--wm-secondary);" id="calc-result-interest">$939,120</strong>
+                </div>
+              </div>
+            </div>
+
+            <a href="404.html" class="wm-btn wm-btn-primary" style="width: 100%;">
+              <span>Execute This Growth Model</span>
+              <span class="wm-btn-icon">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section class="wm-section wm-bg-surface wm-testimonials-section" id="testimonials">
+      <div class="wm-container">
+        <!-- Section Header Row with Navigation Arrows -->
+        <div class="wm-testimonials-header-row" data-aos="fade-up">
+          <div class="wm-section-header" style="margin-bottom: 0;">
+            <div class="wm-tag"><span class="wm-tag-dot"></span>Client Testimonials</div>
+            <h2>Trusted by Our Clients</h2>
+            <p class="wm-section-subtitle" style="margin-bottom: 0;">Real experiences from long-standing investors and multi-generational clients.</p>
+          </div>
+
+          <!-- Manual Slider Arrows -->
+          <div class="wm-testimonial-nav">
+            <button class="wm-testimonial-arrow" id="testiPrevBtn" aria-label="Previous Testimonial">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button class="wm-testimonial-arrow" id="testiNextBtn" aria-label="Next Testimonial">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slider Viewport -->
+        <div class="wm-testimonial-slider-wrap" id="testimonialSliderWrap" data-aos="fade-up" data-aos-delay="100">
+          <div class="wm-testimonial-track" id="testimonialTrack">
+            
+            <!-- Review 1: Elena Rostova -->
+            <div class="wm-testimonial-card">
+              <div class="wm-testi-top">
+                <div class="wm-testi-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="wm-testi-quote-badge">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <p class="wm-testi-quote">
+                "Stackly structured our tech exit flawlessly. Their tax-mitigation blueprint alone saved our family millions in capital gains, and the automated rebalancing gives us complete peace of mind."
+              </p>
+              <div class="wm-testi-author">
+                <div class="wm-testi-author-left">
+                  <img class="wm-author-avatar" src="assets/images/avatar-clara-dupont.webp" alt="Elena Rostova">
+                  <div class="wm-author-info">
+                    <div class="wm-author-name">Elena Rostova</div>
+                    <div class="wm-author-role">Founder & Tech Executive, Austin TX</div>
+                  </div>
+                </div>
+                <span class="wm-testi-pill"><i class="fa-solid fa-circle-check"></i> Verified Client</span>
+              </div>
+            </div>
+
+            <!-- Review 2: Marcus Sterling, MD -->
+            <div class="wm-testimonial-card">
+              <div class="wm-testi-top">
+                <div class="wm-testi-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="wm-testi-quote-badge">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <p class="wm-testi-quote">
+                "What distinguishes Stackly from ordinary private banks is their fiduciary focus. They never push proprietary products. Every asset in our trust serves a transparent, verifiable purpose."
+              </p>
+              <div class="wm-testi-author">
+                <div class="wm-testi-author-left">
+                  <img class="wm-author-avatar" src="assets/images/avatar-marcus-sterling.webp" alt="Marcus Sterling">
+                  <div class="wm-author-info">
+                    <div class="wm-author-name">Marcus Sterling, MD</div>
+                    <div class="wm-author-role">Chief of Surgery & Angel Investor, Chicago IL</div>
+                  </div>
+                </div>
+                <span class="wm-testi-pill"><i class="fa-solid fa-circle-check"></i> Verified Client</span>
+              </div>
+            </div>
+
+            <!-- Review 3: Arthur Pendelton -->
+            <div class="wm-testimonial-card">
+              <div class="wm-testi-top">
+                <div class="wm-testi-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="wm-testi-quote-badge">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <p class="wm-testi-quote">
+                "Transitioning our manufacturing legacy to my grandchildren was a daunting task. The estate team crafted an airtight dynasty trust and held family mentorship summits that unified all of us."
+              </p>
+              <div class="wm-testi-author">
+                <div class="wm-testi-author-left">
+                  <img class="wm-author-avatar" src="assets/images/avatar-david-vance.webp" alt="Arthur Pendelton">
+                  <div class="wm-author-info">
+                    <div class="wm-author-name">Arthur Pendelton</div>
+                    <div class="wm-author-role">Managing Trustee, Pendelton Holdings</div>
+                  </div>
+                </div>
+                <span class="wm-testi-pill"><i class="fa-solid fa-circle-check"></i> Verified Client</span>
+              </div>
+            </div>
+
+            <!-- Review 4: Vivienne Laurent -->
+            <div class="wm-testimonial-card">
+              <div class="wm-testi-top">
+                <div class="wm-testi-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="wm-testi-quote-badge">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <p class="wm-testi-quote">
+                "As a renewable energy founder, standard wealth managers didn't understand illiquid private assets. Stackly integrated our private equity co-investments with dynamic cash sweep yields seamlessly."
+              </p>
+              <div class="wm-testi-author">
+                <div class="wm-testi-author-left">
+                  <img class="wm-author-avatar" src="assets/images/team-sarah-chen.webp" alt="Vivienne Laurent">
+                  <div class="wm-author-info">
+                    <div class="wm-author-name">Vivienne Laurent</div>
+                    <div class="wm-author-role">Principal Partner, CleanTech Ventures, New York NY</div>
+                  </div>
+                </div>
+                <span class="wm-testi-pill"><i class="fa-solid fa-circle-check"></i> Verified Client</span>
+              </div>
+            </div>
+
+            <!-- Review 5: Dr. Julian & Clara Vance -->
+            <div class="wm-testimonial-card">
+              <div class="wm-testi-top">
+                <div class="wm-testi-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="wm-testi-quote-badge">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <p class="wm-testi-quote">
+                "The direct indexing and daily algorithmic tax-loss harvesting added measurable basis points to our net portfolio return. The fiduciary transparency gives our family total clarity."
+              </p>
+              <div class="wm-testi-author">
+                <div class="wm-testi-author-left">
+                  <img class="wm-author-avatar" src="assets/images/team-alexander-wright.webp" alt="Julian Vance">
+                  <div class="wm-author-info">
+                    <div class="wm-author-name">Dr. Julian & Clara Vance</div>
+                    <div class="wm-author-role">Endowment Stewards, Cambridge BioSciences, Boston MA</div>
+                  </div>
+                </div>
+                <span class="wm-testi-pill"><i class="fa-solid fa-circle-check"></i> Verified Client</span>
+              </div>
+            </div>
+
+            <!-- Review 6: Devon Sterling, PE -->
+            <div class="wm-testimonial-card">
+              <div class="wm-testi-top">
+                <div class="wm-testi-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="wm-testi-quote-badge">
+                  <i class="fa-solid fa-quote-right"></i>
+                </div>
+              </div>
+              <p class="wm-testi-quote">
+                "Stackly orchestrated our commercial real estate recapitalization and 1031 Delaware Statutory Trust exchange flawlessly. Having a dedicated wealth architect coordinate directly with our CPA is invaluable."
+              </p>
+              <div class="wm-testi-author">
+                <div class="wm-testi-author-left">
+                  <img class="wm-author-avatar" src="assets/images/team-elena-rostova.webp" alt="Devon Sterling">
+                  <div class="wm-author-info">
+                    <div class="wm-author-name">Devon Sterling, PE</div>
+                    <div class="wm-author-role">Managing Director, Sterling Capital, Denver CO</div>
+                  </div>
+                </div>
+                <span class="wm-testi-pill"><i class="fa-solid fa-circle-check"></i> Verified Client</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Manual Slider Pagination Dots -->
+        <div class="wm-testimonial-dots-wrap" id="testimonialDots"></div>
+
+      </div>
+    </section>
+
+    <section class="wm-section" id="pricing">
+      <div class="wm-container">
+        <div class="wm-section-header text-center" data-aos="fade-up">
+          <div class="wm-tag"><span class="wm-tag-dot"></span>Pricing Plan</div>
+          <h2>Transparent Advisory Tiers Built for Long-Term Value</h2>
+          <p class="wm-section-subtitle">No hidden commissions, no third-party product incentives. True fiduciary fee structures.</p>
+        </div>
+
+        <!-- Monthly / Annual Toggle -->
+        <div class="wm-pricing-toggle" data-aos="fade-up">
+          <span style="font-weight: 600; color: var(--wm-dark);">Monthly Billing</span>
+          <div class="wm-toggle-switch" title="Toggle Annual Discount">
+            <div class="wm-toggle-thumb"></div>
+          </div>
+          <span style="font-weight: 600; color: var(--wm-dark);">Annual Billing</span>
+          <span class="wm-toggle-discount">Save 20%</span>
+        </div>
+
+        <div class="wm-pricing-grid">
+          <!-- Plan 1: Lite -->
+          <div class="wm-pricing-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Lite Plan</h3>
+            <p style="color: var(--wm-body-muted); font-size: 0.875rem;">Foundational wealth planning for early high-earners.</p>
+            <div class="wm-pricing-price">
+              <span class="wm-price-currency">$</span>
+              <span class="wm-price-val" data-monthly="50" data-annual="40">50</span>
+              <span class="wm-price-period">/ month</span>
+            </div>
+            <div class="wm-pricing-features">
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Custom Asset Allocation Plan</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Quarterly Portfolio Rebalancing</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Annual Tax Optimization Audit</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Automated Dividend Reinvestment</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Digital Portal & Mobile Tracking</span>
+              </div>
+            </div>
+            <a href="404.html" class="wm-btn wm-btn-outline" style="width: 100%;">
+              <span>Get Started</span>
+            </a>
+          </div>
+
+          <!-- Plan 2: Pro (Featured) -->
+          <div class="wm-pricing-card featured" data-aos="fade-up" data-aos-delay="200">
+            <div class="wm-pricing-badge">Most Popular</div>
+            <h3>Pro Advisory</h3>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem;">Full-spectrum wealth management for affluent families.</p>
+            <div class="wm-pricing-price">
+              <span class="wm-price-currency">$</span>
+              <span class="wm-price-val" data-monthly="90" data-annual="72">90</span>
+              <span class="wm-price-period">/ month</span>
+            </div>
+            <div class="wm-pricing-features">
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Dedicated Chartered Wealth Advisor (CFA)</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Real-Time Daily Tax-Loss Harvesting</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Alternative Assets & Real Estate Co-Investing</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Complete Estate & Trust Structuring</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Monthly Strategic Advisory Reviews</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Priority 24/7 Concierge Support</span>
+              </div>
+            </div>
+            <a href="404.html" class="wm-btn wm-btn-primary" style="width: 100%;">
+              <span>Select Pro Advisory</span>
+              <span class="wm-btn-icon">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </a>
+          </div>
+
+          <!-- Plan 3: Ultimate -->
+          <div class="wm-pricing-card" data-aos="fade-up" data-aos-delay="300">
+            <h3>Ultimate Office</h3>
+            <p style="color: var(--wm-body-muted); font-size: 0.875rem;">Bespoke multi-family office and private banking services.</p>
+            <div class="wm-pricing-price">
+              <span class="wm-price-currency">$</span>
+              <span class="wm-price-val" data-monthly="150" data-annual="120">150</span>
+              <span class="wm-price-period">/ month</span>
+            </div>
+            <div class="wm-pricing-features">
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Managing Partner Direct Oversight</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Cross-Border Sovereign Tax Structuring</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Direct Pre-IPO & Private Equity Syndicate</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Family Governance & Philanthropic Foundation</span>
+              </div>
+              <div class="wm-pricing-feature">
+                <span class="wm-feature-icon"><i class="fa-solid fa-check"></i></span>
+                <span>Unlimited Direct In-Person Strategy Sessions</span>
+              </div>
+            </div>
+            <a href="404.html" class="wm-btn wm-btn-outline" style="width: 100%;">
+              <span>Inquire for Family Office</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wm-section wm-bg-surface" id="insights">
+      <div class="wm-container">
+        <div class="wm-section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;" data-aos="fade-up">
+          <div>
+            <div class="wm-tag"><span class="wm-tag-dot"></span>Latest News & Blog</div>
+            <h2>Review The Facts: Financial Strategy Insights</h2>
+            <p class="wm-section-subtitle" style="margin-bottom: 0;">Institutional perspectives on capital protection and macro trends.</p>
+          </div>
+          <a href="blog.html" class="wm-btn wm-btn-outline">
+            <span>View All Articles</span>
+          </a>
+        </div>
+
+        <div class="wm-portfolio-grid">
+          <!-- Article 1 -->
+          <article class="wm-portfolio-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="wm-portfolio-thumb">
+              <img src="assets/images/crypto-alternative-assets.webp" alt="Financial Planning Guide">
+              <div class="wm-portfolio-roi-badge">Tax Strategy</div>
+            </div>
+            <div class="wm-portfolio-body">
+              <div>
+                <div style="font-size: 0.75rem; color: var(--wm-body-muted); margin-bottom: 6px;"><i class="fa-regular fa-calendar"></i> October 18, 2026 • 5 min read</div>
+                <h4 class="wm-portfolio-title">Empowering Financial Decisions With Smart Annual Tax Planning</h4>
+                <p class="wm-portfolio-desc">
+                  Explore how active asset location and year-end loss harvesting can protect up to 2.4% in excess annualized return.
+                </p>
+              </div>
+              <a href="404.html" class="wm-service-link" style="color: var(--wm-primary);">
+                <span>Read Full Article <i class="fa-solid fa-arrow-right"></i></span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="wm-portfolio-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="wm-portfolio-thumb">
+              <img src="assets/images/blog-hero-markets.webp" alt="Market Volatility Protection">
+              <div class="wm-portfolio-roi-badge">Macroeconomics</div>
+            </div>
+            <div class="wm-portfolio-body">
+              <div>
+                <div style="font-size: 0.75rem; color: var(--wm-body-muted); margin-bottom: 6px;"><i class="fa-regular fa-calendar"></i> October 12, 2026 • 8 min read</div>
+                <h4 class="wm-portfolio-title">Navigating Volatility With Confidence, Control And Fixed Income</h4>
+                <p class="wm-portfolio-desc">
+                  How high-grade sovereign debt ladders combined with real-estate debt shields private wealth from inflation fluctuations.
+                </p>
+              </div>
+              <a href="404.html" class="wm-service-link" style="color: var(--wm-primary);">
+                <span>Read Full Article <i class="fa-solid fa-arrow-right"></i></span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="wm-portfolio-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="wm-portfolio-thumb">
+              <img src="assets/images/currency-liquidity.webp" alt="Legacy Planning">
+              <div class="wm-portfolio-roi-badge">Family Office</div>
+            </div>
+            <div class="wm-portfolio-body">
+              <div>
+                <div style="font-size: 0.75rem; color: var(--wm-body-muted); margin-bottom: 6px;"><i class="fa-regular fa-calendar"></i> October 04, 2026 • 6 min read</div>
+                <h4 class="wm-portfolio-title">Building a Good Financial Standing: The Multi-Generational Guide</h4>
+                <p class="wm-portfolio-desc">
+                  A comprehensive breakdown of dynasty trusts, family governance charters, and philanthropy endowments.
+                </p>
+              </div>
+              <a href="404.html" class="wm-service-link" style="color: var(--wm-primary);">
+                <span>Read Full Article <i class="fa-solid fa-arrow-right"></i></span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wm-section" id="faq">
+      <div class="wm-container">
+        <div class="wm-section-header text-center" data-aos="fade-up">
+          <div class="wm-tag"><span class="wm-tag-dot"></span>Common Questions</div>
+          <h2>Frequently Asked Questions</h2>
+          <p class="wm-section-subtitle">
+            Clear, transparent answers regarding our fiduciary standard, asset custody protection, fee schedules, and wealth advisory protocol.
+          </p>
+        </div>
+
+        <div class="wm-faq-split-grid">
+          <!-- Left Column: Image Showcase -->
+          <div class="wm-faq-image-side" data-aos="fade-right">
+            <img src="assets/images/team-sarah-chen.webp" alt="Stackly Wealth Advisory Consultation Desk">
+            <div class="wm-faq-image-overlay">
+              <span class="wm-faq-image-badge"><i class="fa-solid fa-shield-halved"></i> Fiduciary Advisory Desk</span>
+              <h3 class="wm-faq-image-title">Have Questions About Your Portfolio?</h3>
+              <p class="wm-faq-image-desc">
+                Speak directly with an Investment Policy Committee strategist for an independent, confidential capital review.
+              </p>
+              <a href="404.html" class="wm-faq-image-cta">
+                <span>Schedule Private Consultation</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Accordion -->
+          <div class="wm-faq-accordion-wrap" data-aos="fade-left">
+            <div class="wm-faq-container" style="max-width: 100%; margin: 0;">
+
+              <!-- FAQ Item 1 -->
+              <div class="wm-faq-item active">
+                <button class="wm-faq-question" aria-expanded="true">
+                  <span>What makes Stackly's fiduciary standard different from traditional banks?</span>
+                  <div class="wm-faq-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </button>
+                <div class="wm-faq-answer">
+                  <p>
+                    Unlike traditional brokerage houses and retail commercial banks that sell proprietary investment products or accept manager commissions, Stackly is a <strong>100% Fee-Only Registered Investment Advisor (RIA)</strong>. Under the Investment Advisers Act of 1940, we operate under a strict legal fiduciary mandate—obligating us to place your financial interests above our own at all times with absolute fee transparency.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ Item 2 -->
+              <div class="wm-faq-item">
+                <button class="wm-faq-question" aria-expanded="false">
+                  <span>Where are client assets held, and how are they protected?</span>
+                  <div class="wm-faq-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </button>
+                <div class="wm-faq-answer">
+                  <p>
+                    Stackly enforces complete separation between investment advice and custody. All client capital is held in segregated accounts under your own legal name at top-tier institutional custodians including <strong>Charles Schwab & Co.</strong> and <strong>Fidelity Institutional</strong>. Your assets are safeguarded by SIPC coverage up to $500,000 (including $250,000 for cash claims), backed by supplemental multi-million-dollar private custody insurance.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ Item 3 -->
+              <div class="wm-faq-item">
+                <button class="wm-faq-question" aria-expanded="false">
+                  <span>What is Stackly's fee structure and minimum portfolio size?</span>
+                  <div class="wm-faq-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </button>
+                <div class="wm-faq-answer">
+                  <p>
+                    We operate with a tiered percentage fee based on Assets Under Management (AUM), starting at <strong>0.65%</strong> and scaling down to <strong>0.30%</strong> for larger institutional allocations. We charge zero trading commissions, zero product markups, and zero lock-in redemption penalties. Our comprehensive wealth advisory typically begins at <strong>$1,000,000</strong> in liquid investable assets, with bespoke family office tiers for mandates exceeding $10,000,000.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ Item 4 -->
+              <div class="wm-faq-item">
+                <button class="wm-faq-question" aria-expanded="false">
+                  <span>How does Stackly optimize tax efficiency and minimize capital gains?</span>
+                  <div class="wm-faq-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </button>
+                <div class="wm-faq-answer">
+                  <p>
+                    We execute continuous algorithmic tax-alpha strategies including <strong>daily tax-loss harvesting</strong>, asset-location optimization across taxable, Roth, and tax-deferred accounts, Section 1202 Qualified Small Business Stock (QSBS) stacking, and charitable appreciated asset gifting—consistently delivering an estimated 1.2% to 2.4% in excess annualized net tax alpha.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ Item 5 -->
+              <div class="wm-faq-item">
+                <button class="wm-faq-question" aria-expanded="false">
+                  <span>Can Stackly coordinate with our existing CPA, estate attorney, or family office?</span>
+                  <div class="wm-faq-icon">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </button>
+                <div class="wm-faq-answer">
+                  <p>
+                    Yes. We serve as the central fiduciary quarterback for your total wealth balance sheet. Our advisory partners coordinate directly with your certified public accountants (CPAs), trust and estate attorneys, corporate business counsels, and family councils to ensure synchronized execution across portfolio, tax, and multi-generational succession structures.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wm-footer">
+    <div class="wm-container">
+      <div class="wm-footer-grid">
+        <!-- Column 1 — Brand Information -->
+        <div class="wm-footer-col">
+          <a href="index.html" class="wm-logo" style="margin-bottom: 1.25rem;">
+            <img src="assets/images/logo.webp" alt="Stackly Wealth Management" class="wm-logo-img">
+          </a>
+          <p style="font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Stackly is a premier financial and wealth management advisory platform delivering institutional-grade capital stewardship, tax strategy, and multi-generational family estate preservation.
+          </p>
+          <div style="display: flex; gap: 12px;">
+            <a href="404.html" class="wm-team-social-link" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="404.html" class="wm-team-social-link" title="Twitter / X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="404.html" class="wm-team-social-link" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="404.html" class="wm-team-social-link" title="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2 — Quick Links (Navbar navigation items) -->
+        <div class="wm-footer-col">
+          <h4>Quick Links</h4>
+          <ul class="wm-footer-links">
+            <li><a href="index.html" class="wm-footer-link"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+            <li><a href="about.html" class="wm-footer-link"><i class="fa-solid fa-angle-right"></i> About</a></li>
+            <li><a href="services.html" class="wm-footer-link"><i class="fa-solid fa-angle-right"></i> Services</a></li>
+            <li><a href="blog.html" class="wm-footer-link"><i class="fa-solid fa-angle-right"></i> Blog</a></li>
+            <li><a href="contact.html" class="wm-footer-link"><i class="fa-solid fa-angle-right"></i> Contact</a></li>
+         </ul>
+        </div>
+
+        <!-- Column 3 — Policies -->
+        <div class="wm-footer-col">
+          <h4>Policies</h4>
+          <ul class="wm-footer-links">
+            <li><a href="404.html" class="wm-footer-link"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a></li>
+            <li><a href="404.html" class="wm-footer-link"><i class="fa-solid fa-scale-balanced"></i> Terms and Conditions</a></li>
+            <li><a href="404.html" class="wm-footer-link"><i class="fa-solid fa-cookie-bite"></i> Cookie Policy</a></li>
+            <li><a href="404.html" class="wm-footer-link"><i class="fa-solid fa-triangle-exclamation"></i> Disclaimer</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4 — Contact Information (Single Source of Truth) -->
+        <div class="wm-footer-col">
+          <h4>Contact Information</h4>
+          <div class="wm-footer-contact-item">
+            <i class="fa-solid fa-location-dot wm-footer-contact-icon"></i>
+            <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+          </div>
+          <div class="wm-footer-contact-item">
+            <i class="fa-solid fa-envelope wm-footer-contact-icon"></i>
+            <a href="404.html" class="wm-footer-contact-link">info@stackly.com</a>
+          </div>
+          <div class="wm-footer-contact-item">
+            <i class="fa-solid fa-phone wm-footer-contact-icon"></i>
+            <a href="404.html" class="wm-footer-contact-link">9876543210</a>
+          </div>
+          <div class="wm-footer-contact-item" style="margin-top: 14px;">
+            <i class="fa-solid fa-map-location-dot wm-footer-contact-icon"></i>
+            <a href="404.html" class="wm-footer-contact-link" style="color: var(--wm-secondary); font-weight: 600;">
+              View on Google Maps <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="wm-footer-bottom">
+        <div>
+          &copy; 2026 Stackly Wealth Management. All rights reserved. Registered Investment Advisor.
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms and Conditions</a>
+          <a href="404.html">Cookie Policy</a>
+          <a href="404.html">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Toast Notification Container -->
+  <div class="wm-toast" role="alert">
+    <i class="fa-solid fa-circle-check" style="color: var(--wm-secondary); font-size: 1.25rem;"></i>
+    <span class="wm-toast-msg">Success! Your request has been received.</span>
+  </div>
+
+  <!-- AOS (Animate On Scroll) JS - CDNJS & Local Fallback -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/aos.js"></script>
+  <!-- Interaction Script -->
+  <script src="js/lenis.min.js"></script>
+  <script src="js/main.js?v=resp320v15"></script>
+
+  <!-- Preloader Controller (Dismisses Within 2 Seconds) -->
+  <script>
+    (function() {
+      const preloader = document.getElementById('wm-preloader');
+      if (!preloader) return;
+      const percentEl = document.getElementById('wmPreloaderPercent');
+      const startTime = performance.now();
+      const duration = 1500; // 1.5s active progress count
+
+      function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const percent = Math.floor(progress * 100);
+        if (percentEl) percentEl.textContent = percent + '%';
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          setTimeout(() => {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+              preloader.style.display = 'none';
+              if (typeof AOS !== 'undefined') {
+                AOS.refreshHard();
+              }
+            }, 450);
+          }, 80);
+        }
+      }
+      requestAnimationFrame(update);
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Wealth Portal | Stackly Wealth Management</title>
+  <meta name="description" content="Secure client portal for Stackly Wealth Management. Review investment performance, track financial goals, message your dedicated fiduciary advisor, and explore curated financial products.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23195353'/><path d='M30 70 L50 30 L70 70 Z' fill='%23E5FF5E'/></svg>">
+  
+  <!-- Font Awesome 6 (Strict Rule: Font Awesome Icons Only) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=resp320v9">
+</head>
+<body class="wm-dash-body">
+
+  <!-- ==========================================================================
+       Dashboard SaaS Shell Architecture (Matches Reference Screenshot)
+       - Full-Height Left Sidebar: Logo at top, 5 Nav Items in middle, User Card + Logout at bottom
+       - Top Header Bar: Page title on left, User Identity Profile on right
+       - Clean Surface Main Area: Responsive 16px rounded cards with right-side icon boxes
+       ========================================================================== -->
+  <div class="wm-app-shell">
+
+    <!-- Left Full-Height Sidebar -->
+    <aside class="wm-app-sidebar" id="userDashSidebar">
+      <!-- 1. Brand Logo at Top of Sidebar -->
+      <div class="wm-sidebar-logo-box">
+        <a href="index.html" class="wm-logo" style="text-decoration:none;">
+          <img src="assets/images/logo.webp" alt="Stackly Wealth Management" class="wm-logo-img">
+        </a>
+        <button type="button" class="wm-sidebar-close" id="userSidebarClose" aria-label="Close navigation sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- 2. Exactly 5 Navigation Menu Items -->
+      <nav class="wm-sidebar-nav">
+        <!-- STRICT CONSTRAINT: EXACTLY 5 MENU OPTIONS -->
+        <button class="wm-sidebar-nav-item active" data-tab="tab-user-overview" data-title="Overview">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Overview</span>
+        </button>
+        <button class="wm-sidebar-nav-item" data-tab="tab-user-investments" data-title="My Investments">
+          <i class="fa-solid fa-wallet"></i>
+          <span>My Investments</span>
+        </button>
+        <button class="wm-sidebar-nav-item" data-tab="tab-user-advisory" data-title="Advisory Desk">
+          <i class="fa-solid fa-user-tie"></i>
+          <span>Advisory Desk</span>
+        </button>
+        <button class="wm-sidebar-nav-item" data-tab="tab-user-products" data-title="Financial Products">
+          <i class="fa-solid fa-cubes"></i>
+          <span>Financial Products</span>
+        </button>
+        <button class="wm-sidebar-nav-item" data-tab="tab-user-profile" data-title="Profile">
+          <i class="fa-solid fa-user-shield"></i>
+          <span>Profile</span>
+        </button>
+      </nav>
+
+      <!-- 3. Bottom User Profile & Logout Link (Matches Screenshot) -->
+      <div class="wm-sidebar-bottom">
+        <div class="wm-sidebar-user-card">
+          <div class="wm-sidebar-user-avatar wm-email-avatar" id="sidebarUserAvatar" aria-hidden="true">A</div>
+          <div class="wm-sidebar-user-info">
+            <div class="wm-sidebar-user-name" id="sidebarUserRole">Client / User</div>
+            <div class="wm-sidebar-user-email" id="sidebarUserEmail">anandha.k@stackly.com</div>
+          </div>
+        </div>
+        <a href="login.html" class="wm-sidebar-logout-link" title="Sign out of portal">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Right Content Area (Header + Main Content) -->
+    <div class="wm-app-main-pane">
+      
+      <!-- Top Header Bar (Matches Screenshot) -->
+      <header class="wm-app-topbar">
+        <div class="wm-topbar-left">
+          <button id="userSidebarToggle" class="wm-sidebar-toggle-btn" aria-label="Toggle Sidebar Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <span class="wm-topbar-title" id="userHeaderTabTitle">Overview</span>
+        </div>
+
+        <div class="wm-topbar-right">
+          <!-- Topbar User Profile (Matches Screenshot: User name, email, email initial avatar) -->
+          <div class="wm-topbar-profile">
+            <div>
+              <div class="wm-topbar-name" id="topbarUserRole">Client / User</div>
+              <div class="wm-topbar-role" id="topbarUserEmail">anandha.k@stackly.com</div>
+            </div>
+            <div class="wm-topbar-avatar wm-email-avatar" id="topbarUserAvatar" aria-hidden="true">A</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content Scrolling Area -->
+      <main class="wm-app-content-body">
+
+
+      <!-- ====================================================================
+           TAB 1: USER OVERVIEW (Active by default)
+           ==================================================================== -->
+      <section id="tab-user-overview" class="wm-tab-view active">
+        <!-- Page Title & Actions -->
+        <div class="wm-dash-title-bar">
+          <div>
+            <h1 class="wm-dash-page-title">Welcome back</h1>
+            <p class="wm-dash-page-subtitle">Account #STK-8849201 • Custody: Charles Schwab Institutional • Tier 3 Accredited</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="wm-btn wm-btn-secondary" style="padding:10px 18px; font-size:0.85rem;" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-file-invoice-dollar"></i> October Statement
+            </button>
+            <button class="wm-btn wm-btn-primary" style="padding:10px 18px; font-size:0.85rem;" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-calendar-plus"></i> Request Advisory Call
+            </button>
+          </div>
+        </div>
+
+        <!-- 5 KPI Cards -->
+        <div class="wm-kpi-grid">
+          <div class="wm-kpi-card-modern">
+            <div class="wm-kpi-modern-left">
+              <div class="wm-kpi-lbl">Total Net Portfolio Value</div>
+              <div class="wm-kpi-val">$1,482,900</div>
+              <span class="wm-kpi-trend wm-trend-up"><i class="fa-solid fa-arrow-trend-up"></i> +12.6% YTD</span>
+            </div>
+            <div class="wm-kpi-modern-icon">
+              <i class="fa-solid fa-vault"></i>
+            </div>
+          </div>
+
+          <div class="wm-kpi-card-modern">
+            <div class="wm-kpi-modern-left">
+              <div class="wm-kpi-lbl">Total Invested Principal</div>
+              <div class="wm-kpi-val">$1,220,000</div>
+              <span class="wm-kpi-trend wm-trend-up">Cost Basis</span>
+            </div>
+            <div class="wm-kpi-modern-icon">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+          </div>
+
+          <div class="wm-kpi-card-modern">
+            <div class="wm-kpi-modern-left">
+              <div class="wm-kpi-lbl">Unrealized Capital Gains</div>
+              <div class="wm-kpi-val">+$262,900</div>
+              <span class="wm-kpi-trend wm-trend-up">+21.5% ROI</span>
+            </div>
+            <div class="wm-kpi-modern-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+          </div>
+
+          <div class="wm-kpi-card-modern">
+            <div class="wm-kpi-modern-left">
+              <div class="wm-kpi-lbl">Annual Projected Dividend Yield</div>
+              <div class="wm-kpi-val">$48,250</div>
+              <span class="wm-kpi-trend wm-trend-up">3.25% Yield</span>
+            </div>
+            <div class="wm-kpi-modern-icon">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+            </div>
+          </div>
+
+          <div class="wm-kpi-card-modern">
+            <div class="wm-kpi-modern-left">
+              <div class="wm-kpi-lbl">Liquid Cash Sweep Reserves</div>
+              <div class="wm-kpi-val">$94,500</div>
+              <span class="wm-kpi-trend wm-trend-up">5.1% APY</span>
+            </div>
+            <div class="wm-kpi-modern-icon">
+              <i class="fa-solid fa-coins"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid (2 Charts) -->
+        <div class="wm-charts-grid">
+          <!-- Chart 1: Portfolio Growth -->
+          <div class="wm-chart-card">
+            <div class="wm-chart-header">
+              <div>
+                <div class="wm-chart-title">Portfolio Capital Growth (Past 24 Months)</div>
+                <div style="font-size:0.8rem; color:var(--wm-body-muted);">Compounded returns including dividend reinvestment</div>
+              </div>
+              <span class="wm-status-pill wm-pill-active">+$332,900 Gain</span>
+            </div>
+            <div class="wm-chart-canvas-wrap">
+              <canvas id="userChartGrowth"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 2: Asset Allocation -->
+          <div class="wm-chart-card">
+            <div class="wm-chart-header">
+              <div>
+                <div class="wm-chart-title">Strategic Asset Allocation</div>
+                <div style="font-size:0.8rem; color:var(--wm-body-muted);">Multi-asset diversification breakdown</div>
+              </div>
+              <span class="wm-status-pill wm-pill-active">Target Balanced</span>
+            </div>
+            <div class="wm-chart-canvas-wrap">
+              <canvas id="userChartAlloc"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Goals Progress & Advisor Recommendation Grid -->
+        <div class="wm-dash-split-grid">
+          <!-- Financial Goals -->
+          <div class="wm-chart-card">
+            <div style="font-weight:700; color:var(--wm-dark); font-size:1.05rem; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
+              <span>Active Financial Goals</span>
+              <span style="font-size:0.75rem; color:var(--wm-primary); font-weight:700;">Monte Carlo: 98.4% On Track</span>
+            </div>
+
+            <!-- Goal 1 -->
+            <div class="wm-goal-card">
+              <div class="wm-goal-head">
+                <span class="wm-goal-title"><i class="fa-solid fa-umbrella-beach" style="color:var(--wm-primary); margin-right:8px;"></i> Early Retirement Fund (Target: $2.5M)</span>
+                <span style="font-weight:700; color:var(--wm-primary);">59%</span>
+              </div>
+              <div class="wm-goal-amounts">$1,482,900 of $2,500,000 funded • Target: Year 2035</div>
+              <div class="wm-progress-bar-bg">
+                <div class="wm-progress-fill" style="width:59%;"></div>
+              </div>
+            </div>
+
+            <!-- Goal 2 -->
+            <div class="wm-goal-card">
+              <div class="wm-goal-head">
+                <span class="wm-goal-title"><i class="fa-solid fa-graduation-cap" style="color:var(--wm-primary); margin-right:8px;"></i> Child Ivy League Trust (Target: $500K)</span>
+                <span style="font-weight:700; color:var(--wm-primary);">74%</span>
+              </div>
+              <div class="wm-goal-amounts">$370,000 of $500,000 funded • Target: Year 2030</div>
+              <div class="wm-progress-bar-bg">
+                <div class="wm-progress-fill" style="width:74%;"></div>
+              </div>
+            </div>
+
+            <!-- Goal 3 -->
+            <div class="wm-goal-card" style="margin-bottom:0;">
+              <div class="wm-goal-head">
+                <span class="wm-goal-title"><i class="fa-solid fa-house-chimney-window" style="color:var(--wm-primary); margin-right:8px;"></i> Coastal Estate Acquisition (Target: $1.0M)</span>
+                <span style="font-weight:700; color:var(--wm-primary);">42%</span>
+              </div>
+              <div class="wm-goal-amounts">$420,000 of $1,000,000 funded • Target: Year 2028</div>
+              <div class="wm-progress-bar-bg">
+                <div class="wm-progress-fill" style="width:42%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advisor Recommendation & Recent Activity -->
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <!-- Advisor Memo Card -->
+            <div class="wm-chart-card" style="border-left: 4px solid var(--wm-primary);">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                <img src="assets/images/avatar-marcus-sterling.webp" alt="Marcus Vance" style="width:40px; height:40px; border-radius:50%; object-fit:cover;">
+                <div>
+                  <div style="font-weight:700; color:var(--wm-dark); font-size:0.95rem;">Advisor Recommendation from Marcus Vance</div>
+                  <div style="font-size:0.75rem; color:var(--wm-body-muted);">Fiduciary Advisory Note • Yesterday</div>
+                </div>
+              </div>
+              <p style="font-size:0.875rem; color:var(--wm-body); line-height:1.6; margin-bottom:14px;">
+                "Hi Anandha, your portfolio is up +12.6% YTD, outpacing your target benchmark. With $94.5K in cash reserves earning 5.1%, we recommend allocating $50K into the <strong>Sovereign Treasury Yield Plus</strong> fund to lock in 7.4% fixed yields before the Federal Reserve's next policy cycle."
+              </p>
+              <button class="wm-btn wm-btn-primary" style="padding:8px 16px; font-size:0.825rem;" onclick="window.location.href='404.html'">
+                <i class="fa-solid fa-user-tie"></i> Consult Marcus at Advisory Desk
+              </button>
+            </div>
+
+            <!-- Recent Portfolio Activity -->
+            <div class="wm-chart-card">
+              <div style="font-weight:700; color:var(--wm-dark); font-size:0.95rem; margin-bottom:14px;">Recent Distributions & Activity</div>
+              <div class="wm-activity-list">
+                <div class="wm-activity-item">
+                  <div class="wm-activity-icon wm-act-green"><i class="fa-solid fa-dollar-sign"></i></div>
+                  <div class="wm-activity-info">
+                    <div class="wm-activity-text">Dividend payment received: $1,420.00 from Vanguard S&P 500 (VOO).</div>
+                    <div class="wm-activity-time">Nov 01, 2026 • Auto-reinvested</div>
+                  </div>
+                </div>
+                <div class="wm-activity-item">
+                  <div class="wm-activity-icon wm-act-teal"><i class="fa-solid fa-arrows-spin"></i></div>
+                  <div class="wm-activity-info">
+                    <div class="wm-activity-text">Quarterly portfolio rebalancing executed across Schwab custody.</div>
+                    <div class="wm-activity-time">Oct 28, 2026 • Marcus Vance, CFA</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           TAB 2: MY INVESTMENTS
+           ==================================================================== -->
+      <section id="tab-user-investments" class="wm-tab-view">
+        <div class="wm-dash-title-bar">
+          <div>
+            <h1 class="wm-dash-page-title">My Investment Holdings & Positions</h1>
+            <p class="wm-dash-page-subtitle">Detailed breakdown of 14 active wealth assets across equities, debt, private equity, and REITs.</p>
+          </div>
+          <div class="wm-dash-title-actions" style="display:flex; gap:10px;">
+            <button class="wm-btn wm-btn-secondary" style="padding:10px 18px; font-size:0.85rem;" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-file-pdf"></i> Export Positions PDF
+            </button>
+            <button class="wm-btn wm-btn-primary" style="padding:10px 18px; font-size:0.85rem;" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-rotate"></i> Auto-Reinvest All
+            </button>
+          </div>
+        </div>
+
+        <!-- 5 KPI Cards -->
+        <div class="wm-kpi-grid">
+          <div class="wm-kpi-card-modern">
+            <div class="wm-kpi-modern-left">
+              <div class="wm-kpi-lbl">Active Holdings Positions</div>
+              <div class="wm-kpi-val">14 Assets</div>
+              <span class="wm-kpi-trend wm-trend-up">Diversified</span>
+            </div>
+            <div class="wm-kpi-modern-icon">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+          </div>
+
+          <div class="wm-kpi-card-modern">
+            <div class="wm-kpi-modern-left">
+              <div class="wm-kpi-lbl">Top Performing Holding</div>
+              <div class="wm-kpi-val">Global Alpha</div>
+              <span class="wm-kpi-trend wm-trend-up">+28.4%</span>
+            </div>
+            <div class="wm-kpi-modern-icon">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+          </div>
+
+          <div class="wm-kpi-card-modern">
+            <div class="wm-kpi-modern-left">
+              <div class="wm-kpi-lbl">Weighted Portfolio Yield</div>
+              <div class="wm-kpi-val">6.4% p.a.</div>
+              <span class="wm-kpi-trend wm-trend-up">Annualized</span>
+            </div>
+            <div class="wm-kpi-modern-icon">
+              <i class="fa-solid fa-percent"></i>
+            </div>
+          </div>
+
+          <div class="wm-kpi-card-modern">
+            <div class="wm-kpi-modern-left">
+              <div class="wm-kpi-lbl">Next Expected Dividend Payout</div>
+              <div class="wm-kpi-val">$4,120</div>
+              <span class="wm-kpi-trend wm-trend-up">Nov 15</span>
+            </div>
+            <div class="wm-kpi-modern-icon">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+          </div>
+
+          <div class="wm-kpi-card-modern">
+            <div class="wm-kpi-modern-left">
+              <div class="wm-kpi-lbl">Currency & Geopolitical Shield</div>
+              <div class="wm-kpi-val">AAA Hedged</div>
+              <span class="wm-kpi-trend wm-trend-up">82% USD</span>
+            </div>
+            <div class="wm-kpi-modern-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14 Positions Table -->
+        <div class="wm-table-card">
+          <div class="wm-table-header">
+            <div>
+              <div style="font-size:1.1rem; font-weight:700; color:var(--wm-dark);">Holdings Portfolio Ledger (14 Assets)</div>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted);">Real-time market values, unrealized profit/loss, and dividend metrics</div>
+            </div>
+            <div class="wm-table-controls">
+              <input type="text" id="userHoldingsSearch" class="wm-table-search" placeholder="Search asset or ticker..." onkeyup="filterUserHoldings()">
+              <select id="userHoldingsCategoryFilter" class="wm-table-select" onchange="filterUserHoldings()">
+                <option value="all">All Asset Classes</option>
+                <option value="Equities">Equities</option>
+                <option value="Fixed Income">Fixed Income</option>
+                <option value="Private Equity">Private Equity</option>
+                <option value="Real Assets">Real Assets</option>
+                <option value="Cash">Cash Reserves</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="overflow-x:auto;">
+            <table class="wm-dash-table" id="userHoldingsTable">
+              <thead>
+                <tr>
+                  <th>Asset / Security Name</th>
+                  <th>Class</th>
+                  <th>Units Held</th>
+                  <th>Avg Cost</th>
+                  <th>Current Market Value</th>
+                  <th>Unrealized P&L</th>
+                  <th>1-Yr Return</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-cat="Equities">
+                  <td><strong>Stackly Global Alpha Equities</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">Flagship Quality Growth Fund</div></td>
+                  <td>Equities</td>
+                  <td>1,450 Units</td>
+                  <td>$182.40</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$310,000.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$45,520 (+17.2%)</span></td>
+                  <td><strong>+24.2%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Equities">
+                  <td><strong>Vanguard S&P 500 ETF (VOO)</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">US Large-Cap Core Index</div></td>
+                  <td>Equities</td>
+                  <td>380 Shares</td>
+                  <td>$410.00</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$192,500.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$36,700 (+23.5%)</span></td>
+                  <td><strong>+14.2%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Equities">
+                  <td><strong>Schwab US Dividend Equity (SCHD)</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">High Dividend Yield & Cash Flow</div></td>
+                  <td>Equities</td>
+                  <td>1,100 Shares</td>
+                  <td>$74.50</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$92,400.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$10,450 (+12.7%)</span></td>
+                  <td><strong>+11.8%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Fixed Income">
+                  <td><strong>US 10-Year Treasury Sovereign Notes</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">US Govt Backed Fixed Income</div></td>
+                  <td>Fixed Income</td>
+                  <td>2,500 Bonds</td>
+                  <td>$98.20</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$250,000.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$4,500 (+1.8%)</span></td>
+                  <td><strong>+7.4%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Private Equity">
+                  <td><strong>Apex Private Equity Syndicate IV</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">Growth Tech & MedTech Buyouts</div></td>
+                  <td>Private Equity</td>
+                  <td>1 Commitment</td>
+                  <td>$150,000</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$182,000.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$32,000 (+21.3%)</span></td>
+                  <td><strong>+28.5%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Real Assets">
+                  <td><strong>Green Infrastructure Real Estate Trust</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">Renewable Solar & Data Centers REIT</div></td>
+                  <td>Real Assets</td>
+                  <td>850 Units</td>
+                  <td>$110.00</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$118,000.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$24,500 (+26.2%)</span></td>
+                  <td><strong>+14.6%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Real Assets">
+                  <td><strong>Brookfield Renewable Infrastructure</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">Global Hydro & Clean Energy Assets</div></td>
+                  <td>Real Assets</td>
+                  <td>720 Shares</td>
+                  <td>$82.00</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$68,400.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$9,360 (+15.8%)</span></td>
+                  <td><strong>+13.4%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Fixed Income">
+                  <td><strong>BlackRock Total Return Bond Fund</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">Investment Grade Corporate Debt</div></td>
+                  <td>Fixed Income</td>
+                  <td>800 Units</td>
+                  <td>$96.00</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$78,500.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$1,700 (+2.2%)</span></td>
+                  <td><strong>+6.8%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Equities">
+                  <td><strong>Apple Inc. (AAPL)</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">Direct Equity Holding</div></td>
+                  <td>Equities</td>
+                  <td>180 Shares</td>
+                  <td>$165.00</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$41,200.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$11,500 (+38.7%)</span></td>
+                  <td><strong>+28.4%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Equities">
+                  <td><strong>Microsoft Corporation (MSFT)</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">Direct Equity Holding</div></td>
+                  <td>Equities</td>
+                  <td>90 Shares</td>
+                  <td>$315.00</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$38,400.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$10,050 (+35.4%)</span></td>
+                  <td><strong>+26.1%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Equities">
+                  <td><strong>Berkshire Hathaway Class B (BRK.B)</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">Diversified Conglomerate Core</div></td>
+                  <td>Equities</td>
+                  <td>65 Shares</td>
+                  <td>$340.00</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$29,500.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$7,400 (+33.5%)</span></td>
+                  <td><strong>+18.9%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Equities">
+                  <td><strong>Invesco QQQ Trust (QQQ)</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">Nasdaq 100 Index Tracking</div></td>
+                  <td>Equities</td>
+                  <td>80 Shares</td>
+                  <td>$380.00</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$38,000.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$7,600 (+25.0%)</span></td>
+                  <td><strong>+22.4%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Real Assets">
+                  <td><strong>Prologis Logistics REIT (PLD)</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">Global Industrial & Cold Storage</div></td>
+                  <td>Real Assets</td>
+                  <td>350 Shares</td>
+                  <td>$115.00</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$48,000.00</strong></td>
+                  <td><span class="wm-kpi-trend wm-trend-up">+$7,750 (+19.3%)</span></td>
+                  <td><strong>+12.8%</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+
+                <tr data-cat="Cash">
+                  <td><strong>Charles Schwab Cash Sweep Reserve</strong><div style="font-size:0.75rem; color:var(--wm-body-muted);">FDIC Insured High-Yield Cash Buffer</div></td>
+                  <td>Cash Reserves</td>
+                  <td>94,500 USD</td>
+                  <td>$1.00</td>
+                  <td><strong style="color:var(--wm-primary); font-size:0.95rem;">$94,500.00</strong></td>
+                  <td><span class="wm-status-pill wm-pill-completed">Stable Cash</span></td>
+                  <td><strong>5.1% APY</strong></td>
+                  <td><button class="wm-action-btn" title="View Position Details" onclick="window.location.href='404.html'"><i class="fa-solid fa-eye"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           TAB 3: ADVISORY DESK (Professional Wealth Management Advisory Services)
+           ==================================================================== -->
+      <section id="tab-user-advisory" class="wm-tab-view">
+        <div class="wm-dash-title-bar">
+          <div>
+            <h1 class="wm-dash-page-title">Private Wealth Advisory Desk</h1>
+            <p class="wm-dash-page-subtitle">Dedicated fiduciary wealth advisors, strategic portfolio recommendations, estate counsel, and scheduled consultations.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="wm-btn wm-btn-secondary" style="padding:10px 18px; font-size:0.85rem;" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-calendar-plus"></i> Book Advisory Consultation
+            </button>
+            <button class="wm-btn wm-btn-primary" style="padding:10px 18px; font-size:0.85rem;" onclick="window.location.href='404.html'">
+              <i class="fa-solid fa-file-signature"></i> Request Fiduciary Report
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Advisory Governance KPI Cards -->
+        <div class="wm-kpi-grid wm-kpi-grid-4" style="margin-bottom:28px;">
+          <div class="wm-kpi-card">
+            <div class="wm-kpi-top">
+              <div class="wm-kpi-icon"><i class="fa-solid fa-user-tie"></i></div>
+              <span class="wm-kpi-trend wm-trend-up">Assigned</span>
+            </div>
+            <div class="wm-kpi-val" style="font-size:1.35rem;">Marcus Vance, CFA</div>
+            <div class="wm-kpi-lbl">Lead Fiduciary Wealth Architect</div>
+          </div>
+
+          <div class="wm-kpi-card">
+            <div class="wm-kpi-top">
+              <div class="wm-kpi-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+              <span class="wm-kpi-trend wm-trend-up">SEC Regulated</span>
+            </div>
+            <div class="wm-kpi-val" style="font-size:1.35rem;">Discretionary Mandate</div>
+            <div class="wm-kpi-lbl">Form ADV Part 2A Certified</div>
+          </div>
+
+          <div class="wm-kpi-card">
+            <div class="wm-kpi-top">
+              <div class="wm-kpi-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <span class="wm-kpi-trend wm-trend-up">Fee-Only</span>
+            </div>
+            <div class="wm-kpi-val" style="font-size:1.35rem;">0.65% Flat AUM</div>
+            <div class="wm-kpi-lbl">Zero Commissions / Fiduciary Oath</div>
+          </div>
+
+          <div class="wm-kpi-card">
+            <div class="wm-kpi-top">
+              <div class="wm-kpi-icon"><i class="fa-solid fa-calendar-check"></i></div>
+              <span class="wm-kpi-trend wm-trend-up">Upcoming</span>
+            </div>
+            <div class="wm-kpi-val" style="font-size:1.35rem;">Nov 18, 2026</div>
+            <div class="wm-kpi-lbl">Next Scheduled Quarterly Review</div>
+          </div>
+        </div>
+
+        <!-- Dedicated Advisory Committee Roster (4 Specialist Cards) -->
+        <div style="margin-bottom:30px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <div>
+              <h2 style="font-size:1.2rem; font-weight:700; color:var(--wm-dark); margin-bottom:2px;">Your Dedicated Fiduciary Committee</h2>
+              <p style="font-size:0.825rem; color:var(--wm-body-muted);">Multi-disciplinary wealth management architects providing customized portfolio, estate, tax, and custody governance.</p>
+            </div>
+          </div>
+
+          <div class="wm-dash-roster-grid">
+            
+            <!-- Specialist 1: Marcus Vance -->
+            <div class="wm-kpi-card" style="border-top: 4px solid var(--wm-primary);">
+              <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+                <img src="assets/images/avatar-marcus-sterling.webp" alt="Marcus Vance" style="width:54px; height:54px; border-radius:50%; object-fit:cover; border:2px solid var(--wm-primary);">
+                <div>
+                  <div style="font-weight:700; color:var(--wm-dark); font-size:1.05rem;">Marcus Vance, CFA</div>
+                  <div style="font-size:0.75rem; color:var(--wm-primary); font-weight:700;">Chief Investment Officer</div>
+                  <div style="font-size:0.72rem; color:var(--wm-body-muted);">18+ Years Institutional Advisory</div>
+                </div>
+              </div>
+              <p style="font-size:0.825rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Responsible for holistic asset allocation, alpha generation, equity strategies, and macroeconomic portfolio positioning.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:6px; margin-bottom:16px; border-top:1px solid var(--wm-border-light); padding-top:12px;">
+                <div><i class="fa-solid fa-envelope" style="width:16px; color:var(--wm-primary);"></i> marcus.v@stackly.com</div>
+                <div><i class="fa-solid fa-phone" style="width:16px; color:var(--wm-primary);"></i> +1 (800) 555-0199 ext. 402</div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <button class="wm-btn wm-btn-primary" style="flex:1; padding:7px; font-size:0.8rem;" onclick="window.location.href='404.html'">
+                  <i class="fa-solid fa-id-card"></i> View Bio
+                </button>
+                <button class="wm-btn wm-btn-outline" style="padding:7px 12px; font-size:0.8rem;" title="Schedule Consultation" onclick="window.location.href='404.html'">
+                  <i class="fa-solid fa-calendar-check"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Specialist 2: Sarah Jenkins -->
+            <div class="wm-kpi-card" style="border-top: 4px solid #236f6f;">
+              <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+                <img src="assets/images/team-sarah-chen.webp" alt="Sarah Jenkins" style="width:54px; height:54px; border-radius:50%; object-fit:cover; border:2px solid #236f6f;">
+                <div>
+                  <div style="font-weight:700; color:var(--wm-dark); font-size:1.05rem;">Sarah Jenkins, JD</div>
+                  <div style="font-size:0.75rem; color:var(--wm-primary); font-weight:700;">Senior Estate & Trust Counsel</div>
+                  <div style="font-size:0.72rem; color:var(--wm-body-muted);">15+ Years Estate Jurisprudence</div>
+                </div>
+              </div>
+              <p style="font-size:0.825rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Oversees multi-generational trust structures, probate avoidance, dynasty planning, and durable legal powers of attorney.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:6px; margin-bottom:16px; border-top:1px solid var(--wm-border-light); padding-top:12px;">
+                <div><i class="fa-solid fa-envelope" style="width:16px; color:var(--wm-primary);"></i> sarah.j@stackly.com</div>
+                <div><i class="fa-solid fa-phone" style="width:16px; color:var(--wm-primary);"></i> +1 (800) 555-0199 ext. 418</div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <button class="wm-btn wm-btn-primary" style="flex:1; padding:7px; font-size:0.8rem;" onclick="window.location.href='404.html'">
+                  <i class="fa-solid fa-id-card"></i> View Bio
+                </button>
+                <button class="wm-btn wm-btn-outline" style="padding:7px 12px; font-size:0.8rem;" title="Schedule Consultation" onclick="window.location.href='404.html'">
+                  <i class="fa-solid fa-calendar-check"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Specialist 3: David Sterling -->
+            <div class="wm-kpi-card" style="border-top: 4px solid #27ae60;">
+              <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+                <img src="assets/images/team-alexander-wright.webp" alt="David Sterling" style="width:54px; height:54px; border-radius:50%; object-fit:cover; border:2px solid #27ae60;">
+                <div>
+                  <div style="font-weight:700; color:var(--wm-dark); font-size:1.05rem;">David Sterling, CPA</div>
+                  <div style="font-size:0.75rem; color:var(--wm-primary); font-weight:700;">Tax Optimization Strategist</div>
+                  <div style="font-size:0.72rem; color:var(--wm-body-muted);">16+ Years Wealth Taxation</div>
+                </div>
+              </div>
+              <p style="font-size:0.825rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Directs automated tax-loss harvesting algorithms, capital gains reduction, cross-border treaty credits, and annual IRS filings.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:6px; margin-bottom:16px; border-top:1px solid var(--wm-border-light); padding-top:12px;">
+                <div><i class="fa-solid fa-envelope" style="width:16px; color:var(--wm-primary);"></i> david.s@stackly.com</div>
+                <div><i class="fa-solid fa-phone" style="width:16px; color:var(--wm-primary);"></i> +1 (800) 555-0199 ext. 425</div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <button class="wm-btn wm-btn-primary" style="flex:1; padding:7px; font-size:0.8rem;" onclick="window.location.href='404.html'">
+                  <i class="fa-solid fa-id-card"></i> View Bio
+                </button>
+                <button class="wm-btn wm-btn-outline" style="padding:7px 12px; font-size:0.8rem;" title="Schedule Consultation" onclick="window.location.href='404.html'">
+                  <i class="fa-solid fa-calendar-check"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Specialist 4: Sophia Laurent -->
+            <div class="wm-kpi-card" style="border-top: 4px solid #f39c12;">
+              <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+                <img src="assets/images/team-priya-sharma.webp" alt="Sophia Laurent" style="width:54px; height:54px; border-radius:50%; object-fit:cover; border:2px solid #f39c12;">
+                <div>
+                  <div style="font-weight:700; color:var(--wm-dark); font-size:1.05rem;">Sophia Laurent</div>
+                  <div style="font-size:0.75rem; color:var(--wm-primary); font-weight:700;">Charles Schwab Custody Officer</div>
+                  <div style="font-size:0.72rem; color:var(--wm-body-muted);">Institutional Clearing Liaison</div>
+                </div>
+              </div>
+              <p style="font-size:0.825rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Oversees independent segregated custody account #SCH-7729-19, wire settlements, securities clearing, and SIPC asset insurance.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:6px; margin-bottom:16px; border-top:1px solid var(--wm-border-light); padding-top:12px;">
+                <div><i class="fa-solid fa-envelope" style="width:16px; color:var(--wm-primary);"></i> custody@stackly.com</div>
+                <div><i class="fa-solid fa-phone" style="width:16px; color:var(--wm-primary);"></i> +1 (800) 555-0199 ext. 400</div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <button class="wm-btn wm-btn-primary" style="flex:1; padding:7px; font-size:0.8rem;" onclick="window.location.href='404.html'">
+                  <i class="fa-solid fa-id-card"></i> View Bio
+                </button>
+                <button class="wm-btn wm-btn-outline" style="padding:7px 12px; font-size:0.8rem;" title="Schedule Consultation" onclick="window.location.href='404.html'">
+                  <i class="fa-solid fa-calendar-check"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Strategic Advisory Recommendations & Action Items Table -->
+        <div class="wm-table-card">
+          <div class="wm-table-header">
+            <div>
+              <div style="font-size:1.1rem; font-weight:700; color:var(--wm-dark);">Strategic Portfolio Recommendations & Fiduciary Action Items</div>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted);">Custom advisory directives formulated specifically for Anandha Krishnan's $1.48M portfolio</div>
+            </div>
+            <span class="wm-status-pill wm-pill-active">2 Pending Action</span>
+          </div>
+
+          <div style="overflow-x:auto;">
+            <table class="wm-dash-table">
+              <thead>
+                <tr>
+                  <th>Recommendation Directive</th>
+                  <th>Lead Strategist</th>
+                  <th>Expected Impact</th>
+                  <th>Action Horizon</th>
+                  <th>Governance Status</th>
+                  <th>Fiduciary Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Deploy $50K Cash into Sovereign Treasury Plus</strong>
+                    <div style="font-size:0.75rem; color:var(--wm-body-muted);">Rebalance $50,000 from Schwab cash sweep (5.1%) into 7.4% locked APY sovereign notes before rate cut.</div>
+                  </td>
+                  <td>Marcus Vance, CFA</td>
+                  <td><strong style="color:#27ae60;">+$3,700 / Year Yield</strong></td>
+                  <td>Immediate (T+1)</td>
+                  <td><span class="wm-status-pill wm-pill-pending">Pending Authorization</span></td>
+                  <td>
+                    <button class="wm-btn wm-btn-primary" style="padding:6px 14px; font-size:0.8rem;" onclick="window.location.href='404.html'">
+                      <i class="fa-solid fa-check"></i> Authorize
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Execute Q4 Systematic Tax-Loss Harvesting</strong>
+                    <div style="font-size:0.75rem; color:var(--wm-body-muted);">Harvest $18,400 in selective capital losses across secondary equity lots to offset realized gains for 2026.</div>
+                  </td>
+                  <td>David Sterling, CPA</td>
+                  <td><strong style="color:var(--wm-primary);">Saves ~$4,600 Taxes</strong></td>
+                  <td>Before Dec 15, 2026</td>
+                  <td><span class="wm-status-pill wm-pill-pending">Recommended</span></td>
+                  <td>
+                    <button class="wm-btn wm-btn-primary" style="padding:6px 14px; font-size:0.8rem;" onclick="window.location.href='404.html'">
+                      <i class="fa-solid fa-file-signature"></i> Authorize
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Living Trust Beneficiary Schedule Audit</strong>
+                    <div style="font-size:0.75rem; color:var(--wm-body-muted);">Verify secondary and contingent beneficiary clauses on Schwab account matching 2026 Living Trust.</div>
+                  </td>
+                  <td>Sarah Jenkins, JD</td>
+                  <td><strong>100% Probate Shield</strong></td>
+                  <td>Annual Review</td>
+                  <td><span class="wm-status-pill wm-pill-completed">Completed & Filed</span></td>
+                  <td>
+                    <button class="wm-btn wm-btn-outline" style="padding:6px 14px; font-size:0.8rem;" onclick="window.location.href='404.html'">
+                      <i class="fa-solid fa-file-pdf"></i> View Schedule
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Quarterly Risk Profile Calibration (Score 82)</strong>
+                    <div style="font-size:0.75rem; color:var(--wm-body-muted);">Annual stress-test reconfirmation: 40% Equities, 25% Fixed Income, 15% Real Assets, 12% International, 8% Cash.</div>
+                  </td>
+                  <td>Investment Committee</td>
+                  <td><strong>Target Balanced</strong></td>
+                  <td>Completed Q3</td>
+                  <td><span class="wm-status-pill wm-pill-completed">Compliant</span></td>
+                  <td>
+                    <button class="wm-btn wm-btn-outline" style="padding:6px 14px; font-size:0.8rem;" onclick="window.location.href='404.html'">
+                      <i class="fa-solid fa-eye"></i> View Audit
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Consultations Calendar & Advisory Intelligence Grid -->
+        <div class="wm-dash-split-grid">
+          
+          <!-- Upcoming Advisory Consultations Card -->
+          <div class="wm-chart-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <div style="font-weight:700; color:var(--wm-dark); font-size:1.05rem;">
+                <i class="fa-solid fa-calendar-days" style="color:var(--wm-primary); margin-right:8px;"></i> Scheduled Consultations
+              </div>
+              <button class="wm-btn wm-btn-outline" style="padding:5px 12px; font-size:0.75rem;" onclick="window.location.href='404.html'">
+                <i class="fa-solid fa-plus"></i> Schedule New
+              </button>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              
+              <!-- Consultation 1 -->
+              <div style="background:var(--wm-surface); padding:16px; border-radius:var(--wm-radius-md); border-left:4px solid var(--wm-primary);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                  <div>
+                    <strong style="color:var(--wm-dark); font-size:0.95rem;">Q4 Comprehensive Wealth & Tax Review</strong>
+                    <div style="font-size:0.78rem; color:var(--wm-primary); font-weight:600;">
+                      <i class="fa-solid fa-clock"></i> Nov 18, 2026 • 2:00 PM – 3:00 PM EST
+                    </div>
+                  </div>
+                  <span class="wm-status-pill wm-pill-completed">Confirmed</span>
+                </div>
+                <div style="font-size:0.8rem; color:var(--wm-body); margin-bottom:12px;">
+                  Advisors: Marcus Vance, CFA & David Sterling, CPA • Format: Encrypted Video Session
+                </div>
+                <div style="display:flex; gap:8px;">
+                  <button class="wm-btn wm-btn-outline" style="padding:5px 12px; font-size:0.75rem;" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
+                  </button>
+                  <button class="wm-btn wm-btn-outline" style="padding:5px 12px; font-size:0.75rem;" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-arrows-rotate"></i> Reschedule
+                  </button>
+                </div>
+              </div>
+
+              <!-- Consultation 2 -->
+              <div style="background:var(--wm-surface); padding:16px; border-radius:var(--wm-radius-md); border-left:4px solid #236f6f;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                  <div>
+                    <strong style="color:var(--wm-dark); font-size:0.95rem;">Annual Estate & Dynasty Trust Review</strong>
+                    <div style="font-size:0.78rem; color:var(--wm-primary); font-weight:600;">
+                      <i class="fa-solid fa-clock"></i> Dec 12, 2026 • 10:30 AM – 11:30 AM EST
+                    </div>
+                  </div>
+                  <span class="wm-status-pill wm-pill-active">Scheduled</span>
+                </div>
+                <div style="font-size:0.8rem; color:var(--wm-body); margin-bottom:12px;">
+                  Advisor: Sarah Jenkins, JD • Format: In-Person Consultation / Salem Advisory Suite
+                </div>
+                <div style="display:flex; gap:8px;">
+                  <button class="wm-btn wm-btn-outline" style="padding:5px 12px; font-size:0.75rem;" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
+                  </button>
+                  <button class="wm-btn wm-btn-outline" style="padding:5px 12px; font-size:0.75rem;" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-arrows-rotate"></i> Reschedule
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Institutional Research & Intelligence Briefings -->
+          <div class="wm-chart-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+              <div style="font-weight:700; color:var(--wm-dark); font-size:1.05rem;">
+                <i class="fa-solid fa-newspaper" style="color:var(--wm-primary); margin-right:8px;"></i> Institutional Advisory Briefings
+              </div>
+              <span style="font-size:0.75rem; color:var(--wm-body-muted);">Private Client Access</span>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              
+              <!-- Briefing 1 -->
+              <div class="wm-doc-row">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <i class="fa-solid fa-file-pdf" style="color:#c0392b; font-size:1.3rem;"></i>
+                  <div>
+                    <strong style="color:var(--wm-dark); font-size:0.85rem;">Macroeconomic Outlook Q4 2026: Sovereign Debt & AI Infrastructure.pdf</strong>
+                    <div style="font-size:0.72rem; color:var(--wm-body-muted);">Stackly Investment Committee • 14 Pages</div>
+                  </div>
+                </div>
+                <button class="wm-btn wm-btn-outline" style="padding:5px 12px; font-size:0.75rem;" onclick="window.location.href='404.html'">
+                  <i class="fa-solid fa-download"></i> Read
+                </button>
+              </div>
+
+              <!-- Briefing 2 -->
+              <div class="wm-doc-row">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <i class="fa-solid fa-file-pdf" style="color:#c0392b; font-size:1.3rem;"></i>
+                  <div>
+                    <strong style="color:var(--wm-dark); font-size:0.85rem;">Systematic Tax-Loss Harvesting Guide: Capital Shielding Strategy.pdf</strong>
+                    <div style="font-size:0.72rem; color:var(--wm-body-muted);">David Sterling, CPA • 8 Pages</div>
+                  </div>
+                </div>
+                <button class="wm-btn wm-btn-outline" style="padding:5px 12px; font-size:0.75rem;" onclick="window.location.href='404.html'">
+                  <i class="fa-solid fa-download"></i> Read
+                </button>
+              </div>
+
+              <!-- Briefing 3 -->
+              <div class="wm-doc-row">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <i class="fa-solid fa-file-shield" style="color:var(--wm-primary); font-size:1.3rem;"></i>
+                  <div>
+                    <strong style="color:var(--wm-dark); font-size:0.85rem;">Fiduciary Mandate & Custody Protection Whitepaper 2026.pdf</strong>
+                    <div style="font-size:0.72rem; color:var(--wm-body-muted);">Stackly Fiduciary Committee • 10 Pages</div>
+                  </div>
+                </div>
+                <button class="wm-btn wm-btn-outline" style="padding:5px 12px; font-size:0.75rem;" onclick="window.location.href='404.html'">
+                  <i class="fa-solid fa-download"></i> Read
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           TAB 4: FINANCIAL PRODUCTS
+           ==================================================================== -->
+      <section id="tab-user-products" class="wm-tab-view">
+        <div class="wm-dash-title-bar">
+          <div>
+            <h1 class="wm-dash-page-title">Curated Wealth Products & Opportunities</h1>
+            <p class="wm-dash-page-subtitle">Exclusive institutional investment vehicles, private debt, and sustainable yields vetted by our Fiduciary Committee.</p>
+          </div>
+        </div>
+
+        
+
+        <!-- 12 Financial Product Cards Grid -->
+        <div class="wm-user-product-grid" id="productsGrid">
+          
+          <!-- Product 1 -->
+          <div class="wm-user-product-card" data-category="equity">
+            <img src="assets/images/about-hero-architecture.webp" alt="Stackly Horizon Global Alpha Fund" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-active">Equity Flagship</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">18.2% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">Stackly Horizon Global Alpha Fund</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Concentrated portfolio of global titans driving artificial intelligence, semiconductors, and cloud computing architectures.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $25,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: Daily T+1</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: Moderate-Aggressive</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="wm-user-product-card" data-category="debt">
+            <img src="assets/images/institutional-analytics.webp" alt="Apex Sovereign Yield Bond Plus" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-completed">Fixed Income</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">7.8% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">Apex Sovereign Yield Bond Plus</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                G7 sovereign treasury debt hedged with inflation-protected TIPS notes to generate stable quarterly yields with full principal defense.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $10,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: Daily T+1</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: Low Risk</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="wm-user-product-card" data-category="real-assets">
+            <img src="assets/images/services-hero-banner.webp" alt="Metropolitan Real Estate Trust" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-active">Real Assets</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">11.4% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">Metropolitan Real Estate Trust</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Prime institutional industrial logistics, cold-storage distribution hubs, and biomedical life sciences real estate in premier tech corridors.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $50,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: Monthly Window</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: Moderate</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="wm-user-product-card" data-category="private-equity">
+            <img src="assets/images/fintech-boardroom.webp" alt="NextGen AI & Quantum Venture Syndicate" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-pending">Private Equity</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">24.5% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">NextGen AI & Quantum Venture</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Direct co-investment syndicate in pre-IPO enterprise foundational models, generative intelligence platforms, and silicon fabs.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $100,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: 3-Year Lockup</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: Aggressive</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="wm-user-product-card" data-category="real-assets">
+            <img src="assets/images/credit-syndication.webp" alt="Sustainable ESG Clean Energy Trust" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-active">Green Yield</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">13.6% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">Sustainable ESG Clean Energy Trust</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Solar power infrastructure, wind farms, and battery grid storage backed by 20-year power purchase agreements with regulated utilities.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $20,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: Quarterly</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: Moderate</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 6 -->
+          <div class="wm-user-product-card" data-category="debt">
+            <img src="assets/images/private-equity-deal.webp" alt="High-Yield Corporate Senior Debt" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-completed">Senior Debt</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">8.9% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">High-Yield Corporate Senior Debt</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                First-lien senior secured loans to recession-resilient mid-market enterprises with strict covenants and 1.8x asset coverage.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $25,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: Monthly</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: Moderate</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 7 -->
+          <div class="wm-user-product-card" data-category="real-assets">
+            <img src="assets/images/team-elena-rostova.webp" alt="Nordic Cold Logistics REIT" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-active">Infrastructure</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">10.2% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">Nordic Cold Logistics REIT</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Automated port logistics hubs, pharmaceutical storage, and cold-chain facilities across Sweden, Norway, and Germany.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $30,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: Quarterly</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: Moderate</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 8 -->
+          <div class="wm-user-product-card" data-category="debt">
+            <img src="assets/images/crypto-alternative-assets.webp" alt="Swiss Franc Hedged Liquidity Shield" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-completed">Capital Preservation</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">4.8% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">Swiss Franc Hedged Liquidity</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Ultra-safe liquidity allocation combining Swiss Confederation bonds and allocated physical bullion in Zurich vault custody.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $15,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: Daily T+1</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: Very Low Risk</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 9 -->
+          <div class="wm-user-product-card" data-category="private-equity">
+            <img src="assets/images/team-alexander-wright.webp" alt="Silicon Valley Disruptors Seed Fund" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-pending">Venture</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">28.0% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">Silicon Valley Disruptors Fund</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Early-stage venture backing breakthrough engineering founders in humanoid robotics, synthetic biology, and energy storage.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $75,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: 4-Year Lockup</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: High Risk</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 10 -->
+          <div class="wm-user-product-card" data-category="equity">
+            <img src="assets/images/team-sarah-chen.webp" alt="Global Emerging Markets Growth Fund" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-active">Emerging Titans</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">19.4% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">Global Emerging Markets Growth</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Demographic dividend portfolio capturing expanding middle-class consumption across India, Southeast Asia, and Latin America.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $20,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: Daily T+2</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: Moderate-Aggressive</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 11 -->
+          <div class="wm-user-product-card" data-category="retirement">
+            <img src="assets/images/wealth-planning-consult.webp" alt="Apex Pension Yield Annuity 2050" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-completed">Retirement Solution</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">9.2% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">Apex Pension Yield Annuity 2050</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Guaranteed lifetime indexed cash distribution vehicle designed for high-net-worth retirement and intergenerational legacy transfer.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $50,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: Annual Window</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: Low-Moderate</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 12 -->
+          <div class="wm-user-product-card" data-category="equity">
+            <img src="assets/images/team-priya-sharma.webp" alt="Quantitative Market Neutral Arbitrage" class="wm-user-product-img">
+            <div class="wm-user-product-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span class="wm-status-pill wm-pill-active">Arbitrage Alpha</span>
+                <span style="font-weight:700; color:var(--wm-primary); font-size:1.1rem;">14.8% APY</span>
+              </div>
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--wm-dark); margin-bottom:8px;">Market Neutral Quant Arbitrage</h3>
+              <p style="font-size:0.85rem; color:var(--wm-body); line-height:1.5; margin-bottom:14px;">
+                Mathematical pair-trading and statistical index arbitrage maintaining zero beta exposure to broad market gyrations.
+              </p>
+              <div style="font-size:0.8rem; color:var(--wm-body-muted); display:flex; flex-direction:column; gap:4px;">
+                <div><i class="fa-solid fa-coins" style="width:16px;"></i> Min Investment: $50,000</div>
+                <div><i class="fa-solid fa-clock" style="width:16px;"></i> Liquidity: Weekly Window</div>
+                <div><i class="fa-solid fa-shield" style="width:16px;"></i> Risk: Moderate</div>
+              </div>
+            </div>
+            <div class="wm-user-product-footer">
+              <button class="wm-btn wm-btn-outline" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Factsheet
+              </button>
+              <button class="wm-btn wm-btn-primary" style="flex:1; padding:8px;" onclick="window.location.href='404.html'">
+                Invest Now
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           TAB 5: PROFILE
+           ==================================================================== -->
+      <section id="tab-user-profile" class="wm-tab-view">
+        <div class="wm-dash-title-bar">
+          <div>
+            <h1 class="wm-dash-page-title">Client Account & Fiduciary Verification</h1>
+            <p class="wm-dash-page-subtitle">Personal identity details, institutional custody links, risk tolerance mandates, and document vault.</p>
+          </div>
+          <button class="wm-btn wm-btn-secondary" style="padding:10px 18px; font-size:0.85rem;" onclick="window.location.href='404.html'">
+            <i class="fa-solid fa-user-pen"></i> Request Profile Update
+          </button>
+        </div>
+
+        <div class="wm-dash-profile-grid">
+          <!-- Profile Identity Card -->
+          <div class="wm-chart-card" style="text-align:center; padding:32px 24px;">
+            <img src="assets/images/avatar-david-vance.webp" alt="Anandha Krishnan" style="width:100px; height:100px; border-radius:50%; object-fit:cover; border:3px solid var(--wm-primary); margin:0 auto 16px auto;">
+            <h2 style="font-size:1.35rem; font-weight:700; color:var(--wm-dark); margin-bottom:4px;">Anandha Krishnan</h2>
+            <div style="font-size:0.825rem; color:var(--wm-body-muted); margin-bottom:12px;">Client ID: #STK-8849201</div>
+            <span class="wm-status-pill wm-pill-completed" style="margin-bottom:20px;"><i class="fa-solid fa-shield-check"></i> KYC Tier 3 Verified</span>
+
+            <div style="text-align:left; border-top:1px solid var(--wm-border-light); padding-top:20px; display:flex; flex-direction:column; gap:12px; font-size:0.85rem;">
+              <div>
+                <span style="color:var(--wm-body-muted); display:block; font-size:0.75rem;">Registered Email</span>
+                <strong style="color:var(--wm-dark);">anandha.k@stackly.com</strong>
+              </div>
+              <div>
+                <span style="color:var(--wm-body-muted); display:block; font-size:0.75rem;">Contact Telephone</span>
+                <strong style="color:var(--wm-dark);">+91 98765 43210</strong>
+              </div>
+              <div>
+                <span style="color:var(--wm-body-muted); display:block; font-size:0.75rem;">Official Primary Address</span>
+                <strong style="color:var(--wm-dark);">MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</strong>
+              </div>
+              <div>
+                <span style="color:var(--wm-body-muted); display:block; font-size:0.75rem;">Custody Account Number</span>
+                <strong style="color:var(--wm-primary);">Charles Schwab #SCH-7729-19</strong>
+              </div>
+              <div>
+                <span style="color:var(--wm-body-muted); display:block; font-size:0.75rem;">Accreditation Standard</span>
+                <strong style="color:var(--wm-dark);">SEC Rule 501 / SEBI Qualified HNW Client</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Account Mandates & Security Vault -->
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <!-- Risk Mandate Card -->
+            <div class="wm-chart-card">
+              <div style="font-weight:700; color:var(--wm-dark); font-size:1.05rem; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
+                <span>Fiduciary Risk Tolerance & Mandate</span>
+                <span class="wm-status-pill wm-pill-active">Score: 82 / 100</span>
+              </div>
+              <p style="font-size:0.875rem; color:var(--wm-body); line-height:1.6; margin-bottom:16px;">
+                Your current mandate is classified as <strong>Moderate Capital Growth with Capital Preservation</strong>. Target asset mix is balanced at 40% Equities, 25% Fixed Income, 15% Real Estate, 12% International, and 8% Cash.
+              </p>
+              
+              <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:var(--wm-body-muted); margin-bottom:6px;">
+                <span>Conservative (0)</span>
+                <span style="font-weight:700; color:var(--wm-primary);">Moderate Growth (82)</span>
+                <span>Max Aggressive (100)</span>
+              </div>
+              <div class="wm-progress-bar-bg" style="height:12px; margin-bottom:16px;">
+                <div class="wm-progress-fill" style="width:82%;"></div>
+              </div>
+
+              <div class="wm-dash-risk-metrics">
+                <div style="background:var(--wm-surface); padding:10px; border-radius:6px;">
+                  <span style="color:var(--wm-body-muted); display:block;">Max Tolerated Drawdown</span>
+                  <strong style="color:var(--wm-dark); font-size:0.9rem;">-8.0% Max</strong>
+                </div>
+                <div style="background:var(--wm-surface); padding:10px; border-radius:6px;">
+                  <span style="color:var(--wm-body-muted); display:block;">Target Return Objective</span>
+                  <strong style="color:var(--wm-primary); font-size:0.9rem;">12.0% – 15.0%</strong>
+                </div>
+                <div style="background:var(--wm-surface); padding:10px; border-radius:6px;">
+                  <span style="color:var(--wm-body-muted); display:block;">Liquidity Horizon</span>
+                  <strong style="color:var(--wm-dark); font-size:0.9rem;">Long-Term (7+ Yrs)</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Document Vault Card -->
+            <div class="wm-chart-card">
+              <div style="font-weight:700; color:var(--wm-dark); font-size:1.05rem; margin-bottom:14px;">
+                <i class="fa-solid fa-folder-closed" style="color:var(--wm-primary); margin-right:8px;"></i> Fiduciary Document Vault
+              </div>
+              <div style="display:flex; flex-direction:column; gap:12px;">
+                <div class="wm-doc-row">
+                  <div style="display:flex; align-items:center; gap:12px;">
+                    <i class="fa-solid fa-file-pdf" style="color:#c0392b; font-size:1.3rem;"></i>
+                    <div>
+                      <strong style="color:var(--wm-dark); font-size:0.875rem;">Annual Tax Summary Statement 2026.pdf</strong>
+                      <div style="font-size:0.75rem; color:var(--wm-body-muted);">Verified IRS Form 1099-DIV / Consolidated 1099</div>
+                    </div>
+                  </div>
+                  <button class="wm-btn wm-btn-outline" style="padding:6px 14px; font-size:0.8rem;" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-download"></i> Download
+                  </button>
+                </div>
+
+                <div class="wm-doc-row">
+                  <div style="display:flex; align-items:center; gap:12px;">
+                    <i class="fa-solid fa-file-shield" style="color:var(--wm-primary); font-size:1.3rem;"></i>
+                    <div>
+                      <strong style="color:var(--wm-dark); font-size:0.875rem;">Charles Schwab Institutional Custody Verification.pdf</strong>
+                      <div style="font-size:0.75rem; color:var(--wm-body-muted);">SIPC Insured Custody Certification</div>
+                    </div>
+                  </div>
+                  <button class="wm-btn wm-btn-outline" style="padding:6px 14px; font-size:0.8rem;" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-download"></i> Download
+                  </button>
+                </div>
+
+                <div class="wm-doc-row">
+                  <div style="display:flex; align-items:center; gap:12px;">
+                    <i class="fa-solid fa-file-contract" style="color:#27ae60; font-size:1.3rem;"></i>
+                    <div>
+                      <strong style="color:var(--wm-dark); font-size:0.875rem;">Investment Policy Statement (IPS) 2026.pdf</strong>
+                      <div style="font-size:0.75rem; color:var(--wm-body-muted);">Binding Fiduciary Agreement with Stackly Wealth Management</div>
+                    </div>
+                  </div>
+                  <button class="wm-btn wm-btn-outline" style="padding:6px 14px; font-size:0.8rem;" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-download"></i> Download
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  
+      </main>
+    </div>
+  </div>
+
+
+  <!-- Reusable Toast Notification -->
+  <div class="wm-toast" id="userToast">
+    <i class="fa-solid fa-circle-check" style="color:var(--wm-secondary); font-size:1.2rem;"></i>
+    <span id="userToastText">Action executed successfully.</span>
+  </div>
+
+  <!-- ==========================================================================
+       Dashboard JavaScript (Tab Toggling, Chart.js, Search/Filter, Chat Interaction)
+       ========================================================================== -->
+  <script src="js/lenis.min.js"></script>
+  <script>
+    // --- 0. Session Credential Restoration (Email & Selected Role from Login) ---
+    function wmGetEmailInitial(emailStr) {
+      const clean = (emailStr || '').trim();
+      const match = clean.match(/[A-Za-z0-9]/);
+      return match ? match[0].toUpperCase() : 'U';
+    }
+
+    try {
+      const storedEmail = localStorage.getItem('stackly_user_email') || sessionStorage.getItem('stackly_user_email');
+      const storedRole = localStorage.getItem('stackly_user_role') || sessionStorage.getItem('stackly_user_role');
+      const sEmail = document.getElementById('sidebarUserEmail');
+      const tEmail = document.getElementById('topbarUserEmail');
+      if (storedEmail) {
+        if (sEmail) sEmail.textContent = storedEmail;
+        if (tEmail) tEmail.textContent = storedEmail;
+      }
+      const sAvatar = document.getElementById('sidebarUserAvatar');
+      const tAvatar = document.getElementById('topbarUserAvatar');
+      if (sAvatar && sEmail) sAvatar.textContent = wmGetEmailInitial(sEmail.textContent);
+      if (tAvatar && tEmail) tAvatar.textContent = wmGetEmailInitial(tEmail.textContent);
+      if (storedRole) {
+        const sRole = document.getElementById('sidebarUserRole');
+        const tRole = document.getElementById('topbarUserRole');
+        if (sRole) sRole.textContent = storedRole;
+        if (tRole) tRole.textContent = storedRole;
+      }
+    } catch (e) {
+      console.error('Session retrieval error:', e);
+    }
+
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    let _dashLenis = null;
+    if (typeof Lenis !== 'undefined' && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      _dashLenis = new Lenis({
+        duration: 1.15,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 1.5
+      });
+      (function dashRaf(time) {
+        if (_dashLenis) _dashLenis.raf(time);
+        requestAnimationFrame(dashRaf);
+      })(performance.now());
+    }
+
+    let _dashScrollRestoreRaf = null;
+    function dashInstantScrollTo(y) {
+      if (_dashScrollRestoreRaf) cancelAnimationFrame(_dashScrollRestoreRaf);
+      const html = document.documentElement;
+      html.style.scrollBehavior = 'auto';
+      if (_dashLenis) {
+        try { _dashLenis.scrollTo(y, { immediate: true, force: true }); } catch (err) {}
+      }
+      try {
+        window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+      } catch (e) {
+        window.scrollTo(0, y);
+      }
+      html.scrollTop = y;
+      if (document.body) document.body.scrollTop = y;
+      _dashScrollRestoreRaf = requestAnimationFrame(() => {
+        html.style.removeProperty('scroll-behavior');
+        _dashScrollRestoreRaf = null;
+      });
+    }
+
+    function dashGetNavType() {
+      const navEntry = (typeof performance !== 'undefined' && performance.getEntriesByType)
+        ? performance.getEntriesByType('navigation')[0]
+        : null;
+      if (navEntry && navEntry.type) return navEntry.type;
+      if (typeof performance !== 'undefined' && performance.navigation) {
+        if (performance.navigation.type === 1) return 'reload';
+        if (performance.navigation.type === 2) return 'back_forward';
+      }
+      return 'navigate';
+    }
+
+    function dashStateKey() {
+      return 'wm_dash_state:' + window.location.pathname;
+    }
+
+    function dashReadBackSignal() {
+      let flag = false;
+      try { if (sessionStorage.getItem('wm_returning_from_404') === '1') flag = true; } catch (err) {}
+      try { if (window.name === 'wm_back_from_404=1') flag = true; } catch (err) {}
+      return flag;
+    }
+
+    function dashClearBackSignal() {
+      try { sessionStorage.removeItem('wm_returning_from_404'); } catch (err) {}
+      try { if (window.name === 'wm_back_from_404=1') window.name = ''; } catch (err) {}
+    }
+
+    const _dashInitialNavType = dashGetNavType();
+    let _dashRestoreMode = _dashInitialNavType === 'back_forward' ||
+      (_dashInitialNavType !== 'reload' && dashReadBackSignal());
+    let _dashRestoringLock = false;
+
+    function saveDashScrollState() {
+      if (_dashRestoringLock) return;
+      const y = Math.max(window.scrollY || 0, window.pageYOffset || 0, document.documentElement ? document.documentElement.scrollTop : 0, document.body ? document.body.scrollTop : 0);
+      const mainPane = document.querySelector('.wm-app-main-pane');
+      const contentBody = document.querySelector('.wm-app-content-body');
+      const activeView = document.querySelector('.wm-tab-view.active');
+      const snap = {
+        y: y,
+        mainTop: mainPane ? mainPane.scrollTop : 0,
+        bodyTop: contentBody ? contentBody.scrollTop : 0,
+        activeTab: activeView ? activeView.id : ''
+      };
+      try {
+        history.replaceState(Object.assign({}, history.state || {}, { wmDashSnap: snap }), '');
+      } catch (err) {}
+      try {
+        sessionStorage.setItem(dashStateKey(), JSON.stringify(snap));
+        sessionStorage.setItem('wm_last_page_href', window.location.href);
+      } catch (err) {}
+    }
+
+    function getSavedDashState() {
+      try {
+        if (history.state && history.state.wmDashSnap) {
+          return history.state.wmDashSnap;
+        }
+      } catch (err) {}
+      try {
+        const raw = sessionStorage.getItem(dashStateKey());
+        return raw ? JSON.parse(raw) : null;
+      } catch (err) {
+        return null;
+      }
+    }
+
+    function applyDashState(snap, restoreTab) {
+      if (!snap) return;
+      _dashRestoringLock = true;
+      if (restoreTab && snap.activeTab && typeof switchTab === 'function') {
+        switchTab(snap.activeTab, false);
+      }
+      dashInstantScrollTo(snap.y || 0);
+      const mainPane = document.querySelector('.wm-app-main-pane');
+      const contentBody = document.querySelector('.wm-app-content-body');
+      if (mainPane && typeof snap.mainTop === 'number') mainPane.scrollTop = snap.mainTop;
+      if (contentBody && typeof snap.bodyTop === 'number') contentBody.scrollTop = snap.bodyTop;
+      setTimeout(() => { _dashRestoringLock = false; }, 120);
+    }
+
+    function scrollDashboardContentStart() {
+      dashInstantScrollTo(0);
+      const mainPane = document.querySelector('.wm-app-main-pane');
+      const contentBody = document.querySelector('.wm-app-content-body');
+      if (mainPane) mainPane.scrollTop = 0;
+      if (contentBody) contentBody.scrollTop = 0;
+    }
+
+    let _dashScrollTimer = null;
+    window.addEventListener('scroll', () => {
+      if (_dashRestoringLock) return;
+      if (_dashScrollTimer) return;
+      _dashScrollTimer = setTimeout(() => { _dashScrollTimer = null; saveDashScrollState(); }, 120);
+    }, { passive: true });
+    window.addEventListener('pagehide', saveDashScrollState);
+    window.addEventListener('beforeunload', saveDashScrollState);
+    document.addEventListener('pointerdown', (e) => {
+      if (e.target && e.target.closest && e.target.closest('button, a[href]')) saveDashScrollState();
+    }, true);
+    document.addEventListener('click', (e) => {
+      if (e.target && e.target.closest && e.target.closest('button, a[href]')) saveDashScrollState();
+    }, true);
+
+    if (!_dashRestoreMode) {
+      if (_dashInitialNavType === 'reload') {
+        dashClearBackSignal();
+        try { sessionStorage.removeItem(dashStateKey()); } catch (err) {}
+        try {
+          if (history.state && 'wmDashSnap' in history.state) {
+            const clean = Object.assign({}, history.state);
+            delete clean.wmDashSnap;
+            history.replaceState(clean, '');
+          }
+        } catch (err) {}
+      }
+      scrollDashboardContentStart();
+    } else {
+      applyDashState(getSavedDashState(), false);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (_dashRestoreMode) {
+        applyDashState(getSavedDashState(), true);
+      } else {
+        scrollDashboardContentStart();
+      }
+    });
+
+    window.addEventListener('load', () => {
+      if (_dashRestoreMode && dashGetNavType() !== 'reload') {
+        const snap = getSavedDashState();
+        applyDashState(snap, true);
+        requestAnimationFrame(() => applyDashState(snap, false));
+        setTimeout(() => applyDashState(snap, false), 80);
+        dashClearBackSignal();
+      } else {
+        scrollDashboardContentStart();
+        requestAnimationFrame(scrollDashboardContentStart);
+      }
+    });
+
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted) {
+        dashClearBackSignal();
+        const snap = getSavedDashState();
+        if (snap) {
+          applyDashState(snap, true);
+          requestAnimationFrame(() => applyDashState(snap, false));
+          setTimeout(() => applyDashState(snap, false), 80);
+        }
+      }
+    });
+
+    // --- Mobile Sidebar Scroll Lock ---
+    const userSidebarToggle = document.getElementById('userSidebarToggle');
+    const userSidebarClose = document.getElementById('userSidebarClose');
+    const userDashSidebar = document.getElementById('userDashSidebar');
+
+    let isDashScrollLocked = false;
+    let dashLockedScrollY = 0;
+    let dashTouchStartY = 0;
+
+    function shouldAllowDashSidebarScroll(target, deltaY) {
+      if (!userDashSidebar || !target || !userDashSidebar.contains(target)) return false;
+      const maxScroll = userDashSidebar.scrollHeight - userDashSidebar.clientHeight;
+      if (maxScroll <= 1) return false;
+      if (deltaY < 0 && userDashSidebar.scrollTop <= 0) return false;
+      if (deltaY > 0 && userDashSidebar.scrollTop >= maxScroll - 1) return false;
+      return true;
+    }
+
+    function handleDashWheelLock(e) {
+      if (!isDashScrollLocked) return;
+      if (!shouldAllowDashSidebarScroll(e.target, e.deltaY)) {
+        e.preventDefault();
+      }
+    }
+
+    function handleDashTouchStart(e) {
+      if (e.touches && e.touches.length) {
+        dashTouchStartY = e.touches[0].clientY;
+      }
+    }
+
+    function handleDashTouchMoveLock(e) {
+      if (!isDashScrollLocked) return;
+      if (e.touches && e.touches.length > 1) return;
+      const currentY = (e.touches && e.touches.length) ? e.touches[0].clientY : dashTouchStartY;
+      const deltaY = dashTouchStartY - currentY;
+      if (!shouldAllowDashSidebarScroll(e.target, deltaY)) {
+        e.preventDefault();
+      }
+    }
+
+    function handleDashKeyScrollLock(e) {
+      if (!isDashScrollLocked) return;
+      const tag = e.target && e.target.tagName ? e.target.tagName.toLowerCase() : '';
+      if (tag === 'input' || tag === 'textarea' || tag === 'select' || (e.target && e.target.isContentEditable)) {
+        return;
+      }
+      if (e.key === ' ' || e.key === 'Spacebar' || e.key === 'PageUp' || e.key === 'PageDown' ||
+          e.key === 'End' || e.key === 'Home' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        e.preventDefault();
+      }
+    }
+
+    function handleDashScrollPin() {
+      if (!isDashScrollLocked) return;
+      if (Math.abs((window.scrollY || window.pageYOffset || 0) - dashLockedScrollY) > 1) {
+        document.documentElement.style.scrollBehavior = 'auto';
+        try {
+          window.scrollTo({ top: dashLockedScrollY, left: 0, behavior: 'instant' });
+        } catch (err) {
+          window.scrollTo(0, dashLockedScrollY);
+        }
+        document.documentElement.scrollTop = dashLockedScrollY;
+      }
+    }
+
+    function lockDashScroll() {
+      if (isDashScrollLocked || window.innerWidth > 1024) return;
+      dashLockedScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      const html = document.documentElement;
+      const sbWidth = window.innerWidth - html.clientWidth;
+      if (sbWidth > 0) {
+        html.style.paddingRight = sbWidth + 'px';
+      }
+      isDashScrollLocked = true;
+      html.classList.add('wm-scroll-locked');
+      window.addEventListener('wheel', handleDashWheelLock, { passive: false });
+      window.addEventListener('touchstart', handleDashTouchStart, { passive: true });
+      window.addEventListener('touchmove', handleDashTouchMoveLock, { passive: false });
+      document.addEventListener('keydown', handleDashKeyScrollLock);
+      window.addEventListener('scroll', handleDashScrollPin, { passive: true });
+    }
+
+    function unlockDashScroll(restoreScroll = true) {
+      if (!isDashScrollLocked) return;
+      const html = document.documentElement;
+      html.style.scrollBehavior = 'auto';
+      isDashScrollLocked = false;
+      window.removeEventListener('wheel', handleDashWheelLock, { passive: false });
+      window.removeEventListener('touchstart', handleDashTouchStart, { passive: true });
+      window.removeEventListener('touchmove', handleDashTouchMoveLock, { passive: false });
+      document.removeEventListener('keydown', handleDashKeyScrollLock);
+      window.removeEventListener('scroll', handleDashScrollPin, { passive: true });
+      html.classList.remove('wm-scroll-locked');
+      html.style.paddingRight = '';
+      if (restoreScroll && Math.abs((window.scrollY || window.pageYOffset || 0) - dashLockedScrollY) > 1) {
+        try {
+          window.scrollTo({ top: dashLockedScrollY, left: 0, behavior: 'instant' });
+        } catch (err) {
+          window.scrollTo(0, dashLockedScrollY);
+        }
+        html.scrollTop = dashLockedScrollY;
+        if (document.body) document.body.scrollTop = dashLockedScrollY;
+      }
+      requestAnimationFrame(() => {
+        html.style.scrollBehavior = '';
+      });
+    }
+
+    if (userDashSidebar) userDashSidebar.setAttribute('data-lenis-prevent', '');
+
+    function openDashSidebar() {
+      if (!userDashSidebar || userDashSidebar.classList.contains('open')) return;
+      if (_dashLenis) {
+        try { _dashLenis.stop(); } catch (err) {}
+      }
+      lockDashScroll();
+      userDashSidebar.classList.add('open');
+    }
+
+    function closeDashSidebar(restoreScroll = true) {
+      if (!userDashSidebar) return;
+      const activeInside = document.activeElement && userDashSidebar.contains(document.activeElement);
+      userDashSidebar.classList.remove('open');
+      unlockDashScroll(restoreScroll);
+      if (_dashLenis) {
+        try {
+          if (restoreScroll) _dashLenis.scrollTo(dashLockedScrollY, { immediate: true, force: true });
+          _dashLenis.start();
+        } catch (err) {}
+      }
+      if (restoreScroll && activeInside && userSidebarToggle) {
+        try {
+          userSidebarToggle.focus({ preventScroll: true });
+        } catch (err) {}
+      }
+    }
+
+    // --- 1. Tab Toggling System (5 Strict Tabs) ---
+    const userSidebarBtns = document.querySelectorAll('.wm-sidebar-nav-item');
+    const userTabViews = document.querySelectorAll('.wm-tab-view');
+
+    function switchTab(targetTabId, resetScroll = true) {
+      const headerTitleEl = document.getElementById('userHeaderTabTitle');
+      userSidebarBtns.forEach(btn => {
+        if (btn.getAttribute('data-tab') === targetTabId) {
+          btn.classList.add('active');
+          if (headerTitleEl) {
+            headerTitleEl.innerText = btn.getAttribute('data-title') || btn.querySelector('span').innerText;
+          }
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      userTabViews.forEach(view => {
+        if (view.id === targetTabId) {
+          view.classList.add('active');
+        } else {
+          view.classList.remove('active');
+        }
+      });
+
+      // Close mobile sidebar on switch
+      closeDashSidebar(false);
+
+      // Show newly selected sidebar content from starting point
+      if (resetScroll) {
+        scrollDashboardContentStart();
+        requestAnimationFrame(scrollDashboardContentStart);
+      }
+      window.dispatchEvent(new Event('resize'));
+    }
+
+    userSidebarBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+        switchTab(targetTab);
+      });
+    });
+
+    // --- 2. Mobile Sidebar Toggle & Close ---
+    if (userSidebarToggle && userDashSidebar) {
+      userSidebarToggle.addEventListener('click', () => {
+        if (userDashSidebar.classList.contains('open')) {
+          closeDashSidebar(true);
+        } else {
+          openDashSidebar();
+        }
+      });
+    }
+    if (userSidebarClose && userDashSidebar) {
+      userSidebarClose.addEventListener('click', () => {
+        closeDashSidebar(true);
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && userDashSidebar && userDashSidebar.classList.contains('open')) {
+        closeDashSidebar(true);
+      }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024 && userDashSidebar && userDashSidebar.classList.contains('open')) {
+        closeDashSidebar(true);
+      }
+    });
+
+    // --- 3. Toast Notification Helper ---
+    function triggerToast(message) {
+      const toast = document.getElementById('userToast');
+      const text = document.getElementById('userToastText');
+      if (toast && text) {
+        text.innerText = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 4000);
+      }
+    }
+
+    // --- 5. Notifications Bell Handler ---
+    const userNotifBtn = document.getElementById('userNotifBtn');
+    if (userNotifBtn) {
+      userNotifBtn.addEventListener('click', () => {
+        triggerToast('All 14 portfolio positions reconciled. Q3 dividend distribution credited.');
+      });
+    }
+
+    // --- 6. Holdings Table Filter ---
+    function filterUserHoldings() {
+      const search = document.getElementById('userHoldingsSearch').value.toLowerCase();
+      const cat = document.getElementById('userHoldingsCategoryFilter').value;
+      const rows = document.querySelectorAll('#userHoldingsTable tbody tr');
+
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        const rowCat = row.getAttribute('data-cat') || '';
+
+        const matchesSearch = text.includes(search);
+        const matchesCat = (cat === 'all' || rowCat === cat);
+
+        if (matchesSearch && matchesCat) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // --- 7. Financial Products Category Filter ---
+    function filterProducts(cat) {
+      const filterBtns = document.querySelectorAll('.wm-filter-btn');
+      filterBtns.forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const cards = document.querySelectorAll('#productsGrid .wm-user-product-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (cat === 'all' || cardCat === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // --- 8. Advisory Desk & Fiduciary Actions ---
+    // Advisory consultations route to 404.html and recommendation approvals operate via triggerToast.
+
+    // --- 9. Chart.js Initialization ---
+    document.addEventListener('DOMContentLoaded', () => {
+      Chart.defaults.font.family = "'Outfit', sans-serif";
+      Chart.defaults.color = '#6c757d';
+
+      // --- Portfolio Growth (24 Months) ---
+      const ctxGrowth = document.getElementById('userChartGrowth');
+      if (ctxGrowth) {
+        new Chart(ctxGrowth, {
+          type: 'line',
+          data: {
+            labels: [
+              'Jan 25', 'Mar 25', 'May 25', 'Jul 25', 'Sep 25', 'Nov 25',
+              'Jan 26', 'Mar 26', 'May 26', 'Jul 26', 'Sep 26', 'Nov 26'
+            ],
+            datasets: [{
+              label: 'Portfolio Value ($)',
+              data: [1150000, 1182000, 1215000, 1260000, 1295000, 1340000, 1365000, 1390000, 1420000, 1445000, 1468000, 1482900],
+              borderColor: '#195353',
+              backgroundColor: 'rgba(25, 83, 83, 0.12)',
+              borderWidth: 3,
+              fill: true,
+              tension: 0.35,
+              pointBackgroundColor: '#E5FF5E',
+              pointBorderColor: '#195353',
+              pointRadius: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              y: {
+                ticks: { callback: v => '$' + (v / 1000).toFixed(0) + 'K' },
+                grid: { color: 'rgba(0,0,0,0.05)' }
+              },
+              x: { grid: { display: false } }
+            }
+          }
+        });
+      }
+
+      // --- Asset Allocation Doughnut ---
+      const ctxAlloc = document.getElementById('userChartAlloc');
+      if (ctxAlloc) {
+        new Chart(ctxAlloc, {
+          type: 'doughnut',
+          data: {
+            labels: [
+              'Equities Alpha (40%)',
+              'Sovereign Fixed Income (25%)',
+              'Real Estate & REITs (15%)',
+              'Global Emerging (12%)',
+              'Cash Sweep (8%)'
+            ],
+            datasets: [{
+              data: [40, 25, 15, 12, 8],
+              backgroundColor: ['#195353', '#236f6f', '#E5FF5E', '#021623', '#27ae60'],
+              borderWidth: 2,
+              borderColor: '#ffffff'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom', labels: { boxWidth: 10 } }
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

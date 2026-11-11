@@ -1,0 +1,7 @@
+with open('css/styles.css', 'r', encoding='utf-8') as f:
+    css = f.read()
+
+import re
+matches = re.finditer(r'\.wm-nav-link[^{]*\{[^}]*\}', css)
+for m in matches:
+    print(m.group(0))

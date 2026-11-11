@@ -1,0 +1,14 @@
+import json
+
+transcript_path = r'C:\Users\ELCOT\.gemini\antigravity\brain\dc12136a-5ef0-4e93-9831-4a86ea93fecc\.system_generated\logs\transcript_full.jsonl'
+
+with open(transcript_path, 'r', encoding='utf-8') as f:
+    for idx, line in enumerate(f):
+        if idx + 1 == 1498:
+            data = json.loads(line)
+            tool_calls = data.get('tool_calls', [])
+            for tc in tool_calls:
+                content = tc.get('args', {}).get('Content', '')
+                with open('scratch/services_update_1498.js', 'w', encoding='utf-8') as out:
+                    out.write(content)
+                print('Saved scratch/services_update_1498.js! Length:', len(content))

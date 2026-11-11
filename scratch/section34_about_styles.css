@@ -1,0 +1,876 @@
+/* ==========================================================================
+   Section 34: Four Unique Layouts for About Page (about.html)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Layout 1: Interactive Fiduciary Oath & Governance Charter
+   -------------------------------------------------------------------------- */
+.wm-fiduciary-charter-section {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--wm-white) 0%, var(--wm-bg-surface) 100%);
+  position: relative;
+}
+
+.wm-charter-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1.35fr;
+  gap: 40px;
+  align-items: stretch;
+  margin-top: 50px;
+}
+
+.wm-charter-oath-card {
+  background: linear-gradient(145deg, var(--wm-dark) 0%, #0d2c2c 100%);
+  border-radius: 24px;
+  padding: 48px 40px;
+  color: var(--wm-white);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(229, 255, 94, 0.2);
+  box-shadow: 0 20px 45px rgba(2, 22, 35, 0.18);
+}
+
+.wm-charter-oath-card::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(229, 255, 94, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.wm-charter-seal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(229, 255, 94, 0.12);
+  border: 1px solid rgba(229, 255, 94, 0.35);
+  border-radius: 100px;
+  padding: 8px 18px;
+  color: var(--wm-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+  width: fit-content;
+}
+
+.wm-charter-seal-badge i {
+  font-size: 1rem;
+}
+
+.wm-charter-quote {
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--wm-white);
+  font-family: var(--wm-font-heading);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.wm-charter-quote mark {
+  background: transparent;
+  color: var(--wm-secondary);
+  font-weight: 700;
+}
+
+.wm-charter-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.wm-charter-meta-item .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 4px;
+}
+
+.wm-charter-meta-item .value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--wm-white);
+}
+
+.wm-charter-adv-download {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 16px 20px;
+  color: var(--wm-white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.wm-charter-adv-download:hover {
+  background: rgba(229, 255, 94, 0.15);
+  border-color: var(--wm-secondary);
+  transform: translateY(-2px);
+  color: var(--wm-white);
+}
+
+.wm-charter-adv-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.wm-charter-adv-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(229, 255, 94, 0.2);
+  color: var(--wm-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+}
+
+.wm-charter-adv-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.wm-charter-adv-sub {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.wm-charter-covenants-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.wm-covenant-card {
+  background: var(--wm-white);
+  border: 1px solid var(--wm-border);
+  border-radius: 18px;
+  padding: 24px 28px;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.wm-covenant-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--wm-border);
+  transition: background 0.3s ease, width 0.3s ease;
+}
+
+.wm-covenant-card:hover {
+  border-color: var(--wm-primary);
+  transform: translateX(6px);
+  box-shadow: 0 12px 28px rgba(25, 83, 83, 0.08);
+}
+
+.wm-covenant-card:hover::before {
+  background: var(--wm-secondary);
+  width: 6px;
+}
+
+.wm-covenant-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.wm-covenant-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.wm-covenant-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(25, 83, 83, 0.08);
+  color: var(--wm-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.wm-covenant-card:hover .wm-covenant-icon {
+  background: var(--wm-primary);
+  color: var(--wm-secondary);
+}
+
+.wm-covenant-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--wm-dark);
+  margin: 0;
+  font-family: var(--wm-font-heading);
+}
+
+.wm-covenant-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(25, 83, 83, 0.06);
+  color: var(--wm-primary);
+}
+
+.wm-covenant-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--wm-body);
+  margin: 0;
+  padding-left: 54px;
+}
+
+/* --------------------------------------------------------------------------
+   Layout 2: Global Advisory Footprint & Institutional Custodial Network
+   -------------------------------------------------------------------------- */
+.wm-footprint-section {
+  padding: 100px 0;
+  background-color: var(--wm-dark);
+  color: var(--wm-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.wm-footprint-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(229, 255, 94, 0.3), transparent);
+}
+
+.wm-footprint-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+}
+
+.wm-hub-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.35s ease;
+  position: relative;
+  backdrop-filter: blur(8px);
+}
+
+.wm-hub-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(229, 255, 94, 0.4);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.wm-hub-card.flagship {
+  background: linear-gradient(165deg, rgba(25, 83, 83, 0.5) 0%, rgba(2, 22, 35, 0.7) 100%);
+  border: 1px solid rgba(229, 255, 94, 0.3);
+}
+
+.wm-hub-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.wm-hub-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(229, 255, 94, 0.12);
+  color: var(--wm-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.wm-hub-status-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--wm-secondary);
+}
+
+.wm-hub-status-live .pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--wm-secondary);
+  box-shadow: 0 0 8px var(--wm-secondary);
+  animation: wmPulse 2s infinite;
+}
+
+@keyframes wmPulse {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+.wm-hub-city {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--wm-white);
+  font-family: var(--wm-font-heading);
+  margin-bottom: 6px;
+}
+
+.wm-hub-role {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+.wm-hub-metrics {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.wm-hub-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wm-hub-stat-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.wm-hub-stat-lbl {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.wm-hub-stat-val {
+  font-weight: 700;
+  color: var(--wm-secondary);
+}
+
+.wm-hub-footer {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wm-custody-clearing-bar {
+  margin-top: 45px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.wm-custody-clearing-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--wm-white);
+}
+
+.wm-custody-clearing-title i {
+  color: var(--wm-secondary);
+  font-size: 1.1rem;
+}
+
+.wm-clearing-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.wm-clearing-badge-item {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wm-clearing-badge-item i {
+  color: var(--wm-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Layout 3: Academic Advisory & Investment Committee Dossiers
+   -------------------------------------------------------------------------- */
+.wm-committee-section {
+  padding: 100px 0;
+  background-color: var(--wm-bg-surface);
+  position: relative;
+}
+
+.wm-committee-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 50px;
+}
+
+.wm-committee-card {
+  background: var(--wm-white);
+  border: 1px solid var(--wm-border);
+  border-radius: 22px;
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.wm-committee-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--wm-primary);
+  box-shadow: 0 18px 40px rgba(25, 83, 83, 0.09);
+}
+
+.wm-committee-top {
+  border-bottom: 1px solid var(--wm-border);
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+}
+
+.wm-committee-avatar-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.wm-committee-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--wm-primary) 0%, var(--wm-dark) 100%);
+  color: var(--wm-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  border: 2px solid var(--wm-secondary);
+}
+
+.wm-committee-seat-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  background: rgba(25, 83, 83, 0.07);
+  color: var(--wm-primary);
+}
+
+.wm-committee-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--wm-dark);
+  font-family: var(--wm-font-heading);
+  margin-bottom: 4px;
+}
+
+.wm-committee-role {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--wm-primary);
+  margin-bottom: 12px;
+}
+
+.wm-committee-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.wm-cred-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--wm-bg-surface);
+  color: var(--wm-body);
+  border: 1px solid var(--wm-border);
+}
+
+.wm-committee-body {
+  flex-grow: 1;
+}
+
+.wm-committee-bio {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--wm-body);
+  margin-bottom: 20px;
+}
+
+.wm-monograph-box {
+  background: var(--wm-bg-surface);
+  border-radius: 12px;
+  padding: 16px;
+  border-left: 3px solid var(--wm-primary);
+  margin-bottom: 24px;
+}
+
+.wm-monograph-lbl {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--wm-body-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.wm-monograph-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--wm-dark);
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.wm-committee-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid var(--wm-border);
+  font-size: 0.8rem;
+  color: var(--wm-body-muted);
+}
+
+.wm-committee-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--wm-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.wm-committee-btn:hover {
+  color: var(--wm-dark);
+}
+
+/* --------------------------------------------------------------------------
+   Layout 4: Co-Investment "Skin in the Game" Bento Alignment Matrix
+   -------------------------------------------------------------------------- */
+.wm-skin-alignment-section {
+  padding: 100px 0;
+  background-color: var(--wm-white);
+  position: relative;
+}
+
+.wm-alignment-split-bento {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 32px;
+  margin-top: 50px;
+  align-items: stretch;
+}
+
+.wm-broker-card {
+  background: #FAFAFA;
+  border: 1px solid #E5E7EB;
+  border-radius: 24px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wm-broker-header {
+  margin-bottom: 28px;
+}
+
+.wm-broker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FEE2E2;
+  color: #DC2626;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+}
+
+.wm-broker-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #4B5563;
+  font-family: var(--wm-font-heading);
+}
+
+.wm-broker-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wm-broker-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+.wm-broker-item i {
+  color: #DC2626;
+  font-size: 1rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.wm-stackly-covenant-card {
+  background: linear-gradient(150deg, var(--wm-primary) 0%, var(--wm-dark) 100%);
+  border: 2px solid rgba(229, 255, 94, 0.4);
+  border-radius: 24px;
+  padding: 40px 38px;
+  color: var(--wm-white);
+  box-shadow: 0 20px 45px rgba(25, 83, 83, 0.22);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.wm-stackly-covenant-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(229, 255, 94, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.wm-covenant-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.wm-covenant-badge-active {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(229, 255, 94, 0.15);
+  border: 1px solid rgba(229, 255, 94, 0.4);
+  color: var(--wm-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+.wm-covenant-seal-icon {
+  font-size: 1.8rem;
+  color: var(--wm-secondary);
+}
+
+.wm-covenant-big-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--wm-white);
+  font-family: var(--wm-font-heading);
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+
+.wm-stackly-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wm-stackly-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.94rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+.wm-stackly-item i {
+  color: var(--wm-secondary);
+  font-size: 1.05rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.wm-skin-metrics-ribbon {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.wm-skin-metric-card {
+  background: var(--wm-bg-surface);
+  border: 1px solid var(--wm-border);
+  border-radius: 18px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.wm-skin-metric-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--wm-primary);
+  box-shadow: 0 10px 24px rgba(25, 83, 83, 0.08);
+}
+
+.wm-skin-val {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--wm-primary);
+  font-family: var(--wm-font-heading);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.wm-skin-lbl {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--wm-dark);
+  margin-bottom: 4px;
+}
+
+.wm-skin-sub {
+  font-size: 0.72rem;
+  color: var(--wm-body-muted);
+  line-height: 1.35;
+}
+
+/* Responsive Media Queries for Section 34 About Layouts */
+@media (max-width: 1024px) {
+  .wm-charter-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .wm-footprint-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wm-committee-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .wm-alignment-split-bento {
+    grid-template-columns: 1fr;
+  }
+  .wm-skin-metrics-ribbon {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .wm-footprint-grid {
+    grid-template-columns: 1fr;
+  }
+  .wm-skin-metrics-ribbon {
+    grid-template-columns: 1fr;
+  }
+  .wm-charter-meta-grid {
+    grid-template-columns: 1fr;
+  }
+  .wm-charter-oath-card {
+    padding: 32px 24px;
+  }
+  .wm-covenant-desc {
+    padding-left: 0;
+    margin-top: 8px;
+  }
+  .wm-custody-clearing-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
